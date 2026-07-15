@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { ROUTES } from '@constants'
 import { useAuth } from '@contexts/AuthContext'
@@ -19,10 +19,12 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const location = useLocation()
   const { user } = useAuth()
+  const lastFocusedRef = useRef(null)
+  const mobileMenuRef = useRef(null)
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50)
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
@@ -49,14 +51,50 @@ export default function Navbar() {
     return () => document.removeEventListener('keydown', handleEscKey)
   }, [handleEscKey])
 
+  const openMobileMenu = useCallback(() => {
+    lastFocusedRef.current = document.activeElement
+    setMobileOpen(true)
+    document.body.style.overflow = 'hidden'
+    document.body.style.paddingRight = `${window.innerWidth - document.documentElement.clientWidth}px`
+    setTimeout(() => mobileMenuRef.current?.focus(), 50)
+  }, [])
+
+  const closeMobileMenu = useCallback(() => {
+    setMobileOpen(false)
+    document.body.style.overflow = ''
+    document.body.style.paddingRight = ''
+    lastFocusedRef.current?.focus()
+  }, [])
+
+  const handleMobileKeyDown = useCallback((e) => {
+    if (!mobileOpen) return
+    if (e.key === 'Escape') {
+      e.preventDefault()
+      closeMobileMenu()
+    } else if (e.key === 'Tab') {
+      const focusable = mobileMenuRef.current?.querySelectorAll(
+        'a[href], button, [tabindex]:not([tabindex="-1"])'
+      )
+      if (focusable?.length) {
+        const first = focusable[0]
+        const last = focusable[focusable.length - 1]
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault()
+          last.focus()
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault()
+          first.focus()
+        }
+      }
+    }
+  }, [mobileOpen, closeMobileMenu])
+
   useEffect(() => {
     if (mobileOpen) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = ''
+      document.addEventListener('keydown', handleMobileKeyDown)
+      return () => document.removeEventListener('keydown', handleMobileKeyDown)
     }
-    return () => { document.body.style.overflow = '' }
-  }, [mobileOpen])
+  }, [mobileOpen, handleMobileKeyDown])
 
   return (
     <>
@@ -163,7 +201,7 @@ export default function Navbar() {
 
             <button
               className="mobile-menu-btn"
-              onClick={() => setMobileOpen(!mobileOpen)}
+              onClick={openMobileMenu}
               aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={mobileOpen}
               aria-controls="mobile-menu"
@@ -174,6 +212,11 @@ export default function Navbar() {
                 cursor: 'pointer',
                 padding: '8px',
                 zIndex: 1001,
+                minWidth: '44px',
+                minHeight: '44px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
               }}
             >
               <div style={{
@@ -221,32 +264,58 @@ export default function Navbar() {
       </nav>
 
       <div
+        ref={mobileMenuRef}
         id="mobile-menu"
         role="dialog"
         aria-modal="true"
         aria-label="Mobile navigation menu"
         className="mobile-menu"
+        tabIndex={-1}
         style={{
           position: 'fixed',
           inset: 0,
           zIndex: 999,
-          background: 'rgba(10, 14, 26, 0.95)',
-          backdropFilter: 'blur(24px)',
-          WebkitBackdropFilter: 'blur(24px)',
+          background: 'rgba(10, 14, 26, 0.98)',
+          backdropFilter: 'blur(8px)',
+          WebkitBackdropFilter: 'blur(8px)',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          gap: '24px',
+          gap: '16px',
+          padding: '24px',
           opacity: mobileOpen ? 1 : 0,
-          pointerEvents: mobileOpen ? 'all' : 'none',
+          pointerEvents: mobileOpen ? 'auto' : 'none',
           transition: 'all 0.4s var(--ease-smooth)',
         }}
       >
+        <button
+          onClick={closeMobileMenu}
+          style={{
+            position: 'absolute',
+            top: '16px',
+            right: '16px',
+            background: 'none',
+            border: 'none',
+            color: 'white',
+            fontSize: '1.5rem',
+            cursor: 'pointer',
+            minWidth: '44px',
+            minHeight: '44px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+          aria-label="Close menu"
+        >
+          <i className="bi bi-x-lg"></i>
+        </button>
+
         {navLinks.map((link, i) => (
           <Link
             key={link.path}
             to={link.path}
+            onClick={closeMobileMenu}
             aria-current={location.pathname === link.path ? 'page' : undefined}
             style={{
               color: location.pathname === link.path ? 'var(--aurora-cyan)' : 'var(--text-primary)',
@@ -257,17 +326,24 @@ export default function Navbar() {
               opacity: mobileOpen ? 1 : 0,
               transform: mobileOpen ? 'translateY(0)' : 'translateY(20px)',
               transition: `all 0.4s var(--ease-smooth) ${i * 0.05}s`,
+              minHeight: '56px',
+              display: 'flex',
+              alignItems: 'center',
+              padding: '0 24px',
+              width: '100%',
+              maxWidth: '400px',
+              textAlign: 'center',
             }}
           >
             {link.label}
           </Link>
         ))}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginTop: '20px' }}>
-          <Link to={ROUTES.DONATE}>
-            <MagneticButton>Donate Now</MagneticButton>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginTop: '20px', width: '100%', maxWidth: '400px' }}>
+          <Link to={ROUTES.DONATE} onClick={closeMobileMenu}>
+            <MagneticButton style={{ minHeight: '56px', width: '100%' }}>Donate Now</MagneticButton>
           </Link>
-          <Link to={ROUTES.LOGIN}>
-            <MagneticButton variant="ghost">Login</MagneticButton>
+          <Link to={ROUTES.LOGIN} onClick={closeMobileMenu}>
+            <MagneticButton variant="ghost" style={{ minHeight: '56px', width: '100%' }}>Login</MagneticButton>
           </Link>
         </div>
       </div>

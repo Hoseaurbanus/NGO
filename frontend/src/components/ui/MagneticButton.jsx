@@ -3,8 +3,10 @@ import { useRef, useState, useCallback } from 'react'
 export default function MagneticButton({ children, className = '', variant = 'primary', size = 'md', ...props }) {
   const btnRef = useRef(null)
   const [offset, setOffset] = useState({ x: 0, y: 0 })
+  const [isPressed, setIsPressed] = useState(false)
 
   const handleMouseMove = useCallback((e) => {
+    if (e.pointerType !== 'mouse') return
     if (!btnRef.current) return
     const rect = btnRef.current.getBoundingClientRect()
     const x = e.clientX - rect.left - rect.width / 2
@@ -16,10 +18,19 @@ export default function MagneticButton({ children, className = '', variant = 'pr
     setOffset({ x: 0, y: 0 })
   }, [])
 
+  const handleTouchStart = useCallback(() => {
+    setIsPressed(true)
+  }, [])
+
+  const handleTouchEnd = useCallback(() => {
+    setIsPressed(false)
+    setOffset({ x: 0, y: 0 })
+  }, [])
+
   const sizeStyles = {
-    sm: { padding: '10px 20px', fontSize: '0.875rem' },
-    md: { padding: '14px 32px', fontSize: '1rem' },
-    lg: { padding: '18px 40px', fontSize: '1.125rem' },
+    sm: { padding: '12px 24px', fontSize: '0.9375rem', minHeight: '44px' },
+    md: { padding: '14px 32px', fontSize: '1rem', minHeight: '44px' },
+    lg: { padding: '18px 40px', fontSize: '1.125rem', minHeight: '48px' },
   }
 
   const variantStyles = {
@@ -40,6 +51,8 @@ export default function MagneticButton({ children, className = '', variant = 'pr
     },
   }
 
+  const magneticTransform = isPressed ? `scale(0.97)` : `translate(${offset.x}px, ${offset.y}px)`
+
   return (
     <button
       ref={btnRef}
@@ -53,14 +66,18 @@ export default function MagneticButton({ children, className = '', variant = 'pr
         cursor: 'pointer',
         position: 'relative',
         overflow: 'hidden',
-        transition: 'transform 0.3s var(--ease-spring), box-shadow 0.3s var(--ease-smooth)',
-        transform: `translate(${offset.x}px, ${offset.y}px)`,
+        transition: 'transform 0.15s var(--ease-smooth), box-shadow 0.2s var(--ease-smooth)',
+        transform: magneticTransform,
         display: 'inline-flex',
         alignItems: 'center',
+        justifyContent: 'center',
         gap: '8px',
       }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+      onTouchCancel={handleTouchEnd}
       {...props}
     >
       <span style={{ position: 'relative', zIndex: 1 }}>{children}</span>
@@ -71,7 +88,7 @@ export default function MagneticButton({ children, className = '', variant = 'pr
           borderRadius: 'inherit',
           background: 'var(--gradient-aurora)',
           filter: 'blur(12px)',
-          opacity: 0,
+          opacity: isPressed ? 0.3 : 0,
           transition: 'opacity 0.3s',
           zIndex: 0,
         }} />

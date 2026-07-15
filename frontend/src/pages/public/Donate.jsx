@@ -18,7 +18,7 @@ export default function Donate() {
     <>
       <Helmet><title>Donate - NGO</title><meta name="description" content="Your donation changes lives. Support NGO's mission to transform communities worldwide." /></Helmet>
       <AuroraBackground intensity="normal">
-        <div className="page-hero-inner" style={{ minHeight: '50vh', display: 'flex', alignItems: 'center', padding: '120px 24px 80px' }}>
+        <div className="page-hero-inner" style={{ minHeight: '50vh', display: 'flex', alignItems: 'center', padding: 'clamp(80px, 15vw, 120px) 24px clamp(60px, 10vw, 80px)' }}>
           <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', color: 'var(--aurora-cyan)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '16px' }}>Make a Difference</div>
             <KineticText text="Your Generosity Changes Lives" tag="h1" style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', fontFamily: 'var(--font-display)', marginBottom: '20px' }} />
@@ -26,7 +26,7 @@ export default function Donate() {
           </div>
         </div>
       </AuroraBackground>
-      <section className="content-section" style={{ padding: '60px 0 120px' }}>
+      <section className="content-section" style={{ padding: 'clamp(48px, 8vw, 80px) 0 clamp(48px, 8vw, 80px)' }}>
         <div style={{ maxWidth: '700px', margin: '0 auto', padding: '0 24px' }}>
           <ScrollReveal>
             <GlassCard glow style={{ padding: 'clamp(24px, 5vw, 48px)' }}>

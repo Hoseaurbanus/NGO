@@ -38,7 +38,7 @@ export default function Media() {
       <section className="content-section" style={{ padding: '60px 0 120px' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
           <ScrollReveal>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px', marginBottom: '60px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))', gap: '16px', marginBottom: '60px' }}>
               {categories.map(c => (
                 <div key={c.name} className="glass-card" style={{ padding: '24px', textAlign: 'center', cursor: 'pointer' }}>
                   <i className={`bi ${c.icon}`} style={{ fontSize: '2rem', color: 'var(--aurora-cyan)', marginBottom: '12px', display: 'block' }}></i>
@@ -49,7 +49,7 @@ export default function Media() {
             </div>
           </ScrollReveal>
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', marginBottom: '24px' }}>Photo Gallery</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '16px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 250px), 1fr))', gap: '16px' }}>
             {photos.map((p, i) => (
               <ScrollReveal key={p.src} delay={i * 0.05}>
                 <div className="glass-card" style={{ overflow: 'hidden', cursor: 'pointer', aspectRatio: '4/3' }}>

@@ -28,7 +28,7 @@ export default function ForgotPassword() {
               </div>
             ) : (
               <form onSubmit={e => { e.preventDefault(); setSent(true) }}>
-                <input type="email" placeholder="Email" required value={email} onChange={e => setEmail(e.target.value)} style={{ width: '100%', padding: '14px 16px', borderRadius: 'var(--radius-md)', border: '1px solid var(--glass-border)', background: 'var(--glass-bg)', color: 'white', fontSize: '0.95rem', outline: 'none', marginBottom: '24px' }} />
+                <input type="email" placeholder="Email" required value={email} onChange={e => setEmail(e.target.value)} style={{ width: '100%', padding: '14px 16px', borderRadius: 'var(--radius-md)', border: '1px solid var(--glass-border)', background: 'var(--glass-bg)', color: 'white', fontSize: '1rem', outline: 'none', marginBottom: '24px' }} />
                 <MagneticButton style={{ width: '100%' }}>Send Reset Link</MagneticButton>
               </form>
             )}

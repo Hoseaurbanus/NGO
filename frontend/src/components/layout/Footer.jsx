@@ -33,7 +33,7 @@ export default function Footer() {
       }}>
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))',
           gap: '40px',
           marginBottom: '60px',
         }}>
@@ -67,31 +67,31 @@ export default function Footer() {
             }}>
               Making a Difference. A modern organization dedicated to creating meaningful change.
             </p>
-            <div className="footer-social" style={{ display: 'flex', gap: '12px' }}>
-               {['twitter', 'facebook', 'instagram', 'linkedin', 'youtube'].map(social => (
-                 <a
-                   key={social}
-                   href={`https://${social}.com/yourorg`}
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   aria-label={`Follow us on ${social.charAt(0).toUpperCase() + social.slice(1)}`}
-                   style={{
-                     width: '40px',
-                     height: '40px',
-                     borderRadius: '12px',
-                     background: 'var(--glass-bg)',
-                     border: '1px solid var(--glass-border)',
-                     display: 'flex',
-                     alignItems: 'center',
-                     justifyContent: 'center',
-                     color: 'var(--text-secondary)',
-                     transition: 'all 0.3s var(--ease-smooth)',
-                   }}
-                 >
-                   <i className={`bi bi-${social}`} aria-hidden="true"></i>
-                 </a>
-               ))}
-             </div>
+<div className="footer-social" style={{ display: 'flex', gap: '12px' }}>
+                {['twitter', 'facebook', 'instagram', 'linkedin', 'youtube'].map(social => (
+                  <a
+                    key={social}
+                    href={`https://${social}.com/yourorg`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Follow us on ${social.charAt(0).toUpperCase() + social.slice(1)}`}
+                    style={{
+                      width: '48px',
+                      height: '48px',
+                      borderRadius: '12px',
+                      background: 'var(--glass-bg)',
+                      border: '1px solid var(--glass-border)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: 'var(--text-secondary)',
+                      transition: 'all 0.3s var(--ease-smooth)',
+                    }}
+                  >
+                    <i className={`bi bi-${social}`} aria-hidden="true"></i>
+                  </a>
+                ))}
+              </div>
           </div>
 
           {Object.entries(footerLinks).map(([title, links]) => (
@@ -106,22 +106,25 @@ export default function Footer() {
                 letterSpacing: '0.05em',
               }}>{title}</h4>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                {links.map(link => (
-                   <li key={link.label} style={{ marginBottom: '10px' }}>
-                     <Link
-                       to={link.path}
-                       className="link-underline"
-                       style={{
-                         color: 'var(--text-secondary)',
-                         fontSize: '0.875rem',
-                         textDecoration: 'none',
-                         transition: 'color 0.3s',
-                       }}
-                     >
-                       {link.label}
-                     </Link>
-                   </li>
-                ))}
+{links.map(link => (
+                    <li key={link.label} style={{ marginBottom: '8px' }}>
+                      <Link
+                        to={link.path}
+                        className="link-underline"
+                        style={{
+                          color: 'var(--text-secondary)',
+                          fontSize: '0.875rem',
+                          textDecoration: 'none',
+                          transition: 'color 0.3s',
+                          display: 'block',
+                          minHeight: '44px',
+                          padding: '8px 0',
+                        }}
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                 ))}
               </ul>
             </div>
           ))}

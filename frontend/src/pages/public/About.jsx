@@ -30,7 +30,7 @@ export default function About() {
       </Helmet>
 
       <AuroraBackground intensity="light">
-        <div className="page-hero-inner" style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', padding: '120px 24px 80px' }}>
+        <div className="page-hero-inner" style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', padding: 'clamp(80px, 15vw, 120px) 24px clamp(60px, 10vw, 80px)' }}>
           <div style={{ maxWidth: '800px', margin: '0 auto' }}>
             <div style={{
               fontFamily: 'var(--font-mono)',
@@ -52,7 +52,7 @@ export default function About() {
         </div>
       </AuroraBackground>
 
-      <section className="content-section" style={{ padding: '100px 0' }}>
+      <section className="content-section" style={{ padding: 'clamp(60px, 10vw, 80px) 0' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
           <div style={{
             display: 'grid',
@@ -95,7 +95,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="content-section" style={{ padding: '100px 0', background: 'var(--bg-secondary)' }}>
+      <section className="content-section" style={{ padding: 'clamp(60px, 10vw, 80px) 0', background: 'var(--bg-secondary)' }}>
         <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 24px' }}>
           <ScrollReveal>
             <SectionHeading align="center" title="Our Journey" />
@@ -141,7 +141,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="content-section" style={{ padding: '100px 0' }}>
+      <section className="content-section" style={{ padding: 'clamp(60px, 10vw, 80px) 0' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
           <ScrollReveal>
             <SectionHeading align="center" title="Our Leadership" />

@@ -38,15 +38,18 @@ export default function GallerySection() {
                   key={cat}
                   onClick={() => setFilter(cat)}
                   style={{
-                    padding: '8px 16px',
+                    padding: '12px 20px',
                     borderRadius: 'var(--radius-full)',
                     border: `1px solid ${filter === cat ? 'var(--aurora-cyan)' : 'var(--glass-border)'}`,
                     background: filter === cat ? 'rgba(0, 229, 255, 0.1)' : 'transparent',
                     color: filter === cat ? 'var(--aurora-cyan)' : 'var(--text-secondary)',
-                    fontSize: '0.8rem',
+                    fontSize: '0.875rem',
                     fontWeight: 500,
                     cursor: 'pointer',
-                    transition: 'all 0.3s',
+                    transition: 'all 0.3s var(--ease-smooth)',
+                    minHeight: '44px',
+                    minWidth: '44px',
+                    touchAction: 'manipulation',
                   }}
                 >
                   {cat}
@@ -56,9 +59,9 @@ export default function GallerySection() {
           </div>
         </ScrollReveal>
 
-        <div style={{
+<div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 280px), 1fr))',
           gap: '16px',
         }}>
           {filtered.map((img, i) => (
@@ -79,8 +82,9 @@ export default function GallerySection() {
                     objectFit: 'cover',
                     transition: 'transform 0.5s var(--ease-smooth)',
                   }}
-                  onMouseOver={(e) => e.target.style.transform = 'scale(1.05)'}
-                  onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
+                  onMouseOver={(e) => { if (e.pointerType === 'mouse') e.target.style.transform = 'scale(1.05)' }}
+                  onMouseOut={(e) => { if (e.pointerType === 'mouse') e.target.style.transform = 'scale(1)' }}
+                  onTouchStart={() => {}}
                 />
                 <div style={{
                   position: 'absolute',

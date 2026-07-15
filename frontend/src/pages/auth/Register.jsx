@@ -87,7 +87,7 @@ export default function Register() {
                       value={form.name}
                       onChange={e => setForm({...form, name: e.target.value})}
                       aria-label="Full name"
-                      style={{ width: '100%', padding: '14px 16px 14px 42px' }}
+                      style={{ width: '100%', padding: '14px 16px 14px 42px', fontSize: '1rem' }}
                     />
                   </div>
                 </div>
@@ -104,7 +104,7 @@ export default function Register() {
                       value={form.email}
                       onChange={e => setForm({...form, email: e.target.value})}
                       aria-label="Email address"
-                      style={{ width: '100%', padding: '14px 16px 14px 42px' }}
+                      style={{ width: '100%', padding: '14px 16px 14px 42px', fontSize: '1rem' }}
                     />
                   </div>
                 </div>
@@ -148,7 +148,7 @@ export default function Register() {
                       value={form.password}
                       onChange={e => setForm({...form, password: e.target.value})}
                       aria-label="Password"
-                      style={{ width: '100%', padding: '14px 48px 14px 42px' }}
+                      style={{ width: '100%', padding: '14px 48px 14px 42px', fontSize: '1rem' }}
                     />
                     <button
                       type="button"

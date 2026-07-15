@@ -40,9 +40,9 @@ export default function VolunteerSection() {
                   alignItems: 'flex-start',
                 }}>
                   <div style={{
-                    width: '40px',
-                    height: '40px',
-                    borderRadius: '10px',
+                    width: '48px',
+                    height: '48px',
+                    borderRadius: '12px',
                     background: 'rgba(0, 229, 255, 0.1)',
                     display: 'flex',
                     alignItems: 'center',

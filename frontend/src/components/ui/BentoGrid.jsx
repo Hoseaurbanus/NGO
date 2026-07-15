@@ -1,10 +1,10 @@
-export default function BentoGrid({ children, className = '', cols = 3 }) {
+export default function BentoGrid({ children, className = '', minItemWidth = 280 }) {
   return (
     <div
-      className={className}
+      className={`bento-grid ${className}`}
       style={{
         display: 'grid',
-        gridTemplateColumns: `repeat(${cols}, 1fr)`,
+        gridTemplateColumns: `repeat(auto-fit, minmax(min(100%, ${minItemWidth}px), 1fr))`,
         gap: '16px',
         gridAutoFlow: 'dense',
       }}
@@ -14,18 +14,17 @@ export default function BentoGrid({ children, className = '', cols = 3 }) {
   )
 }
 
-export function BentoItem({ children, span = 1, rowSpan = 1, className = '' }) {
+export function BentoItem({ children, className = '', ...styleProps }) {
   return (
     <div
-      className={`glass-card ${className}`}
+      className={`bento-item glass-card ${className}`}
       style={{
-        gridColumn: `span ${span}`,
-        gridRow: `span ${rowSpan}`,
         padding: '24px',
-        minHeight: '200px',
+        minHeight: 'auto',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
+        ...styleProps,
       }}
     >
       {children}

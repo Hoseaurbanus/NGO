@@ -20,6 +20,11 @@ export default function BackToTop() {
       onClick={toTop}
       aria-label="Back to top"
       className={`back-to-top${visible ? ' is-visible' : ''}`}
+      style={{
+        minWidth: '48px',
+        minHeight: '48px',
+        padding: 0,
+      }}
     >
       <i className="bi bi-arrow-up" aria-hidden="true" />
     </button>

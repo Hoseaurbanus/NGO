@@ -115,7 +115,7 @@ export default function HeroSection() {
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))',
             gap: '16px',
             transform: `translateY(${scrollY * 0.05}px)`,
           }}>

@@ -75,7 +75,7 @@ export default function Login() {
                       value={email}
                       onChange={e => setEmail(e.target.value)}
                       aria-label="Email address"
-                      style={{ width: '100%', padding: '14px 16px 14px 42px' }}
+                      style={{ width: '100%', padding: '14px 16px 14px 42px', fontSize: '1rem' }}
                     />
                   </div>
                 </div>
@@ -91,7 +91,7 @@ export default function Login() {
                       value={password}
                       onChange={e => setPassword(e.target.value)}
                       aria-label="Password"
-                      style={{ width: '100%', padding: '14px 48px 14px 42px' }}
+                      style={{ width: '100%', padding: '14px 48px 14px 42px', fontSize: '1rem' }}
                     />
                     <button
                       type="button"

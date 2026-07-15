@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 
-export default function KineticText({ text, className = '', tag: Tag = 'h1', delay = 0, stagger = 0.03 }) {
+export default function KineticText({ text, className = '', tag: Tag = 'h1', delay = 0, stagger = 0.03, maxChars = 200, disableOnMobile = true }) {
   const [isVisible, setIsVisible] = useState(false)
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
   const ref = useRef(null)
 
   useEffect(() => {
@@ -11,6 +12,19 @@ export default function KineticText({ text, className = '', tag: Tag = 'h1', del
     const handler = (e) => setPrefersReducedMotion(e.matches)
     mq.addEventListener('change', handler)
     return () => mq.removeEventListener('change', handler)
+  }, [])
+
+  useEffect(() => {
+    const isTouch = navigator.maxTouchPoints > 0 || 'ontouchstart' in window
+    const isSmallScreen = window.innerWidth < 768
+    setIsMobile(isTouch || isSmallScreen)
+    const handleResize = () => {
+      const isTouch = navigator.maxTouchPoints > 0 || 'ontouchstart' in window
+      const isSmallScreen = window.innerWidth < 768
+      setIsMobile(isTouch || isSmallScreen)
+    }
+    window.addEventListener('resize', handleResize, { passive: true })
+    return () => window.removeEventListener('resize', handleResize)
   }, [])
 
   useEffect(() => {
@@ -31,10 +45,12 @@ export default function KineticText({ text, className = '', tag: Tag = 'h1', del
     return () => observer.disconnect()
   }, [prefersReducedMotion])
 
-  const words = text.split(' ')
+  const shouldAnimate = isVisible && !prefersReducedMotion && !(disableOnMobile && isMobile)
+  const displayText = text.length > maxChars ? text.slice(0, maxChars).trim() + '…' : text
+  const words = displayText.split(' ')
 
-  if (prefersReducedMotion) {
-    return <Tag className={className}>{text}</Tag>
+  if (!shouldAnimate) {
+    return <Tag ref={ref} className={className}>{displayText}</Tag>
   }
 
   return (
