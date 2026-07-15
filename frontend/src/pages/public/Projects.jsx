@@ -30,7 +30,7 @@ export default function Projects() {
       </AuroraBackground>
       <section style={{ padding: '80px 0' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))', gap: '24px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 380px), 1fr))', gap: '24px' }}>
             {projects.map((p, i) => (
               <ScrollReveal key={p.title} delay={i * 0.1}>
                 <GlassCard style={{ overflow: 'hidden' }}>

@@ -2,9 +2,22 @@ import { useEffect, useRef, useState } from 'react'
 
 export default function ScrollReveal({ children, direction = 'up', delay = 0, className = '', ...props }) {
   const [isVisible, setIsVisible] = useState(false)
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
   const ref = useRef(null)
 
   useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
+    setPrefersReducedMotion(mq.matches)
+    const handler = (e) => setPrefersReducedMotion(e.matches)
+    mq.addEventListener('change', handler)
+    return () => mq.removeEventListener('change', handler)
+  }, [])
+
+  useEffect(() => {
+    if (prefersReducedMotion) {
+      setIsVisible(true)
+      return
+    }
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -16,7 +29,7 @@ export default function ScrollReveal({ children, direction = 'up', delay = 0, cl
     )
     if (ref.current) observer.observe(ref.current)
     return () => observer.disconnect()
-  }, [])
+  }, [prefersReducedMotion])
 
   const transforms = {
     up: 'translateY(40px)',
@@ -33,8 +46,8 @@ export default function ScrollReveal({ children, direction = 'up', delay = 0, cl
       style={{
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? 'none' : transforms[direction],
-        transition: `all 0.7s var(--ease-out) ${delay}s`,
-        willChange: 'opacity, transform',
+        transition: prefersReducedMotion ? 'none' : `opacity 0.7s var(--ease-out) ${delay}s, transform 0.7s var(--ease-out) ${delay}s`,
+        willChange: isVisible ? 'auto' : 'opacity, transform',
       }}
       {...props}
     >

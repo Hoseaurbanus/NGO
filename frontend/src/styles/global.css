@@ -25,7 +25,7 @@
 
   --text-primary: #FFFFFF;
   --text-secondary: #94A3B8;
-  --text-muted: #475569;
+  --text-muted: #64748B;
 
   --success: #00E676;
   --danger: #FF5252;
@@ -66,6 +66,10 @@
   box-sizing: border-box;
 }
 
+*::before, *::after {
+  box-sizing: inherit;
+}
+
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
@@ -91,6 +95,21 @@ a {
 
 a:hover {
   color: var(--aurora-indigo);
+}
+
+img, video, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -304,6 +323,26 @@ select option {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* ============ FOCUS VISIBLE ============ */
+:focus-visible {
+  outline: 2px solid var(--aurora-cyan);
+  outline-offset: 2px;
+}
+
+button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+  outline: 2px solid var(--aurora-cyan);
+  outline-offset: 2px;
+}
+
+/* ============ TOUCH FEEDBACK ============ */
+@media (hover: hover) {
+  .glass-card:hover {
+    border-color: var(--border-glow);
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-2px);
   }
 }
 

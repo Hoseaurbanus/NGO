@@ -53,13 +53,13 @@ export default function Login() {
               </div>
 
               {error && (
-                <div style={{
+                <div role="alert" style={{
                   padding: '12px 16px', borderRadius: 'var(--radius-md)',
                   background: 'rgba(255,82,82,0.1)', border: '1px solid rgba(255,82,82,0.2)',
                   color: 'var(--danger)', fontSize: '0.85rem', marginBottom: '20px',
                   display: 'flex', alignItems: 'center', gap: '8px',
                 }}>
-                  <i className="bi bi-exclamation-circle"></i> {error}
+                  <i className="bi bi-exclamation-circle" aria-hidden="true"></i> {error}
                 </div>
               )}
 

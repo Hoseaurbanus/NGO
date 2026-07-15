@@ -21,14 +21,14 @@ export default function PortalDonations() {
 
       <GlassCard style={{ padding: '24px', marginBottom: '24px', textAlign: 'center' }}>
         <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '4px' }}>Total Donated</div>
-        <div style={{ fontSize: '2.5rem', fontWeight: 700, fontFamily: 'var(--font-mono)', background: 'var(--gradient-aurora)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>{formatCurrency(total)}</div>
+        <div style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 700, fontFamily: 'var(--font-mono)', background: 'var(--gradient-aurora)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>{formatCurrency(total)}</div>
         <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>{donations.length} donations</div>
       </GlassCard>
 
       <GlassCard style={{ padding: '24px' }}>
         <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1rem', marginBottom: '16px' }}>Donation History</h3>
         <div style={{ overflowX: 'auto' }}>
-          <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: '500px' }}>
             <thead>
               <tr style={{ borderBottom: '1px solid var(--glass-border)' }}>
                 {['Campaign', 'Amount', 'Date', 'Method', 'Status'].map(h => (

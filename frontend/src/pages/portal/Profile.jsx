@@ -19,7 +19,7 @@ export default function PortalProfile() {
   return (
     <div>
       <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '1.75rem', marginBottom: '32px' }}>My Profile</h1>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: '32px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '32px' }}>
         <GlassCard style={{ padding: '32px', textAlign: 'center' }}>
           <div style={{ width: '100px', height: '100px', borderRadius: '50%', background: 'var(--gradient-aurora)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px', fontSize: '2.5rem', fontWeight: 700 }}>{user?.name?.[0] || 'U'}</div>
           <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.1rem', marginBottom: '4px' }}>{user?.name || 'User'}</h3>

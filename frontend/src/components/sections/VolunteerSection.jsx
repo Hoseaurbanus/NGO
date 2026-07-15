@@ -7,7 +7,7 @@ import CountUp from '@components/ui/CountUp'
 import { ROUTES } from '@constants'
 
 const benefits = [
-  { icon: 'bi-badge-heart', title: 'Make an Impact', desc: 'Directly contribute to community transformation' },
+  { icon: 'bi-heart-fill', title: 'Make an Impact', desc: 'Directly contribute to community transformation' },
   { icon: 'bi-people-fill', title: 'Join a Global Team', desc: 'Connect with 5,000+ volunteers worldwide' },
   { icon: 'bi-award', title: 'Earn Certificates', desc: 'Receive recognition for your contributions' },
   { icon: 'bi-calendar-check', title: 'Flexible Schedule', desc: 'Volunteer on your own time, remotely or in-person' },

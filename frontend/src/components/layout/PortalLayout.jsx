@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useLocation, Outlet } from 'react-router-dom'
 import { ROUTES } from '@constants'
 import { useAuth } from '@contexts/AuthContext'
@@ -14,9 +14,22 @@ const portalLinks = [
 ]
 
 export default function PortalLayout() {
-  const [sidebarOpen, setSidebarOpen] = useState(true)
+  const [sidebarOpen, setSidebarOpen] = useState(window.innerWidth > 768)
   const location = useLocation()
   const { user, logout } = useAuth()
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 768) setSidebarOpen(false)
+      else setSidebarOpen(true)
+    }
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  useEffect(() => {
+    if (window.innerWidth <= 768) setSidebarOpen(false)
+  }, [location])
 
   return (
     <div style={{ display: 'flex', minHeight: '100vh', background: 'var(--bg-primary)' }}>
@@ -82,9 +95,9 @@ export default function PortalLayout() {
         </div>
       </aside>
 
-      <main style={{ flex: 1, marginLeft: sidebarOpen ? '260px' : '72px', transition: 'margin-left 0.3s var(--ease-smooth)', minHeight: '100vh' }}>
-        <header style={{ padding: '16px 32px', borderBottom: '1px solid var(--glass-border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'rgba(10,14,26,0.8)', backdropFilter: 'blur(12px)', position: 'sticky', top: 0, zIndex: 50 }}>
-          <button onClick={() => setSidebarOpen(!sidebarOpen)} style={{ background: 'none', border: 'none', color: 'white', fontSize: '1.25rem', cursor: 'pointer' }}>
+      <main style={{ flex: 1, marginLeft: sidebarOpen ? '260px' : '72px', transition: 'margin-left 0.3s var(--ease-smooth)', minHeight: '100vh' }} className="portal-main">
+        <header style={{ padding: '16px 32px', borderBottom: '1px solid var(--glass-border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'rgba(10,14,26,0.8)', backdropFilter: 'blur(12px)', position: 'sticky', top: 0, zIndex: 50 }} className="portal-header">
+          <button onClick={() => setSidebarOpen(!sidebarOpen)} style={{ background: 'none', border: 'none', color: 'white', fontSize: '1.25rem', cursor: 'pointer', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }} aria-label={sidebarOpen ? 'Close sidebar' : 'Open sidebar'}>
             <i className={`bi bi-${sidebarOpen ? 'arrow-left' : 'list'}`}></i>
           </button>
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
@@ -94,10 +107,18 @@ export default function PortalLayout() {
             </button>
           </div>
         </header>
-        <div style={{ padding: '32px' }}>
+        <div style={{ padding: '32px' }} className="portal-content">
           <Outlet />
         </div>
       </main>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .portal-main { margin-left: 0 !important; }
+          .portal-header { padding: 12px 16px !important; }
+          .portal-content { padding: 16px !important; }
+        }
+      `}</style>
     </div>
   )
 }

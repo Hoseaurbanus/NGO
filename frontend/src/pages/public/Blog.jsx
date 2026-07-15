@@ -36,7 +36,7 @@ export default function Blog() {
           <ScrollReveal>
             <GlassCard style={{ overflow: 'hidden', marginBottom: '40px' }}>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 350px), 1fr))' }}>
-                <div style={{ height: '400px', backgroundImage: `url(${featured.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
+                <div style={{ height: 'clamp(250px, 40vw, 400px)', backgroundImage: `url(${featured.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
                 <div style={{ padding: '40px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                   <div style={{ display: 'inline-block', padding: '6px 14px', borderRadius: 'var(--radius-full)', background: `${catColors[featured.category]}22`, fontSize: '0.75rem', fontWeight: 600, color: catColors[featured.category], marginBottom: '16px', alignSelf: 'flex-start' }}>{featured.category}</div>
                   <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.75rem', marginBottom: '12px' }}>{featured.title}</h2>

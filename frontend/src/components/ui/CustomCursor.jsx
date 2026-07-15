@@ -1,19 +1,33 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 export default function CustomCursor() {
   const [position, setPosition] = useState({ x: 0, y: 0 })
   const [isHovering, setIsHovering] = useState(false)
   const [trail, setTrail] = useState([])
   const [visible, setVisible] = useState(false)
+  const rafRef = useRef(null)
+  const lastPos = useRef({ x: 0, y: 0 })
 
   useEffect(() => {
-    const isTouchDevice = 'ontouchstart' in window
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0
     if (isTouchDevice) return
 
+    let trailTimeout = null
     const handleMouseMove = (e) => {
-      setPosition({ x: e.clientX, y: e.clientY })
+      lastPos.current = { x: e.clientX, y: e.clientY }
+      if (!rafRef.current) {
+        rafRef.current = requestAnimationFrame(() => {
+          setPosition(lastPos.current)
+          rafRef.current = null
+        })
+      }
       setVisible(true)
-      setTrail(prev => [...prev.slice(-3), { x: e.clientX, y: e.clientY, id: Date.now() }])
+      if (!trailTimeout) {
+        trailTimeout = setTimeout(() => {
+          setTrail(prev => [...prev.slice(-3), { x: lastPos.current.x, y: lastPos.current.y, id: Date.now() }])
+          trailTimeout = null
+        }, 50)
+      }
     }
 
     const handleMouseEnter = () => setVisible(true)
@@ -27,7 +41,7 @@ export default function CustomCursor() {
 
     const handleHoverEnd = () => setIsHovering(false)
 
-    document.addEventListener('mousemove', handleMouseMove)
+    document.addEventListener('mousemove', handleMouseMove, { passive: true })
     document.addEventListener('mouseenter', handleMouseEnter)
     document.addEventListener('mouseleave', handleMouseLeave)
     document.addEventListener('mouseover', handleHoverStart)
@@ -39,10 +53,15 @@ export default function CustomCursor() {
       document.removeEventListener('mouseleave', handleMouseLeave)
       document.removeEventListener('mouseover', handleHoverStart)
       document.removeEventListener('mouseout', handleHoverEnd)
+      if (rafRef.current) cancelAnimationFrame(rafRef.current)
+      if (trailTimeout) clearTimeout(trailTimeout)
     }
   }, [])
 
   if (!visible) return null
+
+  const size = isHovering ? 40 : 12
+  const offset = isHovering ? 20 : 6
 
   return (
     <div style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 99999 }}>
@@ -51,25 +70,24 @@ export default function CustomCursor() {
           key={point.id}
           style={{
             position: 'fixed',
-            left: point.x - 4,
-            top: point.y - 4,
             width: '8px',
             height: '8px',
             borderRadius: '50%',
             background: `rgba(0, 229, 255, ${(i + 1) * 0.15})`,
-            transition: 'all 0.15s ease-out',
+            transition: 'transform 0.15s ease-out, opacity 0.15s ease-out',
+            transform: `translate(${point.x - 4}px, ${point.y - 4}px)`,
+            willChange: 'transform',
           }}
         />
       ))}
       <div style={{
         position: 'fixed',
-        left: position.x - (isHovering ? 20 : 6),
-        top: position.y - (isHovering ? 20 : 6),
-        width: isHovering ? '40px' : '12px',
-        height: isHovering ? '40px' : '12px',
+        width: `${size}px`,
+        height: `${size}px`,
         borderRadius: '50%',
         border: '2px solid rgba(0, 229, 255, 0.6)',
-        transition: 'width 0.3s var(--ease-spring), height 0.3s var(--ease-spring), left 0.08s ease-out, top 0.08s ease-out',
+        transition: 'width 0.3s var(--ease-spring), height 0.3s var(--ease-spring), transform 0.08s ease-out',
+        transform: `translate(${position.x - offset}px, ${position.y - offset}px)`,
         willChange: 'transform',
         mixBlendMode: 'difference',
       }} />

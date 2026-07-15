@@ -39,24 +39,24 @@ export default function PartnersSection() {
         </ScrollReveal>
 
         <div style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'center',
-          gap: '24px',
-          opacity: 0.6,
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 140px), 1fr))',
+          gap: '16px',
         }}>
-          {partners.map((partner, i) => (
+          {partners.map((partner) => (
             <div
               key={partner.name}
-              className="glass-card"
               style={{
-                width: '140px',
                 height: '80px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 padding: '16px',
-                cursor: 'default',
+                background: 'var(--glass-bg)',
+                border: '1px solid var(--glass-border)',
+                borderRadius: 'var(--radius-lg)',
+                opacity: 0.7,
+                transition: 'opacity 0.3s',
               }}
             >
               <span style={{

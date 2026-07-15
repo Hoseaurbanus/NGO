@@ -63,8 +63,22 @@ function LoadingScreen() {
 function PublicLayout({ children }) {
   return (
     <>
+      <a href="#main-content" style={{
+        position: 'fixed',
+        top: '-100%',
+        left: '16px',
+        zIndex: 10000,
+        padding: '12px 24px',
+        background: 'var(--aurora-cyan)',
+        color: 'var(--bg-primary)',
+        fontWeight: 600,
+        borderRadius: '0 0 var(--radius-md) var(--radius-md)',
+        transition: 'top 0.3s',
+      }} onFocus={(e) => { e.target.style.top = '0' }} onBlur={(e) => { e.target.style.top = '-100%' }}>
+        Skip to content
+      </a>
       <Navbar />
-      <main style={{ minHeight: '100vh' }}>
+      <main id="main-content" style={{ minHeight: '100vh' }}>
         <Suspense fallback={<LoadingScreen />}>{children}</Suspense>
       </main>
       <Footer />

@@ -25,7 +25,8 @@ export default function AdminUsers() {
       </div>
       <input placeholder="Search users..." value={search} onChange={e => setSearch(e.target.value)} style={{ width: '100%', padding: '12px 16px', borderRadius: 'var(--radius-md)', border: '1px solid var(--glass-border)', background: 'var(--glass-bg)', color: 'white', fontSize: '0.9rem', outline: 'none', marginBottom: '20px' }} />
       <GlassCard style={{ padding: '24px' }}>
-        <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+        <div style={{ overflowX: 'auto' }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: '500px' }}>
           <thead>
             <tr style={{ borderBottom: '1px solid var(--glass-border)' }}>
               {['Name', 'Email', 'Role', 'Status', 'Actions'].map(h => (
@@ -52,6 +53,7 @@ export default function AdminUsers() {
             ))}
           </tbody>
         </table>
+        </div>
       </GlassCard>
     </div>
   )

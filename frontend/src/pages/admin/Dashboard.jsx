@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { ROUTES } from '@constants'
 import { useAuth } from '@contexts/AuthContext'
@@ -48,9 +48,22 @@ const recentVolunteers = [
 ]
 
 export default function AdminDashboard() {
-  const [sidebarOpen, setSidebarOpen] = useState(true)
+  const [sidebarOpen, setSidebarOpen] = useState(window.innerWidth > 768)
   const location = useLocation()
   const { user, logout } = useAuth()
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 768) setSidebarOpen(false)
+      else setSidebarOpen(true)
+    }
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  useEffect(() => {
+    if (window.innerWidth <= 768) setSidebarOpen(false)
+  }, [location])
 
   return (
     <div style={{ display: 'flex', minHeight: '100vh', background: 'var(--bg-primary)' }}>
@@ -93,9 +106,9 @@ export default function AdminDashboard() {
         </div>
       </aside>
 
-      <main style={{ flex: 1, marginLeft: sidebarOpen ? '260px' : '72px', transition: 'margin-left 0.3s var(--ease-smooth)' }}>
-        <header style={{ padding: '16px 32px', borderBottom: '1px solid var(--glass-border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'rgba(10,14,26,0.8)', backdropFilter: 'blur(12px)', position: 'sticky', top: 0, zIndex: 50 }}>
-          <button onClick={() => setSidebarOpen(!sidebarOpen)} style={{ background: 'none', border: 'none', color: 'white', fontSize: '1.25rem', cursor: 'pointer' }}>
+      <main style={{ flex: 1, marginLeft: sidebarOpen ? '260px' : '72px', transition: 'margin-left 0.3s var(--ease-smooth)' }} className="admin-main">
+        <header style={{ padding: '16px 32px', borderBottom: '1px solid var(--glass-border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'rgba(10,14,26,0.8)', backdropFilter: 'blur(12px)', position: 'sticky', top: 0, zIndex: 50 }} className="admin-header">
+          <button onClick={() => setSidebarOpen(!sidebarOpen)} style={{ background: 'none', border: 'none', color: 'white', fontSize: '1.25rem', cursor: 'pointer', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }} aria-label={sidebarOpen ? 'Close sidebar' : 'Open sidebar'}>
             <i className={`bi bi-${sidebarOpen ? 'arrow-left' : 'list'}`}></i>
           </button>
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
@@ -110,11 +123,11 @@ export default function AdminDashboard() {
           </div>
         </header>
 
-        <div style={{ padding: '32px' }}>
+        <div style={{ padding: '32px' }} className="admin-content">
           <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '1.75rem', marginBottom: '8px' }}>Dashboard</h1>
           <p style={{ color: 'var(--text-secondary)', marginBottom: '32px' }}>Welcome back, {user?.name || 'Admin'}. Here's what's happening.</p>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px', marginBottom: '32px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))', gap: '16px', marginBottom: '32px' }}>
             {statCards.map(card => (
               <GlassCard key={card.label} style={{ padding: '24px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
@@ -128,11 +141,11 @@ export default function AdminDashboard() {
             ))}
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1.5fr 1fr', gap: '24px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 400px), 1fr))', gap: '24px' }}>
             <GlassCard style={{ padding: '24px' }}>
               <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1rem', marginBottom: '16px' }}>Recent Donations</h3>
               <div style={{ overflowX: 'auto' }}>
-                <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+                <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: '400px' }}>
                   <thead>
                     <tr style={{ borderBottom: '1px solid var(--glass-border)' }}>
                       {['Name', 'Amount', 'Date', 'Status'].map(h => (
@@ -173,6 +186,14 @@ export default function AdminDashboard() {
           </div>
         </div>
       </main>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .admin-main { margin-left: 0 !important; }
+          .admin-header { padding: 12px 16px !important; }
+          .admin-content { padding: 16px !important; }
+        }
+      `}</style>
     </div>
   )
 }

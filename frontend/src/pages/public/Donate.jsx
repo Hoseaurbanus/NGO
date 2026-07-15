@@ -29,8 +29,8 @@ export default function Donate() {
       <section style={{ padding: '60px 0 120px' }}>
         <div style={{ maxWidth: '700px', margin: '0 auto', padding: '0 24px' }}>
           <ScrollReveal>
-            <GlassCard glow style={{ padding: '48px' }}>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '24px' }}>
+            <GlassCard glow style={{ padding: 'clamp(24px, 5vw, 48px)' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 100px), 1fr))', gap: '12px', marginBottom: '24px' }}>
                 {amounts.map(a => (
                   <button key={a} onClick={() => { setSelected(a); setIsCustom(false) }} style={{ padding: '16px', borderRadius: 'var(--radius-md)', border: `2px solid ${selected === a && !isCustom ? 'var(--aurora-cyan)' : 'var(--glass-border)'}`, background: selected === a && !isCustom ? 'rgba(0,229,255,0.1)' : 'var(--glass-bg)', color: 'white', fontFamily: 'var(--font-mono)', fontSize: '1.1rem', fontWeight: 600, cursor: 'pointer', transition: 'all 0.3s' }}>${a}</button>
                 ))}
@@ -44,7 +44,7 @@ export default function Donate() {
               <MagneticButton size="lg" style={{ width: '100%' }}>
                 <i className="bi bi-heart-fill" style={{ marginRight: '8px' }}></i>Donate ${isCustom ? custom || '0' : selected}
               </MagneticButton>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px', marginTop: '32px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 120px), 1fr))', gap: '16px', marginTop: '32px' }}>
                 {[{ icon: 'bi-shield-check', label: 'Secure Payment' }, { icon: 'bi-receipt', label: 'Instant Receipt' }, { icon: 'bi-clock-history', label: 'Recurring Options' }].map(f => (
                   <div key={f.label} style={{ textAlign: 'center' }}>
                     <i className={`bi ${f.icon}`} style={{ fontSize: '1.25rem', color: 'var(--aurora-cyan)', marginBottom: '8px', display: 'block' }}></i>

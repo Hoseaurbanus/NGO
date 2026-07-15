@@ -143,11 +143,11 @@ export default function NewsSection() {
             {rest.map((article, i) => (
               <ScrollReveal key={article.title} delay={i * 0.1}>
                 <Link to={`${ROUTES.BLOG}/${article.title.toLowerCase().replace(/\s+/g, '-')}`} style={{ textDecoration: 'none' }}>
-                  <div className="glass-card" style={{
+                  <div className="glass-card news-sidebar-card" style={{
                     display: 'flex',
                     overflow: 'hidden',
                   }}>
-                    <div style={{
+                    <div className="news-sidebar-img" style={{
                       width: '140px',
                       flexShrink: 0,
                       backgroundImage: `url(${article.image})`,
@@ -160,7 +160,7 @@ export default function NewsSection() {
                         padding: '4px 10px',
                         borderRadius: 'var(--radius-full)',
                         background: 'rgba(0, 229, 255, 0.1)',
-                        fontSize: '0.7rem',
+                        fontSize: '0.75rem',
                         fontWeight: 600,
                         color: 'var(--aurora-cyan)',
                         marginBottom: '8px',
@@ -171,8 +171,8 @@ export default function NewsSection() {
                         marginBottom: '6px',
                       }}>{article.title}</h4>
                       <p style={{
-                        color: 'var(--text-muted)',
-                        fontSize: '0.8rem',
+                        color: 'var(--text-secondary)',
+                        fontSize: '0.85rem',
                         lineHeight: 1.5,
                       }}>{article.excerpt}</p>
                     </div>
@@ -183,6 +183,18 @@ export default function NewsSection() {
           </div>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 576px) {
+          .news-sidebar-card {
+            flex-direction: column !important;
+          }
+          .news-sidebar-img {
+            width: 100% !important;
+            height: 160px !important;
+          }
+        }
+      `}</style>
     </section>
   )
 }

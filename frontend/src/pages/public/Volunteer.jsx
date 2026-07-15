@@ -40,7 +40,7 @@ export default function Volunteer() {
               ) : (
                 <form onSubmit={handleSubmit}>
                   <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', marginBottom: '24px' }}>Volunteer Application</h2>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '16px' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))', gap: '16px', marginBottom: '16px' }}>
                     <input placeholder="Full Name *" required value={form.name} onChange={e => setForm({...form, name: e.target.value})} style={inputStyle} />
                     <input placeholder="Email *" required type="email" value={form.email} onChange={e => setForm({...form, email: e.target.value})} style={inputStyle} />
                   </div>

@@ -65,13 +65,13 @@ export default function Register() {
               </div>
 
               {error && (
-                <div style={{
+                <div role="alert" style={{
                   padding: '12px 16px', borderRadius: 'var(--radius-md)',
                   background: 'rgba(255,82,82,0.1)', border: '1px solid rgba(255,82,82,0.2)',
                   color: 'var(--danger)', fontSize: '0.85rem', marginBottom: '20px',
                   display: 'flex', alignItems: 'center', gap: '8px',
                 }}>
-                  <i className="bi bi-exclamation-circle"></i> {error}
+                  <i className="bi bi-exclamation-circle" aria-hidden="true"></i> {error}
                 </div>
               )}
 
@@ -111,11 +111,13 @@ export default function Register() {
 
                 <div style={{ marginBottom: '20px' }}>
                   <label style={{ display: 'block', fontSize: '0.8rem', color: 'var(--text-secondary)', marginBottom: '8px', fontWeight: 500 }}>I want to</label>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+                  <div role="radiogroup" aria-label="Select your role" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
                     {roles.map(r => (
                       <button
                         key={r.value}
                         type="button"
+                        role="radio"
+                        aria-checked={form.role === r.value}
                         onClick={() => setForm({...form, role: r.value})}
                         style={{
                           padding: '12px', borderRadius: 'var(--radius-md)',

@@ -69,7 +69,7 @@ export default function Contact() {
               </div>
             </ScrollReveal>
             <ScrollReveal direction="right">
-              <GlassCard style={{ padding: '36px' }}>
+              <GlassCard style={{ padding: 'clamp(24px, 5vw, 36px)' }}>
                 {sent ? (
                   <div style={{ textAlign: 'center', padding: '40px 0' }}>
                     <i className="bi bi-check-circle" style={{ fontSize: '3rem', color: 'var(--aurora-emerald)', marginBottom: '16px', display: 'block' }}></i>
@@ -80,8 +80,8 @@ export default function Contact() {
                   <form onSubmit={e => { e.preventDefault(); setSent(true) }}>
                     <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.3rem', marginBottom: '20px' }}>Send a Message</h2>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px', marginBottom: '16px' }}>
-                      <input placeholder="Your Name *" required value={form.name} onChange={e => setForm({...form, name: e.target.value})} />
-                      <input placeholder="Email *" required type="email" value={form.email} onChange={e => setForm({...form, email: e.target.value})} />
+                      <input placeholder="Your Name *" required value={form.name} onChange={e => setForm({...form, name: e.target.value})} style={{ width: '100%', padding: '14px 16px', borderRadius: 'var(--radius-md)', border: '1px solid var(--glass-border)', background: 'var(--glass-bg)', color: 'white', fontSize: '0.95rem', outline: 'none', fontFamily: 'var(--font-body)' }} />
+                      <input placeholder="Email *" required type="email" value={form.email} onChange={e => setForm({...form, email: e.target.value})} style={{ width: '100%', padding: '14px 16px', borderRadius: 'var(--radius-md)', border: '1px solid var(--glass-border)', background: 'var(--glass-bg)', color: 'white', fontSize: '0.95rem', outline: 'none', fontFamily: 'var(--font-body)' }} />
                     </div>
                     <input placeholder="Subject" value={form.subject} onChange={e => setForm({...form, subject: e.target.value})} style={{ marginBottom: '16px', width: '100%', padding: '14px 16px' }} />
                     <textarea placeholder="Your Message *" required rows={5} value={form.message} onChange={e => setForm({...form, message: e.target.value})} style={{ marginBottom: '24px', resize: 'vertical', width: '100%', padding: '14px 16px' }} />

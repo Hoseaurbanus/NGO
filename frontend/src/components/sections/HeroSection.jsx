@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import AuroraBackground from '@components/ui/AuroraBackground'
 import KineticText from '@components/ui/KineticText'
 import GlassCard from '@components/ui/GlassCard'
@@ -16,11 +16,24 @@ const stats = [
 
 export default function HeroSection() {
   const [scrollY, setScrollY] = useState(0)
+  const rafRef = useRef(null)
 
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY)
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    let ticking = false
+    const handleScroll = () => {
+      if (!ticking) {
+        rafRef.current = requestAnimationFrame(() => {
+          setScrollY(window.scrollY)
+          ticking = false
+        })
+        ticking = true
+      }
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      if (rafRef.current) cancelAnimationFrame(rafRef.current)
+    }
   }, [])
 
   return (
@@ -133,7 +146,7 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div style={{
+        <div className="hero-scroll-indicator" style={{
           position: 'absolute',
           bottom: '40px',
           left: '50%',
@@ -145,7 +158,7 @@ export default function HeroSection() {
           opacity: scrollY > 100 ? 0 : 1,
           transition: 'opacity 0.3s',
         }}>
-          <span style={{ color: 'var(--text-muted)', fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+          <span style={{ color: 'var(--text-secondary)', fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
             Scroll to explore
           </span>
           <div style={{
@@ -156,6 +169,12 @@ export default function HeroSection() {
           }} />
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .hero-scroll-indicator { display: none !important; }
+        }
+      `}</style>
     </AuroraBackground>
   )
 }
