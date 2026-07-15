@@ -13,7 +13,7 @@ const partners = [
 
 export default function PartnersSection() {
   return (
-    <section style={{ padding: '80px 0', background: 'var(--bg-secondary)' }}>
+    <section className="partners-section" style={{ padding: '80px 0', background: 'var(--bg-secondary)' }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
         <ScrollReveal>
           <div style={{ textAlign: 'center', marginBottom: '40px' }}>
@@ -38,7 +38,7 @@ export default function PartnersSection() {
           </div>
         </ScrollReveal>
 
-        <div style={{
+        <div className="partners-grid" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 140px), 1fr))',
           gap: '16px',

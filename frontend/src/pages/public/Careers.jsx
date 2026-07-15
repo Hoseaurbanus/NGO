@@ -27,7 +27,7 @@ export default function Careers() {
           </div>
         </div>
       </AuroraBackground>
-      <section style={{ padding: '80px 0' }}>
+      <section className="content-section" style={{ padding: '80px 0' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 24px' }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             {jobs.map((job, i) => (

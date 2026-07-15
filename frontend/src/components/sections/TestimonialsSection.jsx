@@ -38,7 +38,7 @@ export default function TestimonialsSection() {
   const [active, setActive] = useState(0)
 
   return (
-    <section style={{ padding: '120px 0' }}>
+    <section className="testimonials-section" style={{ padding: '120px 0' }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
         <ScrollReveal>
           <div style={{ textAlign: 'center', marginBottom: '60px' }}>

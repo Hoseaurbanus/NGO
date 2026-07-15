@@ -14,7 +14,7 @@ const impactStats = [
 
 export default function ImpactSection() {
   return (
-    <AuroraBackground intensity="light" style={{ padding: '120px 0' }}>
+    <AuroraBackground intensity="light" className="impact-section" style={{ padding: '120px 0' }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
         <ScrollReveal>
           <div style={{ textAlign: 'center', marginBottom: '60px' }}>

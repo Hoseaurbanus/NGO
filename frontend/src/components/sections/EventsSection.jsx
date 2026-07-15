@@ -30,7 +30,7 @@ const events = [
 
 export default function EventsSection() {
   return (
-    <section style={{ padding: '120px 0' }}>
+    <section className="events-section" style={{ padding: '120px 0' }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
         <ScrollReveal>
           <div style={{
@@ -72,7 +72,7 @@ export default function EventsSection() {
           </div>
         </ScrollReveal>
 
-        <div style={{
+        <div className="events-grid" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 350px), 1fr))',
           gap: '24px',

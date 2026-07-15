@@ -23,7 +23,7 @@ export default function Blog() {
     <>
       <Helmet><title>Blog - SmugFlex</title><meta name="description" content="Latest news, stories, and updates from SmugFlex Africa." /></Helmet>
       <AuroraBackground intensity="light">
-        <div style={{ minHeight: '50vh', display: 'flex', alignItems: 'center', padding: '120px 24px 80px' }}>
+        <div className="page-hero-inner" style={{ minHeight: '50vh', display: 'flex', alignItems: 'center', padding: '120px 24px 80px' }}>
           <div style={{ maxWidth: '800px', margin: '0 auto' }}>
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', color: 'var(--aurora-cyan)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '16px' }}>Blog</div>
             <KineticText text="Stories & Updates" tag="h1" style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', fontFamily: 'var(--font-display)', marginBottom: '20px' }} />
@@ -31,7 +31,7 @@ export default function Blog() {
           </div>
         </div>
       </AuroraBackground>
-      <section style={{ padding: '80px 0' }}>
+      <section className="content-section" style={{ padding: '80px 0' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
           <ScrollReveal>
             <GlassCard style={{ overflow: 'hidden', marginBottom: '40px' }}>

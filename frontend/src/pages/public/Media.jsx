@@ -35,7 +35,7 @@ export default function Media() {
           </div>
         </div>
       </AuroraBackground>
-      <section style={{ padding: '60px 0 120px' }}>
+      <section className="content-section" style={{ padding: '60px 0 120px' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
           <ScrollReveal>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px', marginBottom: '60px' }}>

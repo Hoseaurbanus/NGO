@@ -382,3 +382,271 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
     padding: 40px 0;
   }
 }
+
+/* ============ SECTION PADDING OVERRIDES ============ */
+/* These classes override inline padding via media queries */
+.hero-section,
+.mission-section,
+.programs-section,
+.events-section,
+.partners-section,
+.volunteer-section,
+.news-section,
+.donation-section,
+.testimonials-section,
+.impact-section,
+.cta-section,
+.stories-section {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+@media (max-width: 992px) {
+  .hero-section { padding: 80px 0 !important; }
+  .mission-section { padding: 60px 0 !important; }
+  .programs-section { padding: 60px 0 !important; }
+  .events-section { padding: 60px 0 !important; }
+  .partners-section { padding: 48px 0 !important; }
+  .volunteer-section { padding: 60px 0 !important; }
+  .news-section { padding: 60px 0 !important; }
+  .donation-section { padding: 60px 0 !important; }
+  .testimonials-section { padding: 60px 0 !important; }
+  .impact-section { padding: 60px 0 !important; }
+  .cta-section { padding: 60px 0 !important; }
+  .stories-section { padding: 60px 0 !important; }
+}
+
+@media (max-width: 768px) {
+  .hero-section { padding: 48px 0 !important; }
+  .mission-section { padding: 40px 0 !important; }
+  .programs-section { padding: 40px 0 !important; }
+  .events-section { padding: 40px 0 !important; }
+  .partners-section { padding: 32px 0 !important; }
+  .volunteer-section { padding: 40px 0 !important; }
+  .news-section { padding: 40px 0 !important; }
+  .donation-section { padding: 40px 0 !important; }
+  .testimonials-section { padding: 40px 0 !important; }
+  .impact-section { padding: 40px 0 !important; }
+  .cta-section { padding: 40px 0 !important; }
+  .stories-section { padding: 40px 0 !important; }
+}
+
+@media (max-width: 576px) {
+  .hero-section { padding: 32px 0 !important; }
+  .mission-section { padding: 32px 0 !important; }
+  .programs-section { padding: 32px 0 !important; }
+  .events-section { padding: 32px 0 !important; }
+  .partners-section { padding: 24px 0 !important; }
+  .volunteer-section { padding: 32px 0 !important; }
+  .news-section { padding: 32px 0 !important; }
+  .donation-section { padding: 32px 0 !important; }
+  .testimonials-section { padding: 32px 0 !important; }
+  .impact-section { padding: 32px 0 !important; }
+  .cta-section { padding: 32px 0 !important; }
+  .stories-section { padding: 32px 0 !important; }
+}
+
+/* ============ MISSION SECTION - Fix sticky overlap ============ */
+@media (max-width: 992px) {
+  .mission-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+  .mission-sticky {
+    position: static !important;
+    top: auto !important;
+  }
+}
+
+/* ============ HERO INNER PADDING ============ */
+@media (max-width: 992px) {
+  .hero-inner {
+    padding: 80px 24px 60px !important;
+    min-height: auto !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-inner {
+    padding: 60px 20px 40px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-inner {
+    padding: 48px 16px 32px !important;
+  }
+}
+
+/* ============ PROGRAMS SECTION ============ */
+@media (max-width: 992px) {
+  .programs-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+}
+
+/* ============ EVENTS SECTION ============ */
+@media (max-width: 768px) {
+  .events-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+  }
+  .events-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+}
+
+/* ============ VOLUNTEER SECTION ============ */
+@media (max-width: 992px) {
+  .volunteer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+}
+
+/* ============ NEWS SECTION ============ */
+@media (max-width: 992px) {
+  .news-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+}
+
+/* ============ DONATION AMOUNT GRID ============ */
+@media (max-width: 480px) {
+  .donation-amounts {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px !important;
+  }
+  .donation-card {
+    padding: 24px !important;
+  }
+}
+
+/* ============ TESTIMONIALS CAROUSEL ============ */
+@media (max-width: 768px) {
+  .testimonials-track {
+    transform: none !important;
+    transition: none !important;
+  }
+  .testimonial-card {
+    min-width: 100% !important;
+    max-width: 100% !important;
+    padding: 24px !important;
+  }
+  .testimonial-nav {
+    display: none !important;
+  }
+}
+
+/* ============ PAGE HERO SECTIONS ============ */
+.page-hero-inner {
+  padding: 120px 24px 80px !important;
+}
+
+@media (max-width: 992px) {
+  .page-hero-inner { padding: 80px 24px 60px !important; min-height: auto !important; }
+}
+
+@media (max-width: 768px) {
+  .page-hero-inner { padding: 60px 20px 40px !important; }
+}
+
+@media (max-width: 576px) {
+  .page-hero-inner { padding: 48px 16px 32px !important; }
+}
+
+/* ============ CONTENT SECTIONS ============ */
+@media (max-width: 992px) {
+  .content-section { padding: 60px 0 !important; }
+}
+
+@media (max-width: 768px) {
+  .content-section { padding: 40px 0 !important; }
+}
+
+@media (max-width: 576px) {
+  .content-section { padding: 32px 0 !important; }
+}
+
+/* ============ TWO COLUMN LAYOUTS ============ */
+.two-col-grid {
+  display: grid;
+  gap: 40px;
+}
+
+@media (max-width: 768px) {
+  .two-col-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+}
+
+/* ============ STAT CARDS ============ */
+.stats-grid {
+  display: grid;
+  gap: 24px;
+}
+
+@media (max-width: 992px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .stats-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ============ FORM GRID ============ */
+.form-grid {
+  display: grid;
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ============ GLASS CARD PADDING ============ */
+@media (max-width: 768px) {
+  .glass-card-responsive {
+    padding: 24px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .glass-card-responsive {
+    padding: 16px !important;
+  }
+}
+
+/* ============ IMPACT SECTION CARDS ============ */
+@media (max-width: 768px) {
+  .impact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+  .impact-card {
+    padding: 24px !important;
+    min-height: auto !important;
+  }
+}
+
+/* ============ CTA SECTION ============ */
+@media (max-width: 768px) {
+  .cta-card {
+    padding: 24px !important;
+  }
+  .cta-features {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+}

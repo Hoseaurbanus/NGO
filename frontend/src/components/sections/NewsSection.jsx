@@ -41,7 +41,7 @@ export default function NewsSection() {
   const rest = articles.slice(1)
 
   return (
-    <section style={{ padding: '120px 0', background: 'var(--bg-secondary)' }}>
+    <section className="news-section" style={{ padding: '120px 0', background: 'var(--bg-secondary)' }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
         <ScrollReveal>
           <div style={{
@@ -83,7 +83,7 @@ export default function NewsSection() {
           </div>
         </ScrollReveal>
 
-        <div style={{
+        <div className="news-grid" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 350px), 1fr))',
           gap: '24px',

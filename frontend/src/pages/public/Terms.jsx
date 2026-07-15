@@ -13,7 +13,7 @@ export default function Terms() {
           </div>
         </div>
       </AuroraBackground>
-      <section style={{ padding: '60px 0 120px' }}>
+      <section className="content-section" style={{ padding: '60px 0 120px' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto', padding: '0 24px', color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: '0.95rem' }}>
           <h2 style={{ color: 'white', fontFamily: 'var(--font-display)', fontSize: '1.3rem', margin: '32px 0 12px' }}>1. Acceptance of Terms</h2>
           <p>By accessing and using the SmugFlex website, you accept and agree to be bound by these Terms of Service.</p>

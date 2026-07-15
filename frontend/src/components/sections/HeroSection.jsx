@@ -38,7 +38,7 @@ export default function HeroSection() {
 
   return (
     <AuroraBackground intensity="heavy" className="hero-section">
-      <div style={{
+      <div className="hero-inner" style={{
         minHeight: '100vh',
         display: 'flex',
         flexDirection: 'column',

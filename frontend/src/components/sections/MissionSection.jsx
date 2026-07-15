@@ -27,18 +27,18 @@ const pillars = [
 
 export default function MissionSection() {
   return (
-    <section style={{
+    <section className="mission-section" style={{
       padding: '120px 0',
       position: 'relative',
     }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
-        <div style={{
+        <div className="mission-grid" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 400px), 1fr))',
           gap: '60px',
           alignItems: 'start',
         }}>
-          <div style={{ position: 'sticky', top: '120px' }}>
+          <div className="mission-sticky" style={{ position: 'sticky', top: '120px' }}>
             <ScrollReveal>
               <div style={{
                 fontFamily: 'var(--font-mono)',

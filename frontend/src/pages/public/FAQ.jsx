@@ -24,14 +24,14 @@ export default function FAQ() {
     <>
       <Helmet><title>FAQ - SmugFlex</title><meta name="description" content="Frequently asked questions about SmugFlex, donations, volunteering, and partnerships." /></Helmet>
       <AuroraBackground intensity="light">
-        <div style={{ minHeight: '50vh', display: 'flex', alignItems: 'center', padding: 'clamp(80px, 15vw, 120px) 24px 80px' }}>
+        <div className="page-hero-inner" style={{ minHeight: '50vh', display: 'flex', alignItems: 'center', padding: 'clamp(80px, 15vw, 120px) 24px 80px' }}>
           <div style={{ maxWidth: '800px', margin: '0 auto' }}>
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', color: 'var(--aurora-cyan)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '16px' }}>FAQ</div>
             <KineticText text="Frequently Asked Questions" tag="h1" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontFamily: 'var(--font-display)', marginBottom: '20px' }} />
           </div>
         </div>
       </AuroraBackground>
-      <section style={{ padding: '60px 0 120px' }}>
+      <section className="content-section" style={{ padding: '60px 0 120px' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto', padding: '0 24px' }}>
           <input placeholder="Search questions..." value={search} onChange={e => setSearch(e.target.value)} style={{ width: '100%', padding: '16px 20px', borderRadius: 'var(--radius-full)', border: '1px solid var(--glass-border)', background: 'var(--glass-bg)', color: 'white', fontSize: '1rem', outline: 'none', marginBottom: '32px' }} aria-label="Search questions" />
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>

@@ -17,7 +17,7 @@ export default function Volunteer() {
     <>
       <Helmet><title>Volunteer - SmugFlex</title><meta name="description" content="Join our global community of volunteers and make a real difference." /></Helmet>
       <AuroraBackground intensity="light">
-        <div style={{ minHeight: '50vh', display: 'flex', alignItems: 'center', padding: '120px 24px 80px' }}>
+        <div className="page-hero-inner" style={{ minHeight: '50vh', display: 'flex', alignItems: 'center', padding: '120px 24px 80px' }}>
           <div style={{ maxWidth: '800px', margin: '0 auto' }}>
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', color: 'var(--aurora-cyan)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '16px' }}>Get Involved</div>
             <KineticText text="Become a Volunteer" tag="h1" style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', fontFamily: 'var(--font-display)', marginBottom: '20px' }} />
@@ -25,7 +25,7 @@ export default function Volunteer() {
           </div>
         </div>
       </AuroraBackground>
-      <section style={{ padding: '60px 0 120px' }}>
+      <section className="content-section" style={{ padding: '60px 0 120px' }}>
         <div style={{ maxWidth: '700px', margin: '0 auto', padding: '0 24px' }}>
           <ScrollReveal>
             <GlassCard style={{ padding: '40px' }}>

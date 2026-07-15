@@ -54,7 +54,7 @@ export default function ProgramsSection() {
   const scrollRef = useRef(null)
 
   return (
-    <section style={{ padding: '120px 0', overflow: 'hidden' }}>
+    <section className="programs-section" style={{ padding: '120px 0', overflow: 'hidden' }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
         <ScrollReveal>
           <div style={{ textAlign: 'center', marginBottom: '60px' }}>
@@ -86,7 +86,7 @@ export default function ProgramsSection() {
           </div>
         </ScrollReveal>
 
-        <div ref={scrollRef} style={{
+        <div ref={scrollRef} className="programs-grid" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 350px), 1fr))',
           gap: '24px',

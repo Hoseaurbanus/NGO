@@ -15,9 +15,9 @@ const benefits = [
 
 export default function VolunteerSection() {
   return (
-    <section style={{ padding: '120px 0' }}>
+    <section className="volunteer-section" style={{ padding: '120px 0' }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
-        <div style={{
+        <div className="volunteer-grid" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 400px), 1fr))',
           gap: '60px',

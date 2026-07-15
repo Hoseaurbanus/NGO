@@ -24,7 +24,7 @@ const stories = [
 
 export default function StoriesSection() {
   return (
-    <section style={{ padding: '120px 0', background: 'var(--bg-secondary)' }}>
+    <section className="stories-section" style={{ padding: '120px 0', background: 'var(--bg-secondary)' }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
         <ScrollReveal>
           <div style={{ textAlign: 'center', marginBottom: '60px' }}>

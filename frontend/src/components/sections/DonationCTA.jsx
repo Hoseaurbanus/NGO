@@ -24,10 +24,10 @@ export default function DonationCTA() {
 
   return (
     <AuroraBackground intensity="normal">
-      <section style={{ padding: '120px 0' }}>
+      <section className="donation-section" style={{ padding: '120px 0' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto', padding: '0 24px' }}>
           <ScrollReveal>
-            <GlassCard glow style={{
+            <GlassCard glow className="donation-card" style={{
               padding: '48px',
               textAlign: 'center',
               position: 'relative',
@@ -71,7 +71,7 @@ export default function DonationCTA() {
                 Every dollar you give directly impacts African communities. Choose an amount to see your impact.
               </p>
 
-              <div style={{
+              <div className="donation-amounts" style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 120px), 1fr))',
                 gap: '12px',

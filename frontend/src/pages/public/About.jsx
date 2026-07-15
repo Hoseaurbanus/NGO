@@ -30,7 +30,7 @@ export default function About() {
       </Helmet>
 
       <AuroraBackground intensity="light">
-        <div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', padding: '120px 24px 80px' }}>
+        <div className="page-hero-inner" style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', padding: '120px 24px 80px' }}>
           <div style={{ maxWidth: '800px', margin: '0 auto' }}>
             <div style={{
               fontFamily: 'var(--font-mono)',
@@ -52,7 +52,7 @@ export default function About() {
         </div>
       </AuroraBackground>
 
-      <section style={{ padding: '100px 0' }}>
+      <section className="content-section" style={{ padding: '100px 0' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
           <div style={{
             display: 'grid',
@@ -103,7 +103,7 @@ export default function About() {
         </div>
       </section>
 
-      <section style={{ padding: '100px 0', background: 'var(--bg-secondary)' }}>
+      <section className="content-section" style={{ padding: '100px 0', background: 'var(--bg-secondary)' }}>
         <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 24px' }}>
           <ScrollReveal>
             <div style={{ textAlign: 'center', marginBottom: '60px' }}>
@@ -154,7 +154,7 @@ export default function About() {
         </div>
       </section>
 
-      <section style={{ padding: '100px 0' }}>
+      <section className="content-section" style={{ padding: '100px 0' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
           <ScrollReveal>
             <div style={{ textAlign: 'center', marginBottom: '60px' }}>
