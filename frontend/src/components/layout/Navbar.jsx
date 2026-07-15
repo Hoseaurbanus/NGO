@@ -28,40 +28,29 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  useEffect(() => {
+  const closeMobileMenu = useCallback(() => {
     setMobileOpen(false)
-  }, [location])
+    document.body.style.overflow = ''
+    lastFocusedRef.current?.focus()
+  }, [])
+
+  useEffect(() => {
+    if (mobileOpen) closeMobileMenu()
+  }, [location, closeMobileMenu, mobileOpen])
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth > 992 && mobileOpen) setMobileOpen(false)
+      if (window.innerWidth > 992 && mobileOpen) closeMobileMenu()
     }
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
-  }, [mobileOpen])
-
-  const handleEscKey = useCallback((e) => {
-    if (e.key === 'Escape' && mobileOpen) {
-      setMobileOpen(false)
-    }
-  }, [mobileOpen])
-
-  useEffect(() => {
-    document.addEventListener('keydown', handleEscKey)
-    return () => document.removeEventListener('keydown', handleEscKey)
-  }, [handleEscKey])
+  }, [mobileOpen, closeMobileMenu])
 
   const openMobileMenu = useCallback(() => {
     lastFocusedRef.current = document.activeElement
     setMobileOpen(true)
     document.body.style.overflow = 'hidden'
     setTimeout(() => mobileMenuRef.current?.focus(), 50)
-  }, [])
-
-  const closeMobileMenu = useCallback(() => {
-    setMobileOpen(false)
-    document.body.style.overflow = ''
-    lastFocusedRef.current?.focus()
   }, [])
 
   const handleMobileKeyDown = useCallback((e) => {
