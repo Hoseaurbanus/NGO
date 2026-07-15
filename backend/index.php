@@ -1,18 +1,7 @@
 <?php
-/**
- * SmugFlex API - Standalone Entry Point
- * Works without mod_rewrite - query string routing
- *
- * Usage:
- *   GET  ?route=programs
- *   GET  ?route=programs/1
- *   POST ?route=auth/login
- */
-
 error_reporting(E_ALL);
 ini_set('display_errors', 0);
 
-// CORS
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
@@ -23,7 +12,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit;
 }
 
-// Load .env
 $envFile = __DIR__ . '/.env';
 if (file_exists($envFile)) {
     $lines = file($envFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
@@ -38,7 +26,6 @@ if (file_exists($envFile)) {
     }
 }
 
-// Database
 function db(): PDO {
     static $pdo = null;
     if ($pdo === null) {
@@ -63,16 +50,30 @@ function input(): array {
     return $raw ? json_decode($raw, true) : [];
 }
 
-// Get route
-$uri = $_GET['route'] ?? '';
+$method = $_SERVER['REQUEST_METHOD'];
+
+// Extract route from multiple sources
+$uri = '';
+
+// 1. Query string: ?route=programs
+if (!empty($_GET['route'])) {
+    $uri = $_GET['route'];
+}
+
+// 2. PATH_INFO: /index.php/programs
+if (empty($uri) && !empty($_SERVER['PATH_INFO'])) {
+    $uri = $_SERVER['PATH_INFO'];
+}
+
+// 3. Request URI: /api/v1/programs or /programs
 if (empty($uri)) {
     $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-    $uri = preg_replace('#^/api/v1/?#', '', $uri);
+    $uri = preg_replace('#^/api/v\d+/?#', '', $uri);
     $uri = preg_replace('#^/?index\.php/?#', '', $uri);
 }
+
 $uri = '/' . trim($uri, '/');
 if ($uri === '/') $uri = '/home';
-$method = $_SERVER['REQUEST_METHOD'];
 
 // ============ AUTH ============
 if ($uri === '/auth/login' && $method === 'POST') {
@@ -107,9 +108,7 @@ if ($uri === '/auth/register' && $method === 'POST') {
     }
 }
 
-// ============ SPECIAL ROUTES (before generic) ============
-
-// Reports
+// ============ SPECIAL ROUTES ============
 if ($uri === '/reports/dashboard' && $method === 'GET') {
     try {
         $pdo = db();
@@ -122,7 +121,6 @@ if ($uri === '/reports/dashboard' && $method === 'GET') {
     } catch (Exception $e) { json(['success'=>false,'message'=>'Error'], 500); }
 }
 
-// Donation history
 if ($uri === '/donations/history' && $method === 'GET') {
     try {
         $s = db()->query("SELECT d.*, c.title as campaign_title FROM donations d LEFT JOIN campaigns c ON d.campaign_id = c.id WHERE d.deleted_at IS NULL ORDER BY d.created_at DESC LIMIT 50");
@@ -130,7 +128,6 @@ if ($uri === '/donations/history' && $method === 'GET') {
     } catch (Exception $e) { json(['success'=>false,'message'=>'Error'], 500); }
 }
 
-// Volunteer approve/reject
 if (preg_match('#^/volunteers/(\d+)/approve$#', $uri, $m) && $method === 'PUT') {
     try {
         $s = db()->prepare("UPDATE volunteers SET status='approved', updated_at=NOW() WHERE id=?");
@@ -147,7 +144,6 @@ if (preg_match('#^/volunteers/(\d+)/reject$#', $uri, $m) && $method === 'PUT') {
     } catch (Exception $e) { json(['success'=>false,'message'=>'Error'], 500); }
 }
 
-// Newsletter subscribe/unsubscribe
 if ($uri === '/newsletter/subscribe' && $method === 'POST') {
     $d = input();
     if (empty($d['email'])) json(['success'=>false,'message'=>'Email required'], 400);
@@ -165,6 +161,29 @@ if ($uri === '/newsletter/unsubscribe' && $method === 'DELETE') {
         $s = db()->prepare("UPDATE newsletter_subscribers SET status='inactive', unsubscribed_at=NOW() WHERE email=?");
         $s->execute([$d['email']]);
         json(['success'=>true,'message'=>'Unsubscribed']);
+    } catch (Exception $e) { json(['success'=>false,'message'=>'Error'], 500); }
+}
+
+if (preg_match('#^/careers/(\d+)/apply$#', $uri, $m) && $method === 'POST') {
+    $d = input();
+    if (empty($d['name']) || empty($d['email'])) json(['success'=>false,'message'=>'Name and email required'], 400);
+    try {
+        $d['career_id'] = $m[1];
+        $d['created_at'] = date('Y-m-d H:i:s');
+        $d['updated_at'] = date('Y-m-d H:i:s');
+        $cols = implode(',', array_map(fn($k)=>"`$k`", array_keys($d)));
+        $ph = implode(',', array_fill(0,count($d),'?'));
+        $s = db()->prepare("INSERT INTO applications ($cols) VALUES ($ph)");
+        $s->execute(array_values($d));
+        json(['success'=>true,'message'=>'Application submitted'], 201);
+    } catch (Exception $e) { json(['success'=>false,'message'=>'Error'], 500); }
+}
+
+if (preg_match('#^/messages/(\d+)/read$#', $uri, $m) && $method === 'PUT') {
+    try {
+        $s = db()->prepare("UPDATE messages SET is_read=1 WHERE id=?");
+        $s->execute([$m[1]]);
+        json(['success'=>true,'message'=>'Marked as read']);
     } catch (Exception $e) { json(['success'=>false,'message'=>'Error'], 500); }
 }
 
@@ -186,7 +205,6 @@ if (isset($resources[$resource])) {
     try {
         $pdo = db();
 
-        // GET all
         if ($method === 'GET' && $id === null) {
             $page = max(1, (int)($_GET['page']??1));
             $limit = min(100, max(1, (int)($_GET['limit']??12)));
@@ -197,7 +215,6 @@ if (isset($resources[$resource])) {
             json(['success'=>true,'data'=>$items->fetchAll(),'pagination'=>['page'=>$page,'limit'=>$limit,'total'=>$total,'pages'=>ceil($total/$limit)]]);
         }
 
-        // GET one
         if ($method === 'GET' && $id !== null) {
             $s = $pdo->prepare("SELECT * FROM $table WHERE id=? AND deleted_at IS NULL");
             $s->execute([$id]);
@@ -206,7 +223,6 @@ if (isset($resources[$resource])) {
             json(['success'=>true,'data'=>$item]);
         }
 
-        // POST
         if ($method === 'POST' && $id === null) {
             $d = input();
             if (empty($d)) json(['success'=>false,'message'=>'No data'], 400);
@@ -219,7 +235,6 @@ if (isset($resources[$resource])) {
             json(['success'=>true,'message'=>'Created','data'=>['id'=>$pdo->lastInsertId()]], 201);
         }
 
-        // PUT
         if ($method === 'PUT' && $id !== null) {
             $d = input();
             $d['updated_at'] = date('Y-m-d H:i:s');
@@ -231,7 +246,6 @@ if (isset($resources[$resource])) {
             json(['success'=>true,'message'=>'Updated']);
         }
 
-        // DELETE
         if ($method === 'DELETE' && $id !== null) {
             $s = $pdo->prepare("UPDATE $table SET deleted_at=NOW() WHERE id=?");
             $s->execute([$id]);
@@ -241,39 +255,4 @@ if (isset($resources[$resource])) {
     } catch (Exception $e) { json(['success'=>false,'message'=>'Error: '.$e->getMessage()], 500); }
 }
 
-// ============ CAREER APPLY ============
-if (preg_match('#^/careers/(\d+)/apply$#', $uri, $m) && $method === 'POST') {
-    $d = input();
-    if (empty($d['name']) || empty($d['email'])) json(['success'=>false,'message'=>'Name and email required'], 400);
-    try {
-        $d['career_id'] = $m[1];
-        $d['created_at'] = date('Y-m-d H:i:s');
-        $d['updated_at'] = date('Y-m-d H:i:s');
-        $cols = implode(',', array_map(fn($k)=>"`$k`", array_keys($d)));
-        $ph = implode(',', array_fill(0,count($d),'?'));
-        $s = db()->prepare("INSERT INTO applications ($cols) VALUES ($ph)");
-        $s->execute(array_values($d));
-        json(['success'=>true,'message'=>'Application submitted'], 201);
-    } catch (Exception $e) { json(['success'=>false,'message'=>'Error'], 500); }
-}
-
-// ============ MESSAGE MARK READ ============
-if (preg_match('#^/messages/(\d+)/read$#', $uri, $m) && $method === 'PUT') {
-    try {
-        $s = db()->prepare("UPDATE messages SET is_read=1 WHERE id=?");
-        $s->execute([$m[1]]);
-        json(['success'=>true,'message'=>'Marked as read']);
-    } catch (Exception $e) { json(['success'=>false,'message'=>'Error'], 500); }
-}
-
-// Home / health check
-json(['status'=>'ok','api'=>'SmugFlex API v1','version'=>'1.0.0','routes'=>[
-    'GET /?route=programs'=>'List programs',
-    'GET /?route=programs/1'=>'Get program',
-    'POST /?route=auth/login'=>'Login',
-    'POST /?route=auth/register'=>'Register',
-    'GET /?route=reports/dashboard'=>'Dashboard stats',
-    'POST /?route=newsletter/subscribe'=>'Subscribe',
-    'PUT /?route=volunteers/1/approve'=>'Approve volunteer',
-    'PUT /?route=volunteers/1/reject'=>'Reject volunteer',
-]]);
+json(['status'=>'ok','api'=>'SmugFlex API v1','version'=>'1.0.0']);

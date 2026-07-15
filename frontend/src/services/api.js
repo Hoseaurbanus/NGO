@@ -9,27 +9,23 @@ const api = axios.create({
     'Content-Type': 'application/json',
     'Accept': 'application/json',
   },
-  paramsSerializer: (params) => {
-    const parts = []
-    for (const [key, value] of Object.entries(params)) {
-      if (value !== null && value !== undefined) {
-        parts.push(`${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
-      }
-    }
-    return parts.join('&')
-  },
 })
 
-api.interceptors.request.use(
-  (config) => {
-    const token = localStorage.getItem('sf_access_token')
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`
-    }
-    return config
-  },
-  (error) => Promise.reject(error)
-)
+// Convert all requests to ?route= format
+api.interceptors.request.use((config) => {
+  const token = localStorage.getItem('sf_access_token')
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`
+  }
+
+  // Convert URL path to ?route= query param
+  let url = config.url || ''
+  if (url.startsWith('/')) url = url.substring(1)
+  config.url = ''
+  config.params = { route: url, ...config.params }
+
+  return config
+})
 
 api.interceptors.response.use(
   (response) => response.data,
@@ -61,34 +57,5 @@ api.interceptors.response.use(
     return Promise.reject(error)
   }
 )
-
-// Helper: convert path to query string format
-// GET /programs → GET ?route=programs
-// GET /programs/1 → GET ?route=programs/1
-// POST /auth/login → POST ?route=auth/login
-const originalGet = api.get.bind(api)
-const originalPost = api.post.bind(api)
-const originalPut = api.put.bind(api)
-const originalDelete = api.delete.bind(api)
-
-api.get = (url, config = {}) => {
-  const route = url.replace(/^\//, '')
-  return originalGet('', { ...config, params: { route, ...config.params } })
-}
-
-api.post = (url, data, config = {}) => {
-  const route = url.replace(/^\//, '')
-  return originalPost('', data, { ...config, params: { route, ...config.params } })
-}
-
-api.put = (url, data, config = {}) => {
-  const route = url.replace(/^\//, '')
-  return originalPut('', data, { ...config, params: { route, ...config.params } })
-}
-
-api.delete = (url, config = {}) => {
-  const route = url.replace(/^\//, '')
-  return originalDelete('', { ...config, params: { route, ...config.params } })
-}
 
 export default api
