@@ -20,7 +20,7 @@
 
   --glass-bg: rgba(255, 255, 255, 0.03);
   --glass-bg-hover: rgba(255, 255, 255, 0.06);
-  --glass-border: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.08);
   --glass-blur: 20px;
 
   --text-primary: #FFFFFF;
@@ -48,6 +48,16 @@
   --shadow-glow: 0 0 30px rgba(0, 229, 255, 0.1);
   --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.3);
   --shadow-elevated: 0 8px 40px rgba(0, 0, 0, 0.4);
+
+  /* Bootstrap dark mode overrides */
+  --bs-body-bg: #0A0E1A;
+  --bs-body-color: #FFFFFF;
+  --bs-link-color: #00E5FF;
+  --bs-link-hover-color: #536DFE;
+  --bs-border-color: rgba(255, 255, 255, 0.08);
+  --bs-card-bg: rgba(255, 255, 255, 0.03);
+  --bs-modal-bg: #151D33;
+  --bs-modal-border-color: rgba(255, 255, 255, 0.08);
 }
 
 * {
@@ -60,6 +70,7 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color-scheme: dark;
 }
 
 body {
@@ -69,6 +80,7 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -109,6 +121,75 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--aurora-cyan);
 }
 
+/* ============ FORM INPUTS - Dark Theme ============ */
+input, textarea, select {
+  background-color: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--glass-border) !important;
+  border-radius: var(--radius-md) !important;
+  outline: none !important;
+  transition: border-color 0.3s var(--ease-smooth), box-shadow 0.3s var(--ease-smooth) !important;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--aurora-cyan) !important;
+  box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15) !important;
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--text-muted) !important;
+}
+
+select option {
+  background-color: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+}
+
+/* ============ BOOTSTRAP OVERRIDES ============ */
+.form-control, .form-select {
+  background-color: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--glass-border) !important;
+}
+.form-control:focus, .form-select:focus {
+  background-color: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--aurora-cyan) !important;
+  box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15) !important;
+}
+.form-check-input {
+  background-color: var(--bg-surface) !important;
+  border-color: var(--glass-border) !important;
+}
+.form-check-input:checked {
+  background-color: var(--aurora-cyan) !important;
+  border-color: var(--aurora-cyan) !important;
+}
+.form-label {
+  color: var(--text-secondary) !important;
+}
+.modal-content {
+  background-color: var(--bg-surface) !important;
+  border: 1px solid var(--glass-border) !important;
+}
+.dropdown-menu {
+  background-color: var(--bg-surface) !important;
+  border: 1px solid var(--glass-border) !important;
+}
+.dropdown-item {
+  color: var(--text-primary) !important;
+}
+.dropdown-item:hover, .dropdown-item:focus {
+  background-color: var(--glass-bg-hover) !important;
+  color: var(--aurora-cyan) !important;
+}
+.table {
+  --bs-table-bg: transparent;
+  --bs-table-color: var(--text-primary);
+  --bs-table-border-color: var(--glass-border);
+}
+
+/* ============ UTILITY CLASSES ============ */
 .glass-card {
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
@@ -177,6 +258,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0 24px;
 }
 
+/* ============ ANIMATIONS ============ */
 @keyframes aurora-drift-1 {
   0%, 100% { transform: translate(0, 0) scale(1); }
   25% { transform: translate(30px, -50px) scale(1.1); }
@@ -210,6 +292,12 @@ h1, h2, h3, h4, h5, h6 {
   to { transform: rotate(360deg); }
 }
 
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ============ ACCESSIBILITY ============ */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -219,11 +307,39 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* ============ RESPONSIVE ============ */
+@media (max-width: 1200px) {
+  .container-custom {
+    max-width: 960px;
+  }
+}
+
+@media (max-width: 992px) {
+  .section-padding {
+    padding: 80px 0;
+  }
+  .container-custom {
+    padding: 0 20px;
+  }
+}
+
 @media (max-width: 768px) {
   .section-padding {
     padding: 60px 0;
   }
   .container-custom {
     padding: 0 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .section-padding {
+    padding: 48px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-padding {
+    padding: 40px 0;
   }
 }

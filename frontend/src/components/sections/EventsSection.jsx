@@ -6,9 +6,9 @@ import { formatDate } from '@utils/helpers'
 
 const events = [
   {
-    title: 'Global Education Summit 2026',
+    title: 'Pan-African Education Summit 2026',
     date: '2026-09-15',
-    location: 'New York, USA',
+    location: 'Lagos, Nigeria',
     image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600',
     category: 'Conference',
   },
@@ -22,7 +22,7 @@ const events = [
   {
     title: 'Annual Fundraising Gala',
     date: '2026-10-05',
-    location: 'London, UK',
+    location: 'Accra, Ghana',
     image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=600',
     category: 'Gala',
   },
@@ -74,7 +74,7 @@ export default function EventsSection() {
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 350px), 1fr))',
           gap: '24px',
         }}>
           {events.map((event, i) => (

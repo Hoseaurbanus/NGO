@@ -10,8 +10,8 @@ import { ROUTES } from '@constants'
 const stats = [
   { label: 'Lives Impacted', value: 250000, suffix: '+' },
   { label: 'Programs', value: 45, suffix: '+' },
-  { label: 'Countries', value: 18, suffix: '' },
-  { label: 'Volunteers', value: 5000, suffix: '+' },
+  { label: 'African Nations', value: 12, suffix: '' },
+  { label: 'Community Volunteers', value: 5000, suffix: '+' },
 ]
 
 export default function HeroSection() {
@@ -81,7 +81,7 @@ export default function HeroSection() {
               lineHeight: 1.7,
               marginBottom: '40px',
             }}>
-              SmugFlex is a global NGO empowering communities through education, healthcare, and sustainable development. We don't just meet needs — we redefine impact.
+              SmugFlex is a Pan-African NGO empowering communities through education, healthcare, and sustainable development. We don't just meet needs — we redefine impact across the continent.
             </p>
 
             <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '80px' }}>

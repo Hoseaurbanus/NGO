@@ -6,30 +6,30 @@ import { formatDate } from '@utils/helpers'
 
 const articles = [
   {
-    title: 'SmugFlex Expands Education Programs to 5 New Countries',
-    excerpt: 'Our global education initiative reaches new milestones with expanded programs across Africa and Southeast Asia.',
+    title: 'SmugFlex Expands Education Programs Across West Africa',
+    excerpt: 'Our global education initiative reaches new milestones with expanded programs across Nigeria, Ghana, and Sierra Leone.',
     image: 'https://images.unsplash.com/photo-1497486751825-112ba8d25d1d?w=800',
     category: 'Education',
     date: '2026-07-10',
     featured: true,
   },
   {
-    title: 'Annual Report 2025: A Year of Growth',
-    excerpt: 'Our biggest year yet — 250,000+ lives impacted across 18 countries.',
+    title: 'Annual Report 2025: A Year of Impact',
+    excerpt: 'Our biggest year yet — 250,000+ lives impacted across 12 African nations.',
     image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400',
     category: 'Reports',
     date: '2026-06-28',
   },
   {
-    title: 'Clean Water Initiative Reaches 100th Village',
-    excerpt: 'A century of villages now have access to clean, safe drinking water.',
+    title: 'Clean Water Initiative Reaches 100th Village in East Africa',
+    excerpt: 'A century of villages in Kenya and Tanzania now have access to clean, safe drinking water.',
     image: 'https://images.unsplash.com/photo-1541544741938-0af808871cc0?w=400',
     category: 'Impact',
     date: '2026-06-15',
   },
   {
-    title: 'New Healthcare Center Opens in Nepal',
-    excerpt: 'Serving 10,000+ patients annually in remote mountain communities.',
+    title: 'New Healthcare Center Opens in Lagos, Nigeria',
+    excerpt: 'Serving 10,000+ patients annually in underserved communities across Lagos State.',
     image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400',
     category: 'Healthcare',
     date: '2026-05-20',
@@ -83,7 +83,11 @@ export default function NewsSection() {
           </div>
         </ScrollReveal>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '24px' }}>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 350px), 1fr))',
+          gap: '24px',
+        }}>
           <ScrollReveal>
             <Link to={`${ROUTES.BLOG}/${featured.title.toLowerCase().replace(/\s+/g, '-')}`} style={{ textDecoration: 'none' }}>
               <div className="glass-card" style={{ overflow: 'hidden', height: '100%' }}>

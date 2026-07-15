@@ -31,7 +31,7 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer style={{ background: 'var(--bg-secondary)', paddingTop: '80px' }}>
+    <footer role="contentinfo" aria-label="Site footer" style={{ background: 'var(--bg-secondary)', paddingTop: '80px' }}>
       <AuroraDivider />
       <div style={{
         maxWidth: '1280px',
@@ -81,6 +81,7 @@ export default function Footer() {
                   href={`https://${social}.com/smugflex`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={`Follow us on ${social.charAt(0).toUpperCase() + social.slice(1)}`}
                   style={{
                     width: '40px',
                     height: '40px',
@@ -94,7 +95,7 @@ export default function Footer() {
                     transition: 'all 0.3s',
                   }}
                 >
-                  <i className={`bi bi-${social}`}></i>
+                  <i className={`bi bi-${social}`} aria-hidden="true"></i>
                 </a>
               ))}
             </div>

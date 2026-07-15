@@ -19,8 +19,8 @@ export default function VolunteerSection() {
       <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
         <div style={{
           display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: '80px',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 400px), 1fr))',
+          gap: '60px',
           alignItems: 'center',
         }}>
           <ScrollReveal direction="left">
@@ -47,12 +47,12 @@ export default function VolunteerSection() {
               lineHeight: 1.7,
               marginBottom: '32px',
             }}>
-              Join our global community of changemakers. Whether you have a few hours or a few months, your skills and passion can make a real difference.
+              Join our global community of changemakers. Whether you have a few hours or a few months, your skills and passion can make a real difference in African communities.
             </p>
 
             <div style={{
               display: 'grid',
-              gridTemplateColumns: '1fr 1fr',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))',
               gap: '16px',
               marginBottom: '32px',
             }}>
@@ -82,7 +82,7 @@ export default function VolunteerSection() {
               ))}
             </div>
 
-            <div style={{ display: 'flex', gap: '16px' }}>
+            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
               <Link to={ROUTES.VOLUNTEER}>
                 <MagneticButton>
                   Join as Volunteer <i className="bi bi-arrow-right" style={{ marginLeft: '6px' }}></i>
@@ -94,7 +94,7 @@ export default function VolunteerSection() {
           <ScrollReveal direction="right">
             <div style={{
               display: 'grid',
-              gridTemplateColumns: '1fr 1fr',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 140px), 1fr))',
               gap: '16px',
             }}>
               <GlassCard style={{ padding: '24px', textAlign: 'center' }}>

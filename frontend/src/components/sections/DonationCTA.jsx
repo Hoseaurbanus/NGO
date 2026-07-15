@@ -68,12 +68,12 @@ export default function DonationCTA() {
                 maxWidth: '500px',
                 margin: '0 auto 32px',
               }}>
-                Every dollar you give directly impacts communities. Choose an amount to see your impact.
+                Every dollar you give directly impacts African communities. Choose an amount to see your impact.
               </p>
 
               <div style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(3, 1fr)',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 120px), 1fr))',
                 gap: '12px',
                 marginBottom: '24px',
               }}>

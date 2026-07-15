@@ -6,21 +6,24 @@ import GlassCard from '@components/ui/GlassCard'
 import MagneticButton from '@components/ui/MagneticButton'
 import ScrollReveal from '@components/ui/ScrollReveal'
 
+const offices = [
+  { city: 'Lagos', address: '14 Admiralty Way, Lekki Phase 1, Lagos, Nigeria', phone: '+234 801 234 5678', icon: 'bi-geo-alt' },
+  { city: 'Nairobi', address: 'Westlands Business Park, Nairobi, Kenya', phone: '+254 700 123 456', icon: 'bi-geo-alt' },
+]
+
 const contactInfo = [
-  { icon: 'bi-geo-alt', label: 'Address', value: '123 Impact Avenue, New York, NY 10001' },
-  { icon: 'bi-telephone', label: 'Phone', value: '+1 (555) 123-4567' },
-  { icon: 'bi-envelope', label: 'Email', value: 'info@smugflex.org' },
-  { icon: 'bi-clock', label: 'Hours', value: 'Mon-Fri 9:00 AM - 6:00 PM EST' },
+  { icon: 'bi-envelope', label: 'Email', value: 'info@smugflex.org', href: 'mailto:info@smugflex.org' },
+  { icon: 'bi-telephone', label: 'Phone', value: '+234 801 234 5678', href: 'tel:+2348012345678' },
+  { icon: 'bi-clock', label: 'Hours', value: 'Mon-Fri 8:00 AM - 5:00 PM WAT', href: null },
 ]
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
   const [sent, setSent] = useState(false)
-  const inputStyle = { width: '100%', padding: '14px 16px', borderRadius: 'var(--radius-md)', border: '1px solid var(--glass-border)', background: 'var(--glass-bg)', color: 'white', fontSize: '0.95rem', outline: 'none', fontFamily: 'var(--font-body)' }
 
   return (
     <>
-      <Helmet><title>Contact - SmugFlex</title><meta name="description" content="Get in touch with SmugFlex. We'd love to hear from you." /></Helmet>
+      <Helmet><title>Contact - SmugFlex</title><meta name="description" content="Get in touch with SmugFlex Africa. We'd love to hear from you." /></Helmet>
       <AuroraBackground intensity="light">
         <div style={{ minHeight: '50vh', display: 'flex', alignItems: 'center', padding: '120px 24px 80px' }}>
           <div style={{ maxWidth: '800px', margin: '0 auto' }}>
@@ -32,25 +35,34 @@ export default function Contact() {
       </AuroraBackground>
       <section style={{ padding: '60px 0 120px' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '40px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 400px), 1fr))', gap: '40px' }}>
             <ScrollReveal>
-              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', marginBottom: '24px' }}>Get in Touch</h2>
+              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', marginBottom: '24px' }}>Our Offices</h2>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '32px' }}>
+                {offices.map(o => (
+                  <GlassCard key={o.city} style={{ padding: '20px' }}>
+                    <div style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '1.1rem', color: 'var(--aurora-cyan)', marginBottom: '8px' }}>{o.city}</div>
+                    <div style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', marginBottom: '4px' }}>{o.address}</div>
+                    <a href={`tel:${o.phone.replace(/\s/g, '')}`} style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>{o.phone}</a>
+                  </GlassCard>
+                ))}
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '32px' }}>
                 {contactInfo.map(c => (
-                  <div key={c.label} style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
+                  <div key={c.label} style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
                     <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'rgba(0,229,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                       <i className={`bi ${c.icon}`} style={{ color: 'var(--aurora-cyan)' }}></i>
                     </div>
                     <div>
                       <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '2px' }}>{c.label}</div>
-                      <div style={{ fontSize: '0.95rem' }}>{c.value}</div>
+                      {c.href ? <a href={c.href} style={{ fontSize: '0.95rem' }}>{c.value}</a> : <div style={{ fontSize: '0.95rem' }}>{c.value}</div>}
                     </div>
                   </div>
                 ))}
               </div>
               <div style={{ display: 'flex', gap: '12px' }}>
                 {['twitter', 'facebook', 'instagram', 'linkedin'].map(s => (
-                  <a key={s} href="#" style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'var(--glass-bg)', border: '1px solid var(--glass-border)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-secondary)', transition: 'all 0.3s' }}>
+                  <a key={s} href="#" aria-label={s} style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'var(--glass-bg)', border: '1px solid var(--glass-border)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-secondary)', transition: 'all 0.3s' }}>
                     <i className={`bi bi-${s}`}></i>
                   </a>
                 ))}
@@ -67,12 +79,12 @@ export default function Contact() {
                 ) : (
                   <form onSubmit={e => { e.preventDefault(); setSent(true) }}>
                     <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.3rem', marginBottom: '20px' }}>Send a Message</h2>
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '16px' }}>
-                      <input placeholder="Your Name *" required value={form.name} onChange={e => setForm({...form, name: e.target.value})} style={inputStyle} />
-                      <input placeholder="Email *" required type="email" value={form.email} onChange={e => setForm({...form, email: e.target.value})} style={inputStyle} />
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px', marginBottom: '16px' }}>
+                      <input placeholder="Your Name *" required value={form.name} onChange={e => setForm({...form, name: e.target.value})} />
+                      <input placeholder="Email *" required type="email" value={form.email} onChange={e => setForm({...form, email: e.target.value})} />
                     </div>
-                    <input placeholder="Subject" value={form.subject} onChange={e => setForm({...form, subject: e.target.value})} style={{ ...inputStyle, marginBottom: '16px' }} />
-                    <textarea placeholder="Your Message *" required rows={5} value={form.message} onChange={e => setForm({...form, message: e.target.value})} style={{ ...inputStyle, marginBottom: '24px', resize: 'vertical' }} />
+                    <input placeholder="Subject" value={form.subject} onChange={e => setForm({...form, subject: e.target.value})} style={{ marginBottom: '16px', width: '100%', padding: '14px 16px' }} />
+                    <textarea placeholder="Your Message *" required rows={5} value={form.message} onChange={e => setForm({...form, message: e.target.value})} style={{ marginBottom: '24px', resize: 'vertical', width: '100%', padding: '14px 16px' }} />
                     <MagneticButton style={{ width: '100%' }}>Send Message</MagneticButton>
                   </form>
                 )}

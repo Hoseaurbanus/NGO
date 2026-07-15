@@ -6,17 +6,17 @@ const pillars = [
   {
     icon: 'bi-book',
     title: 'Education',
-    description: 'Providing quality education and learning resources to underserved communities worldwide.',
+    description: 'Providing quality education and learning resources to underserved African communities.',
   },
   {
     icon: 'bi-heart-pulse',
     title: 'Healthcare',
-    description: 'Delivering essential healthcare services and medical supplies to those in need.',
+    description: 'Delivering essential healthcare services and medical supplies across the continent.',
   },
   {
     icon: 'bi-people',
     title: 'Community',
-    description: 'Building resilient communities through sustainable development and empowerment programs.',
+    description: 'Building resilient communities through sustainable development and empowerment.',
   },
   {
     icon: 'bi-globe',
@@ -34,8 +34,8 @@ export default function MissionSection() {
       <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
         <div style={{
           display: 'grid',
-          gridTemplateColumns: '1fr 1.5fr',
-          gap: '80px',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 400px), 1fr))',
+          gap: '60px',
           alignItems: 'start',
         }}>
           <div style={{ position: 'sticky', top: '120px' }}>
@@ -55,14 +55,14 @@ export default function MissionSection() {
                 fontFamily: 'var(--font-display)',
                 marginBottom: '20px',
               }}>
-                Empowering Communities, Transforming Lives
+                Empowering African Communities
               </GradientText>
               <p style={{
                 color: 'var(--text-secondary)',
                 fontSize: '1.1rem',
                 lineHeight: 1.7,
               }}>
-                At SmugFlex, we believe every individual deserves the opportunity to thrive. Our mission is to create lasting change through education, healthcare access, and community-driven development programs.
+                At SmugFlex, we believe every African community deserves the opportunity to thrive. Our mission is to create lasting change through education, healthcare access, and community-driven development.
               </p>
             </ScrollReveal>
           </div>
@@ -103,12 +103,6 @@ export default function MissionSection() {
           </div>
         </div>
       </div>
-
-      <style>{`
-        @media (max-width: 992px) {
-          .mission-grid { grid-template-columns: 1fr !important; }
-        }
-      `}</style>
     </section>
   )
 }
