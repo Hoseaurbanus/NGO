@@ -6,7 +6,6 @@ import ProgramsSection from '@components/sections/ProgramsSection'
 import StoriesSection from '@components/sections/StoriesSection'
 import EventsSection from '@components/sections/EventsSection'
 import NewsSection from '@components/sections/NewsSection'
-import DonationCTA from '@components/sections/DonationCTA'
 import VolunteerSection from '@components/sections/VolunteerSection'
 import PartnersSection from '@components/sections/PartnersSection'
 import TestimonialsSection from '@components/sections/TestimonialsSection'
@@ -27,7 +26,6 @@ export default function Home() {
       <StoriesSection />
       <EventsSection />
       <NewsSection />
-      <DonationCTA />
       <VolunteerSection />
       <PartnersSection />
       <TestimonialsSection />

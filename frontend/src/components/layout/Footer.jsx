@@ -2,132 +2,118 @@ import { Link } from 'react-router-dom'
 import { ROUTES } from '@constants'
 import AuroraDivider from '@components/ui/AuroraDivider'
 
-const footerLinks = {
-  'About': [
-    { label: 'Our Story', path: ROUTES.ABOUT },
-    { label: 'Mission & Vision', path: ROUTES.ABOUT },
-  ],
-  'Programs': [
-    { label: 'Education', path: ROUTES.PROGRAMS },
-    { label: 'Healthcare', path: ROUTES.PROGRAMS },
-  ],
-  'Get Involved': [
-    { label: 'Donate', path: ROUTES.DONATE },
-    { label: 'Volunteer', path: ROUTES.VOLUNTEER },
-    { label: 'Events', path: ROUTES.EVENTS },
-  ],
-  'Resources': [
-    { label: 'Blog', path: ROUTES.BLOG },
-    { label: 'Contact', path: ROUTES.CONTACT },
-  ],
-}
+const quickLinks = [
+  { label: 'About', path: ROUTES.ABOUT },
+  { label: 'Programs', path: ROUTES.PROGRAMS },
+  { label: 'Donate', path: ROUTES.DONATE },
+  { label: 'Volunteer', path: ROUTES.VOLUNTEER },
+  { label: 'Contact', path: ROUTES.CONTACT },
+  { label: 'Blog', path: ROUTES.BLOG },
+]
 
 export default function Footer() {
   return (
-    <footer role="contentinfo" aria-label="Site footer" style={{ background: 'var(--bg-secondary)', paddingTop: '80px' }}>
+    <footer role="contentinfo" aria-label="Site footer" style={{ background: 'var(--bg-secondary)', paddingTop: '60px' }}>
       <AuroraDivider />
       <div style={{
         maxWidth: '1280px',
         margin: '0 auto',
-        padding: '60px 24px 40px',
+        padding: '40px 24px 32px',
       }}>
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))',
           gap: '40px',
-          marginBottom: '60px',
+          marginBottom: '40px',
         }}>
           <div>
-            <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none', marginBottom: '16px' }}>
+            <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none', marginBottom: '12px' }}>
               <div style={{
-                width: '40px',
-                height: '40px',
-                borderRadius: '12px',
+                width: '36px',
+                height: '36px',
+                borderRadius: '10px',
                 background: 'var(--gradient-aurora)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 fontFamily: 'var(--font-display)',
                 fontWeight: 700,
-                fontSize: '16px',
+                fontSize: '14px',
                 color: 'white',
               }}>NG</div>
               <span style={{
                 fontFamily: 'var(--font-display)',
-                fontSize: '1.25rem',
+                fontSize: '1.1rem',
                 fontWeight: 700,
                 color: 'white',
               }}>NGO</span>
             </Link>
             <p style={{
               color: 'var(--text-secondary)',
-              fontSize: '0.9rem',
-              lineHeight: 1.7,
-              marginBottom: '20px',
+              fontSize: '0.85rem',
+              lineHeight: 1.6,
+              marginBottom: '16px',
             }}>
-              Making a Difference. A modern organization dedicated to creating meaningful change.
+              Making a difference through community development worldwide.
             </p>
-<div className="footer-social" style={{ display: 'flex', gap: '12px' }}>
-                {['twitter', 'facebook', 'instagram', 'linkedin', 'youtube'].map(social => (
-                  <a
-                    key={social}
-                    href={`https://${social}.com/yourorg`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Follow us on ${social.charAt(0).toUpperCase() + social.slice(1)}`}
-                    style={{
-                      width: '48px',
-                      height: '48px',
-                      borderRadius: '12px',
-                      background: 'var(--glass-bg)',
-                      border: '1px solid var(--glass-border)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: 'var(--text-secondary)',
-                      transition: 'all 0.3s var(--ease-smooth)',
-                    }}
-                  >
-                    <i className={`bi bi-${social}`} aria-hidden="true"></i>
-                  </a>
-                ))}
-              </div>
+            <div style={{ display: 'flex', gap: '10px' }}>
+              {['twitter', 'facebook', 'instagram', 'linkedin'].map(social => (
+                <a
+                  key={social}
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Follow us on ${social.charAt(0).toUpperCase() + social.slice(1)}`}
+                  style={{
+                    width: '40px',
+                    height: '40px',
+                    borderRadius: '10px',
+                    background: 'var(--glass-bg)',
+                    border: '1px solid var(--glass-border)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: 'var(--text-secondary)',
+                    transition: 'all 0.3s var(--ease-smooth)',
+                  }}
+                >
+                  <i className={`bi bi-${social}`} aria-hidden="true"></i>
+                </a>
+              ))}
+            </div>
           </div>
 
-          {Object.entries(footerLinks).map(([title, links]) => (
-            <div key={title}>
-              <h4 style={{
-                fontFamily: 'var(--font-display)',
-                fontSize: '0.9rem',
-                fontWeight: 700,
-                color: 'var(--text-primary)',
-                marginBottom: '20px',
-                textTransform: 'uppercase',
-                letterSpacing: '0.05em',
-              }}>{title}</h4>
-              <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-{links.map(link => (
-                    <li key={link.label} style={{ marginBottom: '8px' }}>
-                      <Link
-                        to={link.path}
-                        className="link-underline"
-                        style={{
-                          color: 'var(--text-secondary)',
-                          fontSize: '0.875rem',
-                          textDecoration: 'none',
-                          transition: 'color 0.3s',
-                          display: 'block',
-                          minHeight: '44px',
-                          padding: '8px 0',
-                        }}
-                      >
-                        {link.label}
-                      </Link>
-                    </li>
-                 ))}
-              </ul>
-            </div>
-          ))}
+          <div>
+            <h4 style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '0.85rem',
+              fontWeight: 700,
+              color: 'var(--text-primary)',
+              marginBottom: '16px',
+              textTransform: 'uppercase',
+              letterSpacing: '0.05em',
+            }}>Quick Links</h4>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '4px 24px' }}>
+              {quickLinks.map(link => (
+                <li key={link.label}>
+                  <Link
+                    to={link.path}
+                    className="link-underline"
+                    style={{
+                      color: 'var(--text-secondary)',
+                      fontSize: '0.85rem',
+                      textDecoration: 'none',
+                      transition: 'color 0.3s',
+                      display: 'block',
+                      padding: '6px 0',
+                    }}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         <AuroraDivider />
@@ -137,13 +123,13 @@ export default function Footer() {
           flexWrap: 'wrap',
           justifyContent: 'space-between',
           alignItems: 'center',
-          paddingTop: '24px',
-          gap: '16px',
+          paddingTop: '20px',
+          gap: '12px',
         }}>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.8rem' }}>
             &copy; {new Date().getFullYear()} NGO. All rights reserved.
           </p>
-          <div style={{ display: 'flex', gap: '24px' }}>
+          <div style={{ display: 'flex', gap: '20px' }}>
             <Link to={ROUTES.PRIVACY} style={{ color: 'var(--text-muted)', fontSize: '0.8rem', textDecoration: 'none' }}>Privacy Policy</Link>
             <Link to={ROUTES.TERMS} style={{ color: 'var(--text-muted)', fontSize: '0.8rem', textDecoration: 'none' }}>Terms of Service</Link>
           </div>

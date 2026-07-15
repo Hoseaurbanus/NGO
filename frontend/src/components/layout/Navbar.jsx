@@ -55,14 +55,12 @@ export default function Navbar() {
     lastFocusedRef.current = document.activeElement
     setMobileOpen(true)
     document.body.style.overflow = 'hidden'
-    document.body.style.paddingRight = `${window.innerWidth - document.documentElement.clientWidth}px`
     setTimeout(() => mobileMenuRef.current?.focus(), 50)
   }, [])
 
   const closeMobileMenu = useCallback(() => {
     setMobileOpen(false)
     document.body.style.overflow = ''
-    document.body.style.paddingRight = ''
     lastFocusedRef.current?.focus()
   }, [])
 
@@ -183,7 +181,7 @@ export default function Navbar() {
                 ))}
               </div>
 
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <div className="desktop-actions" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                 <Link to={ROUTES.DONATE}>
                   <MagneticButton size="sm">Donate</MagneticButton>
                 </Link>
@@ -202,7 +200,7 @@ export default function Navbar() {
             <button
               className="mobile-menu-btn"
               onClick={openMobileMenu}
-              aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+              aria-label="Open menu"
               aria-expanded={mobileOpen}
               aria-controls="mobile-menu"
               style={{
@@ -214,7 +212,6 @@ export default function Navbar() {
                 zIndex: 1001,
                 minWidth: '44px',
                 minHeight: '44px',
-                display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
               }}
@@ -231,9 +228,7 @@ export default function Navbar() {
                   height: '2px',
                   background: 'white',
                   borderRadius: '1px',
-                  transition: 'all 0.3s var(--ease-smooth)',
-                  top: mobileOpen ? '8px' : '0',
-                  transform: mobileOpen ? 'rotate(45deg)' : 'none',
+                  top: '0',
                 }} />
                 <span style={{
                   position: 'absolute',
@@ -243,8 +238,6 @@ export default function Navbar() {
                   height: '2px',
                   background: 'white',
                   borderRadius: '1px',
-                  opacity: mobileOpen ? 0 : 1,
-                  transition: 'all 0.3s var(--ease-smooth)',
                 }} />
                 <span style={{
                   position: 'absolute',
@@ -253,9 +246,7 @@ export default function Navbar() {
                   height: '2px',
                   background: 'white',
                   borderRadius: '1px',
-                  transition: 'all 0.3s var(--ease-smooth)',
-                  top: mobileOpen ? '8px' : '16px',
-                  transform: mobileOpen ? 'rotate(-45deg)' : 'none',
+                  top: '16px',
                 }} />
               </div>
             </button>
@@ -274,7 +265,7 @@ export default function Navbar() {
         style={{
           position: 'fixed',
           inset: 0,
-          zIndex: 999,
+          zIndex: 1002,
           background: 'rgba(10, 14, 26, 0.98)',
           backdropFilter: 'blur(8px)',
           WebkitBackdropFilter: 'blur(8px)',
@@ -283,7 +274,8 @@ export default function Navbar() {
           alignItems: 'center',
           justifyContent: 'center',
           gap: '16px',
-          padding: '24px',
+          padding: '80px 24px 24px',
+          overflowY: 'auto',
           opacity: mobileOpen ? 1 : 0,
           pointerEvents: mobileOpen ? 'auto' : 'none',
           transition: 'all 0.4s var(--ease-smooth)',
@@ -291,6 +283,7 @@ export default function Navbar() {
       >
         <button
           onClick={closeMobileMenu}
+          className="mobile-close-btn"
           style={{
             position: 'absolute',
             top: '16px',
@@ -351,7 +344,8 @@ export default function Navbar() {
       <style>{`
         @media (max-width: 992px) {
           .desktop-nav { display: none !important; }
-          .mobile-menu-btn { display: flex !important; align-items: center; justify-content: center; }
+          .desktop-actions { display: none !important; }
+          .mobile-menu-btn { display: flex !important; }
         }
         @media (max-width: 576px) {
           .mobile-menu a { font-size: 1.2rem !important; }
