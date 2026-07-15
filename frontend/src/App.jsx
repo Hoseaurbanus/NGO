@@ -6,6 +6,9 @@ import Navbar from '@components/layout/Navbar'
 import Footer from '@components/layout/Footer'
 import CustomCursor from '@components/ui/CustomCursor'
 import PortalLayout from '@components/layout/PortalLayout'
+import ScrollProgress from '@components/ui/ScrollProgress'
+import BackToTop from '@components/ui/BackToTop'
+import PageTransition from '@components/ui/PageTransition'
 
 const Home = lazy(() => import('@pages/public/Home'))
 const About = lazy(() => import('@pages/public/About'))
@@ -79,7 +82,9 @@ function PublicLayout({ children }) {
       </a>
       <Navbar />
       <main id="main-content" style={{ minHeight: '100vh' }}>
-        <Suspense fallback={<LoadingScreen />}>{children}</Suspense>
+        <Suspense fallback={<LoadingScreen />}>
+          <PageTransition>{children}</PageTransition>
+        </Suspense>
       </main>
       <Footer />
     </>
@@ -90,6 +95,8 @@ export default function App() {
   return (
     <AuthProvider>
       <CustomCursor />
+      <ScrollProgress />
+      <BackToTop />
       <Routes>
         {/* Public Routes */}
         <Route path="/" element={<PublicLayout><Home /></PublicLayout>} />

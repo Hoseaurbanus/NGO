@@ -30,6 +30,14 @@ export default function Navbar() {
     setMobileOpen(false)
   }, [location])
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 992 && mobileOpen) setMobileOpen(false)
+    }
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [mobileOpen])
+
   const handleEscKey = useCallback((e) => {
     if (e.key === 'Escape' && mobileOpen) {
       setMobileOpen(false)

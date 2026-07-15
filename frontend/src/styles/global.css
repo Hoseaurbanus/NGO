@@ -650,3 +650,200 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
     gap: 16px !important;
   }
 }
+
+/* ============ BALANCED HEADINGS ============ */
+h1, h2, h3, h4 {
+  text-wrap: balance;
+}
+
+/* ============ SCROLL PROGRESS BAR ============ */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 2000;
+  pointer-events: none;
+}
+
+.scroll-progress__bar {
+  height: 100%;
+  background: var(--gradient-aurora);
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.5);
+  transform-origin: left center;
+  transition: transform 0.1s linear;
+}
+
+/* ============ BACK TO TOP ============ */
+.back-to-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1500;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--gradient-aurora);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  opacity: 0;
+  transform: translateY(20px) scale(0.8);
+  pointer-events: none;
+  box-shadow: 0 8px 30px rgba(0, 229, 255, 0.3);
+  transition: opacity 0.3s var(--ease-smooth), transform 0.3s var(--ease-spring), box-shadow 0.3s var(--ease-smooth);
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: all;
+}
+
+.back-to-top:hover {
+  transform: translateY(-3px) scale(1.08) !important;
+  box-shadow: 0 12px 40px rgba(0, 229, 255, 0.45);
+}
+
+.back-to-top:active {
+  transform: translateY(0) scale(0.95) !important;
+}
+
+@media (max-width: 576px) {
+  .back-to-top {
+    bottom: 16px;
+    right: 16px;
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* ============ PAGE TRANSITION ============ */
+.page-transition {
+  animation: page-enter 0.55s var(--ease-out) both;
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ============ ANIMATED LINK UNDERLINE ============ */
+.link-underline {
+  position: relative;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 1px;
+  width: 0;
+  background: var(--gradient-aurora);
+  transition: width 0.3s var(--ease-smooth);
+}
+
+.link-underline:hover::after,
+.link-underline:focus-visible::after {
+  width: 100%;
+}
+
+/* Nav link hover underline */
+.desktop-nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  height: 2px;
+  width: 0;
+  background: var(--gradient-aurora);
+  border-radius: 1px;
+  transition: width 0.3s var(--ease-smooth);
+}
+
+.desktop-nav a:hover::after {
+  width: 100%;
+}
+
+/* Mobile menu link underline */
+.mobile-menu a {
+  position: relative;
+}
+
+.mobile-menu a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 2px;
+  width: 0;
+  background: var(--gradient-aurora);
+  border-radius: 1px;
+  transition: width 0.3s var(--ease-smooth);
+}
+
+.mobile-menu a:hover::after {
+  width: 100%;
+}
+
+/* ============ BUTTON PRESS FEEDBACK ============ */
+button:not(.magnetic-btn):not(.back-to-top):active {
+  transform: scale(0.97);
+}
+
+/* ============ GLASS HOVER UTILITY ============ */
+.hover-lift {
+  transition: transform 0.3s var(--ease-smooth), border-color 0.3s var(--ease-smooth), box-shadow 0.3s var(--ease-smooth);
+}
+
+@media (hover: hover) {
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    border-color: var(--border-glow);
+    box-shadow: var(--shadow-glow);
+  }
+}
+
+/* ============ TAG / PILL ============ */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  background: rgba(0, 229, 255, 0.1);
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  color: var(--aurora-cyan);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letterSpacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ============ FOOTER SOCIAL HOVER ============ */
+@media (hover: hover) {
+  .footer-social a:hover {
+    transform: translateY(-3px);
+    border-color: var(--aurora-cyan);
+    color: var(--aurora-cyan);
+    box-shadow: 0 6px 20px rgba(0, 229, 255, 0.2);
+  }
+}
+
+/* ============ FOOTER LINK HOVER ============ */
+.footer-column a:hover,
+.link-underline:hover {
+  color: var(--aurora-cyan) !important;
+}
