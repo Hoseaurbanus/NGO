@@ -1,8 +1,8 @@
 <?php
 /**
- * SmugFlex API - Universal Entry Point
+ * SmugFlex API - Standalone Entry Point
  * Works without mod_rewrite - query string routing
- * 
+ *
  * Usage:
  *   GET  ?route=programs
  *   GET  ?route=programs/1
@@ -63,7 +63,7 @@ function input(): array {
     return $raw ? json_decode($raw, true) : [];
 }
 
-// Get route from query string or path
+// Get route
 $uri = $_GET['route'] ?? '';
 if (empty($uri)) {
     $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
@@ -107,12 +107,74 @@ if ($uri === '/auth/register' && $method === 'POST') {
     }
 }
 
-// ============ RESOURCES ============
+// ============ SPECIAL ROUTES (before generic) ============
+
+// Reports
+if ($uri === '/reports/dashboard' && $method === 'GET') {
+    try {
+        $pdo = db();
+        $stats = [];
+        foreach (['users','programs','projects','events','donations','volunteers','news'] as $t) {
+            $stats[$t] = (int)$pdo->query("SELECT COUNT(*) FROM $t WHERE deleted_at IS NULL")->fetchColumn();
+        }
+        $stats['total_raised'] = (float)$pdo->query("SELECT COALESCE(SUM(amount),0) FROM donations WHERE status='completed' AND deleted_at IS NULL")->fetchColumn();
+        json(['success'=>true,'data'=>$stats]);
+    } catch (Exception $e) { json(['success'=>false,'message'=>'Error'], 500); }
+}
+
+// Donation history
+if ($uri === '/donations/history' && $method === 'GET') {
+    try {
+        $s = db()->query("SELECT d.*, c.title as campaign_title FROM donations d LEFT JOIN campaigns c ON d.campaign_id = c.id WHERE d.deleted_at IS NULL ORDER BY d.created_at DESC LIMIT 50");
+        json(['success'=>true,'data'=>$s->fetchAll()]);
+    } catch (Exception $e) { json(['success'=>false,'message'=>'Error'], 500); }
+}
+
+// Volunteer approve/reject
+if (preg_match('#^/volunteers/(\d+)/approve$#', $uri, $m) && $method === 'PUT') {
+    try {
+        $s = db()->prepare("UPDATE volunteers SET status='approved', updated_at=NOW() WHERE id=?");
+        $s->execute([$m[1]]);
+        json(['success'=>true,'message'=>'Volunteer approved']);
+    } catch (Exception $e) { json(['success'=>false,'message'=>'Error'], 500); }
+}
+
+if (preg_match('#^/volunteers/(\d+)/reject$#', $uri, $m) && $method === 'PUT') {
+    try {
+        $s = db()->prepare("UPDATE volunteers SET status='rejected', updated_at=NOW() WHERE id=?");
+        $s->execute([$m[1]]);
+        json(['success'=>true,'message'=>'Volunteer rejected']);
+    } catch (Exception $e) { json(['success'=>false,'message'=>'Error'], 500); }
+}
+
+// Newsletter subscribe/unsubscribe
+if ($uri === '/newsletter/subscribe' && $method === 'POST') {
+    $d = input();
+    if (empty($d['email'])) json(['success'=>false,'message'=>'Email required'], 400);
+    try {
+        $s = db()->prepare("INSERT INTO newsletter_subscribers (email,status,subscribed_at) VALUES (?,'active',NOW()) ON DUPLICATE KEY UPDATE status='active'");
+        $s->execute([$d['email']]);
+        json(['success'=>true,'message'=>'Subscribed'], 201);
+    } catch (Exception $e) { json(['success'=>false,'message'=>'Error'], 500); }
+}
+
+if ($uri === '/newsletter/unsubscribe' && $method === 'DELETE') {
+    $d = input();
+    if (empty($d['email'])) json(['success'=>false,'message'=>'Email required'], 400);
+    try {
+        $s = db()->prepare("UPDATE newsletter_subscribers SET status='inactive', unsubscribed_at=NOW() WHERE email=?");
+        $s->execute([$d['email']]);
+        json(['success'=>true,'message'=>'Unsubscribed']);
+    } catch (Exception $e) { json(['success'=>false,'message'=>'Error'], 500); }
+}
+
+// ============ GENERIC RESOURCES ============
 $resources = [
     'programs'=>'programs', 'projects'=>'projects', 'events'=>'events', 'news'=>'news',
     'donations'=>'donations', 'campaigns'=>'campaigns', 'volunteers'=>'volunteers',
     'gallery'=>'gallery', 'testimonials'=>'testimonials', 'partners'=>'partners',
     'careers'=>'careers', 'messages'=>'messages', 'users'=>'users', 'settings'=>'settings',
+    'applications'=>'applications', 'activity_logs'=>'activity_logs',
 ];
 
 $parts = array_values(array_filter(explode('/', $uri)));
@@ -179,40 +241,39 @@ if (isset($resources[$resource])) {
     } catch (Exception $e) { json(['success'=>false,'message'=>'Error: '.$e->getMessage()], 500); }
 }
 
-// ============ SPECIAL ROUTES ============
-if ($uri === '/reports/dashboard' && $method === 'GET') {
-    try {
-        $pdo = db();
-        $stats = [];
-        foreach (['users','programs','projects','events','donations','volunteers','news'] as $t) {
-            $stats[$t] = (int)$pdo->query("SELECT COUNT(*) FROM $t WHERE deleted_at IS NULL")->fetchColumn();
-        }
-        $stats['total_raised'] = (float)$pdo->query("SELECT COALESCE(SUM(amount),0) FROM donations WHERE status='completed' AND deleted_at IS NULL")->fetchColumn();
-        json(['success'=>true,'data'=>$stats]);
-    } catch (Exception $e) { json(['success'=>false,'message'=>'Error'], 500); }
-}
-
-if ($uri === '/volunteers' && $method === 'GET') {
-    try {
-        $s = db()->query("SELECT * FROM volunteers WHERE deleted_at IS NULL ORDER BY created_at DESC");
-        json(['success'=>true,'data'=>$s->fetchAll()]);
-    } catch (Exception $e) { json(['success'=>false,'message'=>'Error'], 500); }
-}
-
-if ($uri === '/newsletter/subscribe' && $method === 'POST') {
+// ============ CAREER APPLY ============
+if (preg_match('#^/careers/(\d+)/apply$#', $uri, $m) && $method === 'POST') {
     $d = input();
-    if (empty($d['email'])) json(['success'=>false,'message'=>'Email required'], 400);
+    if (empty($d['name']) || empty($d['email'])) json(['success'=>false,'message'=>'Name and email required'], 400);
     try {
-        $s = db()->prepare("INSERT INTO newsletter_subscribers (email,status,subscribed_at) VALUES (?,'active',NOW()) ON DUPLICATE KEY UPDATE status='active'");
-        $s->execute([$d['email']]);
-        json(['success'=>true,'message'=>'Subscribed'], 201);
+        $d['career_id'] = $m[1];
+        $d['created_at'] = date('Y-m-d H:i:s');
+        $d['updated_at'] = date('Y-m-d H:i:s');
+        $cols = implode(',', array_map(fn($k)=>"`$k`", array_keys($d)));
+        $ph = implode(',', array_fill(0,count($d),'?'));
+        $s = db()->prepare("INSERT INTO applications ($cols) VALUES ($ph)");
+        $s->execute(array_values($d));
+        json(['success'=>true,'message'=>'Application submitted'], 201);
+    } catch (Exception $e) { json(['success'=>false,'message'=>'Error'], 500); }
+}
+
+// ============ MESSAGE MARK READ ============
+if (preg_match('#^/messages/(\d+)/read$#', $uri, $m) && $method === 'PUT') {
+    try {
+        $s = db()->prepare("UPDATE messages SET is_read=1 WHERE id=?");
+        $s->execute([$m[1]]);
+        json(['success'=>true,'message'=>'Marked as read']);
     } catch (Exception $e) { json(['success'=>false,'message'=>'Error'], 500); }
 }
 
 // Home / health check
-json(['status'=>'ok','api'=>'SmugFlex API v1','version'=>'1.0.0','endpoints'=>[
-    'auth/login','auth/register',
-    'programs','projects','events','news','donations','campaigns',
-    'volunteers','gallery','testimonials','partners','careers',
-    'messages','users','settings','reports/dashboard','newsletter/subscribe'
+json(['status'=>'ok','api'=>'SmugFlex API v1','version'=>'1.0.0','routes'=>[
+    'GET /?route=programs'=>'List programs',
+    'GET /?route=programs/1'=>'Get program',
+    'POST /?route=auth/login'=>'Login',
+    'POST /?route=auth/register'=>'Register',
+    'GET /?route=reports/dashboard'=>'Dashboard stats',
+    'POST /?route=newsletter/subscribe'=>'Subscribe',
+    'PUT /?route=volunteers/1/approve'=>'Approve volunteer',
+    'PUT /?route=volunteers/1/reject'=>'Reject volunteer',
 ]]);
