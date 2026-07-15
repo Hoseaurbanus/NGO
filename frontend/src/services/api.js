@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080/api/v1'
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080/index.php'
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -8,6 +8,15 @@ const api = axios.create({
   headers: {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
+  },
+  paramsSerializer: (params) => {
+    const parts = []
+    for (const [key, value] of Object.entries(params)) {
+      if (value !== null && value !== undefined) {
+        parts.push(`${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
+      }
+    }
+    return parts.join('&')
   },
 })
 
@@ -32,7 +41,7 @@ api.interceptors.response.use(
       try {
         const refreshToken = localStorage.getItem('sf_refresh_token')
         if (refreshToken) {
-          const { data } = await axios.post(`${API_BASE_URL}/auth/refresh`, {
+          const { data } = await axios.post(`${API_BASE_URL}?route=auth/refresh`, {
             refresh_token: refreshToken,
           })
           localStorage.setItem('sf_access_token', data.access_token)
@@ -52,5 +61,34 @@ api.interceptors.response.use(
     return Promise.reject(error)
   }
 )
+
+// Helper: convert path to query string format
+// GET /programs → GET ?route=programs
+// GET /programs/1 → GET ?route=programs/1
+// POST /auth/login → POST ?route=auth/login
+const originalGet = api.get.bind(api)
+const originalPost = api.post.bind(api)
+const originalPut = api.put.bind(api)
+const originalDelete = api.delete.bind(api)
+
+api.get = (url, config = {}) => {
+  const route = url.replace(/^\//, '')
+  return originalGet('', { ...config, params: { route, ...config.params } })
+}
+
+api.post = (url, data, config = {}) => {
+  const route = url.replace(/^\//, '')
+  return originalPost('', data, { ...config, params: { route, ...config.params } })
+}
+
+api.put = (url, data, config = {}) => {
+  const route = url.replace(/^\//, '')
+  return originalPut('', data, { ...config, params: { route, ...config.params } })
+}
+
+api.delete = (url, config = {}) => {
+  const route = url.replace(/^\//, '')
+  return originalDelete('', { ...config, params: { route, ...config.params } })
+}
 
 export default api
