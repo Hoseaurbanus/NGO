@@ -1,5 +1,6 @@
 import ScrollReveal from '@components/ui/ScrollReveal'
-import GradientText from '@components/ui/GradientText'
+import Container from '@components/ui/Container'
+import SectionHeading from '@components/ui/SectionHeading'
 import GlassCard from '@components/ui/GlassCard'
 
 const pillars = [
@@ -31,7 +32,7 @@ export default function MissionSection() {
       padding: '120px 0',
       position: 'relative',
     }}>
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
+      <Container>
         <div className="mission-grid" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 400px), 1fr))',
@@ -40,30 +41,7 @@ export default function MissionSection() {
         }}>
           <div className="mission-sticky" style={{ position: 'sticky', top: '120px' }}>
             <ScrollReveal>
-              <div style={{
-                fontFamily: 'var(--font-mono)',
-                fontSize: '0.8rem',
-                color: 'var(--aurora-cyan)',
-                letterSpacing: '0.1em',
-                textTransform: 'uppercase',
-                marginBottom: '16px',
-              }}>
-                Our Mission
-              </div>
-              <GradientText tag="h2" gradient="aurora" style={{
-                fontSize: 'clamp(2rem, 4vw, 3rem)',
-                fontFamily: 'var(--font-display)',
-                marginBottom: '20px',
-              }}>
-                Empowering Communities
-              </GradientText>
-              <p style={{
-                color: 'var(--text-secondary)',
-                fontSize: '1.1rem',
-                lineHeight: 1.7,
-              }}>
-                At NGO, we believe every community deserves the opportunity to thrive. Our mission is to create lasting change through education, healthcare access, and community-driven development.
-              </p>
+              <SectionHeading align="left" eyebrow="Our Mission" title="Empowering Communities" subtitle="At NGO, we believe every community deserves the opportunity to thrive. Our mission is to create lasting change through education, healthcare access, and community-driven development." />
             </ScrollReveal>
           </div>
 
@@ -102,7 +80,7 @@ export default function MissionSection() {
             ))}
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   )
 }

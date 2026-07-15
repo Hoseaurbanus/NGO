@@ -822,7 +822,7 @@ button:not(.magnetic-btn):not(.back-to-top):active {
   align-items: center;
   gap: 6px;
   padding: 6px 14px;
-  border-radius: var(--radius-full);
+  borderRadius: var(--radius-full);
   background: rgba(0, 229, 255, 0.1);
   border: 1px solid rgba(0, 229, 255, 0.2);
   color: var(--aurora-cyan);
@@ -830,6 +830,106 @@ button:not(.magnetic-btn):not(.back-to-top):active {
   font-size: 0.78rem;
   letterSpacing: 0.08em;
   text-transform: uppercase;
+}
+
+/* ============ DESIGN SYSTEM TOKENS ============ */
+:root {
+  /* Spacing scale (8px base) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 40px;
+  --space-8: 48px;
+  --space-9: 64px;
+  --space-10: 80px;
+  --space-11: 96px;
+  --space-12: 120px;
+
+  /* Standardized type scale */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: clamp(1.5rem, 3vw, 2rem);
+  --text-3xl: clamp(2rem, 4vw, 3rem);
+  --text-4xl: clamp(2.5rem, 6vw, 4rem);
+  --text-5xl: clamp(3rem, 8vw, 5.5rem);
+
+  /* Standard radius */
+  --radius-card: var(--radius-lg);
+
+  /* Standard card surface */
+  --card-bg: var(--glass-bg);
+  --card-border: var(--glass-border);
+}
+
+/* ============ SECTION HEADER SYSTEM ============ */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--aurora-cyan);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-4);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-3xl);
+  line-height: 1.15;
+  color: var(--text-primary);
+  margin-bottom: var(--space-4);
+}
+
+.section-title--gradient {
+  /* gradient fill handled by GradientText inline styles */
+  margin-bottom: var(--space-4);
+}
+
+.section-subtitle {
+  color: var(--text-secondary);
+  font-size: var(--text-lg);
+  line-height: 1.7;
+  max-width: 600px;
+}
+
+.section-heading {
+  margin-bottom: var(--space-8);
+}
+
+.section-heading.is-center {
+  text-align: center;
+}
+
+.section-heading.is-center .section-subtitle {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-heading.is-left {
+  text-align: left;
+}
+
+/* ============ STANDARD CARD ============ */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-card);
+  padding: var(--space-6);
+  transition: transform 0.3s var(--ease-smooth), border-color 0.3s var(--ease-smooth), box-shadow 0.3s var(--ease-smooth);
+}
+
+@media (hover: hover) {
+  .card:hover {
+    transform: translateY(-4px);
+    border-color: var(--border-glow);
+    box-shadow: var(--shadow-glow);
+  }
 }
 
 /* ============ FOOTER SOCIAL HOVER ============ */

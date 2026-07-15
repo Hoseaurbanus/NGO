@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import ScrollReveal from '@components/ui/ScrollReveal'
-import GradientText from '@components/ui/GradientText'
+import Container from '@components/ui/Container'
+import SectionHeading from '@components/ui/SectionHeading'
 import GlassCard from '@components/ui/GlassCard'
 
 const testimonials = [
@@ -39,26 +40,9 @@ export default function TestimonialsSection() {
 
   return (
     <section className="testimonials-section" style={{ padding: '120px 0' }}>
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
+      <Container>
         <ScrollReveal>
-          <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-            <div style={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: '0.8rem',
-              color: 'var(--aurora-cyan)',
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase',
-              marginBottom: '16px',
-            }}>
-              Testimonials
-            </div>
-            <GradientText tag="h2" gradient="aurora" style={{
-              fontSize: 'clamp(2rem, 4vw, 3rem)',
-              fontFamily: 'var(--font-display)',
-            }}>
-              What People Say
-            </GradientText>
-          </div>
+          <SectionHeading align="center" eyebrow="Testimonials" title="What People Say" />
         </ScrollReveal>
 
         <div style={{
@@ -109,7 +93,7 @@ export default function TestimonialsSection() {
             </ScrollReveal>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   )
 }

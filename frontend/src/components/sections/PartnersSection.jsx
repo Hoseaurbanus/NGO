@@ -1,4 +1,6 @@
 import ScrollReveal from '@components/ui/ScrollReveal'
+import Container from '@components/ui/Container'
+import SectionHeading from '@components/ui/SectionHeading'
 
 const partners = [
   { name: 'Foundation A', logo: 'FA' },
@@ -14,28 +16,9 @@ const partners = [
 export default function PartnersSection() {
   return (
     <section className="partners-section" style={{ padding: '80px 0', background: 'var(--bg-secondary)' }}>
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
+      <Container>
         <ScrollReveal>
-          <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-            <div style={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: '0.8rem',
-              color: 'var(--aurora-cyan)',
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase',
-              marginBottom: '16px',
-            }}>
-              Our Partners
-            </div>
-            <h2 style={{
-              fontFamily: 'var(--font-display)',
-              fontSize: '1.5rem',
-              color: 'var(--text-secondary)',
-              fontWeight: 500,
-            }}>
-              Trusted by leading organizations worldwide
-            </h2>
-          </div>
+          <SectionHeading align="center" eyebrow="Our Partners" title="Trusted by leading organizations worldwide" />
         </ScrollReveal>
 
         <div className="partners-grid" style={{
@@ -71,7 +54,7 @@ export default function PartnersSection() {
             </div>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   )
 }

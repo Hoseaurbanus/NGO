@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import ScrollReveal from '@components/ui/ScrollReveal'
-import GradientText from '@components/ui/GradientText'
+import Container from '@components/ui/Container'
+import SectionHeading from '@components/ui/SectionHeading'
 import GlassCard from '@components/ui/GlassCard'
 import MagneticButton from '@components/ui/MagneticButton'
 import CountUp from '@components/ui/CountUp'
@@ -16,7 +17,7 @@ const benefits = [
 export default function VolunteerSection() {
   return (
     <section className="volunteer-section" style={{ padding: '120px 0' }}>
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
+      <Container>
         <div className="volunteer-grid" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 400px), 1fr))',
@@ -24,31 +25,7 @@ export default function VolunteerSection() {
           alignItems: 'center',
         }}>
           <ScrollReveal direction="left">
-            <div style={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: '0.8rem',
-              color: 'var(--aurora-cyan)',
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase',
-              marginBottom: '16px',
-            }}>
-              Get Involved
-            </div>
-            <GradientText tag="h2" gradient="aurora" style={{
-              fontSize: 'clamp(2rem, 4vw, 3rem)',
-              fontFamily: 'var(--font-display)',
-              marginBottom: '20px',
-            }}>
-              Become a Volunteer
-            </GradientText>
-            <p style={{
-              color: 'var(--text-secondary)',
-              fontSize: '1.05rem',
-              lineHeight: 1.7,
-              marginBottom: '32px',
-            }}>
-              Join our global community of changemakers. Whether you have a few hours or a few months, your skills and passion can make a real difference in communities worldwide.
-            </p>
+            <SectionHeading align="left" eyebrow="Get Involved" title="Become a Volunteer" subtitle="Join our global community of changemakers. Whether you have a few hours or a few months, your skills and passion can make a real difference in communities worldwide." />
 
             <div style={{
               display: 'grid',
@@ -124,7 +101,7 @@ export default function VolunteerSection() {
             </div>
           </ScrollReveal>
         </div>
-      </div>
+      </Container>
     </section>
   )
 }

@@ -1,5 +1,6 @@
 import ScrollReveal from '@components/ui/ScrollReveal'
-import GradientText from '@components/ui/GradientText'
+import Container from '@components/ui/Container'
+import SectionHeading from '@components/ui/SectionHeading'
 import CountUp from '@components/ui/CountUp'
 import AuroraBackground from '@components/ui/AuroraBackground'
 
@@ -15,35 +16,9 @@ const impactStats = [
 export default function ImpactSection() {
   return (
     <AuroraBackground intensity="light" className="impact-section" style={{ padding: '120px 0' }}>
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
+      <Container>
         <ScrollReveal>
-          <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-            <div style={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: '0.8rem',
-              color: 'var(--aurora-cyan)',
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase',
-              marginBottom: '16px',
-            }}>
-              Our Impact
-            </div>
-            <GradientText tag="h2" gradient="aurora" style={{
-              fontSize: 'clamp(2rem, 4vw, 3rem)',
-              fontFamily: 'var(--font-display)',
-              marginBottom: '16px',
-            }}>
-              Numbers That Tell Our Story
-            </GradientText>
-            <p style={{
-              color: 'var(--text-secondary)',
-              fontSize: '1.1rem',
-              maxWidth: '600px',
-              margin: '0 auto',
-            }}>
-              Every number represents a life touched, a community strengthened, a future brightened.
-            </p>
-          </div>
+          <SectionHeading align="center" eyebrow="Our Impact" title="Numbers That Tell Our Story" subtitle="Every number represents a life touched, a community strengthened, a future brightened." />
         </ScrollReveal>
 
         <div style={{
@@ -94,7 +69,7 @@ export default function ImpactSection() {
             </ScrollReveal>
           ))}
         </div>
-      </div>
+      </Container>
     </AuroraBackground>
   )
 }

@@ -1,5 +1,6 @@
 import ScrollReveal from '@components/ui/ScrollReveal'
-import GradientText from '@components/ui/GradientText'
+import Container from '@components/ui/Container'
+import SectionHeading from '@components/ui/SectionHeading'
 
 const stories = [
   {
@@ -25,26 +26,9 @@ const stories = [
 export default function StoriesSection() {
   return (
     <section className="stories-section" style={{ padding: '120px 0', background: 'var(--bg-secondary)' }}>
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
+      <Container>
         <ScrollReveal>
-          <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-            <div style={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: '0.8rem',
-              color: 'var(--aurora-cyan)',
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase',
-              marginBottom: '16px',
-            }}>
-              Stories of Change
-            </div>
-            <GradientText tag="h2" gradient="aurora" style={{
-              fontSize: 'clamp(2rem, 4vw, 3rem)',
-              fontFamily: 'var(--font-display)',
-            }}>
-              Real People, Real Impact
-            </GradientText>
-          </div>
+          <SectionHeading align="center" eyebrow="Stories of Change" title="Real People, Real Impact" />
         </ScrollReveal>
 
         <div style={{
@@ -102,7 +86,7 @@ export default function StoriesSection() {
             </ScrollReveal>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   )
 }

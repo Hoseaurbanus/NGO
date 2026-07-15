@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import ScrollReveal from '@components/ui/ScrollReveal'
-import GradientText from '@components/ui/GradientText'
+import Container from '@components/ui/Container'
+import SectionHeading from '@components/ui/SectionHeading'
 import { ROUTES } from '@constants'
 import { formatDate } from '@utils/helpers'
 
@@ -42,7 +43,7 @@ export default function NewsSection() {
 
   return (
     <section className="news-section" style={{ padding: '120px 0', background: 'var(--bg-secondary)' }}>
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
+      <Container>
         <ScrollReveal>
           <div style={{
             display: 'flex',
@@ -52,24 +53,7 @@ export default function NewsSection() {
             flexWrap: 'wrap',
             gap: '16px',
           }}>
-            <div>
-              <div style={{
-                fontFamily: 'var(--font-mono)',
-                fontSize: '0.8rem',
-                color: 'var(--aurora-cyan)',
-                letterSpacing: '0.1em',
-                textTransform: 'uppercase',
-                marginBottom: '16px',
-              }}>
-                Latest News
-              </div>
-              <GradientText tag="h2" gradient="aurora" style={{
-                fontSize: 'clamp(2rem, 4vw, 3rem)',
-                fontFamily: 'var(--font-display)',
-              }}>
-                Stories & Updates
-              </GradientText>
-            </div>
+            <SectionHeading align="left" eyebrow="Latest News" title="Stories & Updates" style={{ marginBottom: 'var(--space-4)' }} />
             <Link to={ROUTES.BLOG} style={{
               color: 'var(--aurora-cyan)',
               fontSize: '0.9rem',
@@ -182,7 +166,7 @@ export default function NewsSection() {
             ))}
           </div>
         </div>
-      </div>
+      </Container>
 
       <style>{`
         @media (max-width: 576px) {

@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet-async'
 import AuroraBackground from '@components/ui/AuroraBackground'
 import KineticText from '@components/ui/KineticText'
 import ScrollReveal from '@components/ui/ScrollReveal'
-import GradientText from '@components/ui/GradientText'
+import SectionHeading from '@components/ui/SectionHeading'
 import GlassCard from '@components/ui/GlassCard'
 
 const timeline = [
@@ -69,11 +69,7 @@ export default function About() {
                 textTransform: 'uppercase',
                 marginBottom: '16px',
               }}>Our Mission</div>
-              <GradientText tag="h2" gradient="aurora" style={{
-                fontSize: '2rem',
-                fontFamily: 'var(--font-display)',
-                marginBottom: '16px',
-              }}>Empowering Communities</GradientText>
+              <h2 className="section-title" style={{ fontSize: '2rem' }}>Empowering Communities</h2>
               <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: '16px' }}>
                 We believe every community deserves the opportunity to thrive. Through education, healthcare, and sustainable development, we create lasting change that transforms lives.
               </p>
@@ -90,11 +86,7 @@ export default function About() {
                 textTransform: 'uppercase',
                 marginBottom: '16px',
               }}>Our Vision</div>
-              <GradientText tag="h2" gradient="violet" style={{
-                fontSize: '2rem',
-                fontFamily: 'var(--font-display)',
-                marginBottom: '16px',
-              }}>A Prosperous World</GradientText>
+              <h2 className="section-title" style={{ fontSize: '2rem' }}>A Prosperous World</h2>
               <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7 }}>
                 We envision a world where access to education, healthcare, and opportunity is not determined by geography or circumstance. A world where every community can build its own sustainable future.
               </p>
@@ -106,12 +98,7 @@ export default function About() {
       <section className="content-section" style={{ padding: '100px 0', background: 'var(--bg-secondary)' }}>
         <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 24px' }}>
           <ScrollReveal>
-            <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-              <GradientText tag="h2" gradient="aurora" style={{
-                fontSize: '2rem',
-                fontFamily: 'var(--font-display)',
-              }}>Our Journey</GradientText>
-            </div>
+            <SectionHeading align="center" title="Our Journey" />
           </ScrollReveal>
           {timeline.map((item, i) => (
             <ScrollReveal key={item.year} delay={i * 0.1}>
@@ -157,12 +144,7 @@ export default function About() {
       <section className="content-section" style={{ padding: '100px 0' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
           <ScrollReveal>
-            <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-              <GradientText tag="h2" gradient="aurora" style={{
-                fontSize: '2rem',
-                fontFamily: 'var(--font-display)',
-              }}>Our Leadership</GradientText>
-            </div>
+            <SectionHeading align="center" title="Our Leadership" />
           </ScrollReveal>
           <div style={{
             display: 'grid',

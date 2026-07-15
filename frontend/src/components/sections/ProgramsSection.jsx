@@ -1,7 +1,8 @@
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import ScrollReveal from '@components/ui/ScrollReveal'
-import GradientText from '@components/ui/GradientText'
+import Container from '@components/ui/Container'
+import SectionHeading from '@components/ui/SectionHeading'
 import GlassCard from '@components/ui/GlassCard'
 import { ROUTES } from '@constants'
 
@@ -55,35 +56,9 @@ export default function ProgramsSection() {
 
   return (
     <section className="programs-section" style={{ padding: '120px 0', overflow: 'hidden' }}>
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
+      <Container>
         <ScrollReveal>
-          <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-            <div style={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: '0.8rem',
-              color: 'var(--aurora-cyan)',
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase',
-              marginBottom: '16px',
-            }}>
-              What We Do
-            </div>
-            <GradientText tag="h2" gradient="aurora" style={{
-              fontSize: 'clamp(2rem, 4vw, 3rem)',
-              fontFamily: 'var(--font-display)',
-              marginBottom: '16px',
-            }}>
-              Our Programs
-            </GradientText>
-            <p style={{
-              color: 'var(--text-secondary)',
-              fontSize: '1.1rem',
-              maxWidth: '600px',
-              margin: '0 auto',
-            }}>
-              Six core programs driving meaningful change in communities worldwide.
-            </p>
-          </div>
+          <SectionHeading align="center" eyebrow="What We Do" title="Our Programs" subtitle="Six core programs driving meaningful change in communities worldwide." />
         </ScrollReveal>
 
         <div ref={scrollRef} className="programs-grid" style={{
@@ -156,7 +131,7 @@ export default function ProgramsSection() {
             </ScrollReveal>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   )
 }
