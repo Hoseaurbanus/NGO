@@ -1,0 +1,13 @@
+node_modules/
+frontend/node_modules/
+frontend/dist/
+backend/writable/cache/*
+backend/writable/logs/*
+backend/writable/session/*
+!backend/writable/cache/.gitkeep
+!backend/writable/logs/.gitkeep
+!backend/writable/session/.gitkeep
+.env
+*.log
+.DS_Store
+Thumbs.db

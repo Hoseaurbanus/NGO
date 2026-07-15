@@ -1,0 +1,38 @@
+import { Helmet } from 'react-helmet-async'
+import HeroSection from '@components/sections/HeroSection'
+import MissionSection from '@components/sections/MissionSection'
+import ImpactSection from '@components/sections/ImpactSection'
+import ProgramsSection from '@components/sections/ProgramsSection'
+import StoriesSection from '@components/sections/StoriesSection'
+import EventsSection from '@components/sections/EventsSection'
+import NewsSection from '@components/sections/NewsSection'
+import DonationCTA from '@components/sections/DonationCTA'
+import VolunteerSection from '@components/sections/VolunteerSection'
+import PartnersSection from '@components/sections/PartnersSection'
+import TestimonialsSection from '@components/sections/TestimonialsSection'
+import GallerySection from '@components/sections/GallerySection'
+import NewsletterSection from '@components/sections/NewsletterSection'
+
+export default function Home() {
+  return (
+    <>
+      <Helmet>
+        <title>SmugFlex - Impact. Redefined.</title>
+        <meta name="description" content="SmugFlex is a modern NGO dedicated to transforming communities through education, healthcare, and sustainable development worldwide." />
+      </Helmet>
+      <HeroSection />
+      <MissionSection />
+      <ImpactSection />
+      <ProgramsSection />
+      <StoriesSection />
+      <EventsSection />
+      <NewsSection />
+      <DonationCTA />
+      <VolunteerSection />
+      <PartnersSection />
+      <TestimonialsSection />
+      <GallerySection />
+      <NewsletterSection />
+    </>
+  )
+}
