@@ -72,6 +72,7 @@ export default function MagneticButton({ children, className = '', variant = 'pr
         alignItems: 'center',
         justifyContent: 'center',
         gap: '8px',
+        maxWidth: '100%',
       }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}

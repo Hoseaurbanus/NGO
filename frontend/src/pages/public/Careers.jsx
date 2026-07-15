@@ -21,7 +21,7 @@ export default function Careers() {
       <AuroraBackground intensity="light">
         <div style={{ minHeight: '50vh', display: 'flex', alignItems: 'center', padding: '120px 24px 80px' }}>
           <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', color: 'var(--aurora-cyan)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '16px' }}>Careers</div>
+            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', color: 'var(--aurora-cyan)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '16px' }}>Careers</div>
             <KineticText text="Build a Career That Matters" tag="h1" style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', fontFamily: 'var(--font-display)', marginBottom: '20px' }} />
             <p style={{ color: 'var(--text-secondary)', fontSize: '1.15rem' }}>Join our global team and make a real impact while building your career.</p>
           </div>

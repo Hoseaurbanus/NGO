@@ -72,6 +72,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color-scheme: dark;
@@ -91,6 +92,10 @@ a {
   color: var(--aurora-cyan);
   text-decoration: none;
   transition: color 0.3s var(--ease-smooth);
+}
+
+a, button, [role="button"] {
+  -webkit-tap-highlight-color: transparent;
 }
 
 a:hover {
@@ -675,54 +680,6 @@ h1, h2, h3, h4 {
   transition: transform 0.1s linear;
 }
 
-/* ============ BACK TO TOP ============ */
-.back-to-top {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  z-index: 1500;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: var(--gradient-aurora);
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 1.2rem;
-  opacity: 0;
-  transform: translateY(20px) scale(0.8);
-  pointer-events: none;
-  box-shadow: 0 8px 30px rgba(0, 229, 255, 0.3);
-  transition: opacity 0.3s var(--ease-smooth), transform 0.3s var(--ease-spring), box-shadow 0.3s var(--ease-smooth);
-}
-
-.back-to-top.is-visible {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-  pointer-events: all;
-}
-
-.back-to-top:hover {
-  transform: translateY(-3px) scale(1.08) !important;
-  box-shadow: 0 12px 40px rgba(0, 229, 255, 0.45);
-}
-
-.back-to-top:active {
-  transform: translateY(0) scale(0.95) !important;
-}
-
-@media (max-width: 576px) {
-  .back-to-top {
-    bottom: 16px;
-    right: 16px;
-    width: 44px;
-    height: 44px;
-  }
-}
-
 /* ============ PAGE TRANSITION ============ */
 .page-transition {
   animation: page-enter 0.55s var(--ease-out) both;
@@ -822,13 +779,13 @@ button:not(.magnetic-btn):not(.back-to-top):active {
   align-items: center;
   gap: 6px;
   padding: 6px 14px;
-  borderRadius: var(--radius-full);
+  border-radius: var(--radius-full);
   background: rgba(0, 229, 255, 0.1);
   border: 1px solid rgba(0, 229, 255, 0.2);
   color: var(--aurora-cyan);
   font-family: var(--font-mono);
-  font-size: 0.78rem;
-  letterSpacing: 0.08em;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
@@ -1076,4 +1033,38 @@ button:not(.magnetic-btn):not(.back-to-top):active {
   .magnetic-btn {
     transform: none !important;
   }
+}
+
+/* ============ SMALL ANDROID PHONES (360px-400px) ============ */
+@media (max-width: 400px) {
+  .page-hero-inner {
+    padding: 48px 16px 32px !important;
+  }
+  .content-section {
+    padding: 32px 0 !important;
+  }
+  .container-custom {
+    padding: 0 16px;
+  }
+  .card {
+    padding: 20px;
+  }
+  .section-title {
+    font-size: 1.6rem !important;
+  }
+}
+
+/* ============ MOBILE MENU TOUCH ACTION ============ */
+.mobile-menu {
+  touch-action: pan-y;
+}
+
+.mobile-menu a {
+  touch-action: manipulation;
+}
+
+/* ============ CARD OVERFLOW GUARD ============ */
+.glass-card {
+  max-width: 100%;
+  box-sizing: border-box;
 }

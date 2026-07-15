@@ -26,7 +26,7 @@ export default function FAQ() {
       <AuroraBackground intensity="light">
         <div className="page-hero-inner" style={{ minHeight: '50vh', display: 'flex', alignItems: 'center', padding: 'clamp(80px, 15vw, 120px) 24px 80px' }}>
           <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', color: 'var(--aurora-cyan)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '16px' }}>FAQ</div>
+            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', color: 'var(--aurora-cyan)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '16px' }}>FAQ</div>
             <KineticText text="Frequently Asked Questions" tag="h1" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontFamily: 'var(--font-display)', marginBottom: '20px' }} />
           </div>
         </div>

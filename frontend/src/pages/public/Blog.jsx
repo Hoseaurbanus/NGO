@@ -25,7 +25,7 @@ export default function Blog() {
       <AuroraBackground intensity="light">
         <div className="page-hero-inner" style={{ minHeight: '50vh', display: 'flex', alignItems: 'center', padding: '120px 24px 80px' }}>
           <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', color: 'var(--aurora-cyan)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '16px' }}>Blog</div>
+            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', color: 'var(--aurora-cyan)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '16px' }}>Blog</div>
             <KineticText text="Stories & Updates" tag="h1" style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', fontFamily: 'var(--font-display)', marginBottom: '20px' }} />
             <p style={{ color: 'var(--text-secondary)', fontSize: '1.15rem', lineHeight: 1.7 }}>News, impact stories, and insights from our community.</p>
           </div>
@@ -55,7 +55,7 @@ export default function Blog() {
                 <GlassCard style={{ overflow: 'hidden' }}>
                   <div style={{ height: '200px', backgroundImage: `url(${post.image})`, backgroundSize: 'cover', backgroundPosition: 'center', position: 'relative' }}>
                     <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, var(--bg-surface), transparent 60%)' }} />
-                    <div style={{ position: 'absolute', top: '12px', left: '12px', padding: '4px 12px', borderRadius: 'var(--radius-full)', background: `${catColors[post.category]}22`, fontSize: '0.7rem', fontWeight: 600, color: catColors[post.category] }}>{post.category}</div>
+                    <div style={{ position: 'absolute', top: '12px', left: '12px', padding: '4px 12px', borderRadius: 'var(--radius-full)', background: `${catColors[post.category]}22`, fontSize: '0.75rem', fontWeight: 600, color: catColors[post.category] }}>{post.category}</div>
                   </div>
                   <div style={{ padding: '20px' }}>
                     <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.05rem', marginBottom: '8px' }}>{post.title}</h3>

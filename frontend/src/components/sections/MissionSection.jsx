@@ -29,14 +29,14 @@ const pillars = [
 export default function MissionSection() {
   return (
     <section className="mission-section" style={{
-      padding: '120px 0',
+      padding: 'clamp(60px, 12vw, 120px) 0',
       position: 'relative',
     }}>
       <Container>
         <div className="mission-grid" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 400px), 1fr))',
-          gap: '60px',
+          gap: 'clamp(24px, 6vw, 60px)',
           alignItems: 'start',
         }}>
           <div className="mission-sticky" style={{ position: 'sticky', top: '120px' }}>

@@ -15,7 +15,7 @@ const impactStats = [
 
 export default function ImpactSection() {
   return (
-    <AuroraBackground intensity="light" className="impact-section" style={{ padding: '120px 0' }}>
+    <AuroraBackground intensity="light" className="impact-section" style={{ padding: 'clamp(60px, 12vw, 120px) 0' }}>
       <Container>
         <ScrollReveal>
           <SectionHeading align="center" eyebrow="Our Impact" title="Numbers That Tell Our Story" subtitle="Every number represents a life touched, a community strengthened, a future brightened." />
