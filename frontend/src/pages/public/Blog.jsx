@@ -6,12 +6,12 @@ import GlassCard from '@components/ui/GlassCard'
 import { formatDate } from '@utils/helpers'
 
 const posts = [
-  { title: '[Your Organization Name] Expands Programs to New Regions', excerpt: 'Our education initiative reaches new milestones in communities worldwide.', image: 'https://images.unsplash.com/photo-1497486751825-112ba8d25d1d?w=800', category: 'Education', date: '2026-07-10', author: 'Jane Doe', featured: true },
-  { title: 'Annual Report 2025: A Year of Growth', excerpt: 'Our biggest year yet — significant milestones achieved across all programs.', image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400', category: 'Reports', date: '2026-06-28', author: 'John Smith' },
-  { title: 'Clean Water Initiative Reaches New Milestone', excerpt: 'Communities worldwide now have access to clean water.', image: 'https://images.unsplash.com/photo-1541544741938-0af808871cc0?w=400', category: 'Impact', date: '2026-06-15', author: 'Jane Wilson' },
-  { title: 'New Healthcare Center Opens', excerpt: 'Serving patients annually in underserved communities.', image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400', category: 'Healthcare', date: '2026-05-20', author: 'Jane Doe' },
-  { title: 'Volunteer Spotlight: Meet Our Changemakers', excerpt: 'Stories from our incredible global volunteer network.', image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400', category: 'Volunteers', date: '2026-05-01', author: 'John Brown' },
-  { title: 'Reforestation Program Hits Major Milestone', excerpt: 'Our environmental program achieves a significant goal.', image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400', category: 'Environment', date: '2026-04-15', author: 'John Smith' },
+  { title: 'NGO Expands Programs to New Regions', excerpt: 'Our education initiative reaches new milestones.', image: '', category: 'Education', date: '2026-07-10', author: 'Name S.', featured: true },
+  { title: 'Annual Report 2025: A Year of Growth', excerpt: 'Significant milestones achieved across all programs.', image: '', category: 'Reports', date: '2026-06-28', author: 'Name S.' },
+  { title: 'Clean Water Initiative Reaches New Milestone', excerpt: 'Communities worldwide now have access to clean water.', image: '', category: 'Impact', date: '2026-06-15', author: 'Name S.' },
+  { title: 'New Healthcare Center Opens', excerpt: 'Serving patients in underserved communities.', image: '', category: 'Healthcare', date: '2026-05-20', author: 'Name S.' },
+  { title: 'Volunteer Spotlight: Meet Our Changemakers', excerpt: 'Stories from our global volunteer network.', image: '', category: 'Volunteers', date: '2026-05-01', author: 'Name S.' },
+  { title: 'Reforestation Program Hits Major Milestone', excerpt: 'Our environmental program achieves a significant goal.', image: '', category: 'Environment', date: '2026-04-15', author: 'Name S.' },
 ]
 
 const catColors = { Education: '#536DFE', Reports: '#7C4DFF', Impact: '#00E676', Healthcare: '#00E5FF', Volunteers: '#FFD740', Environment: '#00E676' }
@@ -21,7 +21,7 @@ export default function Blog() {
   const rest = posts.slice(1)
   return (
     <>
-      <Helmet><title>Blog - [Your Organization Name]</title><meta name="description" content="Latest news, stories, and updates from [Your Organization Name]." /></Helmet>
+      <Helmet><title>Blog - NGO</title><meta name="description" content="Latest news, stories, and updates from NGO." /></Helmet>
       <AuroraBackground intensity="light">
         <div className="page-hero-inner" style={{ minHeight: '50vh', display: 'flex', alignItems: 'center', padding: '120px 24px 80px' }}>
           <div style={{ maxWidth: '800px', margin: '0 auto' }}>

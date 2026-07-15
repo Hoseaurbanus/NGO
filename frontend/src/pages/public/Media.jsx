@@ -12,20 +12,20 @@ const categories = [
 ]
 
 const photos = [
-  { src: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=400', caption: 'Education program launch' },
-  { src: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400', caption: 'Healthcare outreach' },
-  { src: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=400', caption: 'Community workshop' },
-  { src: 'https://images.unsplash.com/photo-1541544741938-0af808871cc0?w=400', caption: 'Clean water project' },
-  { src: 'https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=400', caption: 'Emergency relief' },
-  { src: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400', caption: 'Environmental action' },
-  { src: 'https://images.unsplash.com/photo-1497486751825-112ba8d25d1d?w=400', caption: 'School building' },
-  { src: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=400', caption: 'Youth program' },
+  { src: '', caption: 'Education program launch' },
+  { src: '', caption: 'Healthcare outreach' },
+  { src: '', caption: 'Community workshop' },
+  { src: '', caption: 'Clean water project' },
+  { src: '', caption: 'Emergency relief' },
+  { src: '', caption: 'Environmental action' },
+  { src: '', caption: 'School building' },
+  { src: '', caption: 'Youth program' },
 ]
 
 export default function Media() {
   return (
     <>
-      <Helmet><title>Media - [Your Organization Name]</title><meta name="description" content="Photos, videos, reports, and resources from [Your Organization Name]." /></Helmet>
+      <Helmet><title>Media - NGO</title><meta name="description" content="Photos, videos, reports, and resources from NGO." /></Helmet>
       <AuroraBackground intensity="light">
         <div style={{ minHeight: '50vh', display: 'flex', alignItems: 'center', padding: '120px 24px 80px' }}>
           <div style={{ maxWidth: '800px', margin: '0 auto' }}>

@@ -6,9 +6,9 @@ import { formatDate } from '@utils/helpers'
 
 const articles = [
   {
-    title: '[Your Organization Name] Expands Programs to New Regions',
-    excerpt: 'Our global education initiative reaches new milestones with expanded programs in new communities.',
-    image: 'https://images.unsplash.com/photo-1497486751825-112ba8d25d1d?w=800',
+    title: 'NGO Expands Programs to New Regions',
+    excerpt: 'Our global education initiative reaches new milestones with expanded programs.',
+    image: '',
     category: 'Education',
     date: '2026-07-10',
     featured: true,
@@ -16,21 +16,21 @@ const articles = [
   {
     title: 'Annual Report 2025: A Year of Growth',
     excerpt: 'Our biggest year yet — significant milestones achieved across all programs.',
-    image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400',
+    image: '',
     category: 'Reports',
     date: '2026-06-28',
   },
   {
     title: 'Clean Water Initiative Reaches New Milestone',
     excerpt: 'Communities worldwide now have access to clean, safe drinking water.',
-    image: 'https://images.unsplash.com/photo-1541544741938-0af808871cc0?w=400',
+    image: '',
     category: 'Impact',
     date: '2026-06-15',
   },
   {
     title: 'New Healthcare Center Opens',
-    excerpt: 'Serving patients annually in underserved communities around the world.',
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400',
+    excerpt: 'Serving patients annually in underserved communities.',
+    image: '',
     category: 'Healthcare',
     date: '2026-05-20',
   },

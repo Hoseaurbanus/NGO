@@ -15,7 +15,7 @@ export default function Volunteer() {
 
   return (
     <>
-      <Helmet><title>Volunteer - [Your Organization Name]</title><meta name="description" content="Join our global community of volunteers and make a real difference." /></Helmet>
+      <Helmet><title>Volunteer - NGO</title><meta name="description" content="Join our global community of volunteers and make a real difference." /></Helmet>
       <AuroraBackground intensity="light">
         <div className="page-hero-inner" style={{ minHeight: '50vh', display: 'flex', alignItems: 'center', padding: '120px 24px 80px' }}>
           <div style={{ maxWidth: '800px', margin: '0 auto' }}>

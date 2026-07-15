@@ -5,20 +5,20 @@ import ScrollReveal from '@components/ui/ScrollReveal'
 import GlassCard from '@components/ui/GlassCard'
 
 const programs = [
-  { title: 'Education for All', desc: 'Building schools, training teachers, and providing learning materials to communities worldwide.', icon: 'bi-book', image: 'https://images.unsplash.com/photo-1497486751825-112ba8d25d1d?w=600', color: '#536DFE', stats: '--', location: 'Global' },
-  { title: 'Healthcare Access', desc: 'Delivering medical services, vaccinations, and maternal health programs to underserved communities.', icon: 'bi-heart-pulse', image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600', color: '#00E676', stats: '--', location: 'Global' },
-  { title: 'Clean Water Initiative', desc: 'Installing boreholes and water purification systems in water-scarce communities.', icon: 'bi-droplet', image: 'https://images.unsplash.com/photo-1541544741938-0af808871cc0?w=600', color: '#00E5FF', stats: '--', location: 'Global' },
-  { title: 'Community Empowerment', desc: 'Vocational training, micro-loans, and entrepreneurship support for youth worldwide.', icon: 'bi-people', image: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600', color: '#FFD740', stats: '--', location: 'Global' },
-  { title: 'Emergency Relief', desc: 'Rapid response to floods, droughts, and humanitarian crises worldwide.', icon: 'bi-lightning', image: 'https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=600', color: '#FF5252', stats: '--', location: 'Global' },
-  { title: 'Environmental Action', desc: 'Reforestation, conservation, and sustainable agriculture programs worldwide.', icon: 'bi-tree', image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600', color: '#00E676', stats: '--', location: 'Global' },
+  { title: 'Education for All', desc: 'Building schools, training teachers, and providing learning materials to communities worldwide.', icon: 'bi-book', image: '', color: '#536DFE', stats: '--', location: 'Global' },
+  { title: 'Healthcare Access', desc: 'Delivering medical services, vaccinations, and maternal health programs to underserved communities.', icon: 'bi-heart-pulse', image: '', color: '#00E676', stats: '--', location: 'Global' },
+  { title: 'Clean Water Initiative', desc: 'Installing boreholes and water purification systems in water-scarce communities.', icon: 'bi-droplet', image: '', color: '#00E5FF', stats: '--', location: 'Global' },
+  { title: 'Community Empowerment', desc: 'Vocational training, micro-loans, and entrepreneurship support for youth worldwide.', icon: 'bi-people', image: '', color: '#FFD740', stats: '--', location: 'Global' },
+  { title: 'Emergency Relief', desc: 'Rapid response to floods, droughts, and humanitarian crises worldwide.', icon: 'bi-lightning', image: '', color: '#FF5252', stats: '--', location: 'Global' },
+  { title: 'Environmental Action', desc: 'Reforestation, conservation, and sustainable agriculture programs worldwide.', icon: 'bi-tree', image: '', color: '#00E676', stats: '--', location: 'Global' },
 ]
 
 export default function Programs() {
   return (
     <>
       <Helmet>
-        <title>Programs - [Your Organization Name]</title>
-        <meta name="description" content="Explore [Your Organization Name]'s six core programs driving meaningful change in communities worldwide." />
+        <title>Programs - NGO</title>
+        <meta name="description" content="Explore NGO's six core programs driving meaningful change in communities worldwide." />
       </Helmet>
 
       <AuroraBackground intensity="light">

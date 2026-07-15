@@ -17,7 +17,7 @@ const jobs = [
 export default function Careers() {
   return (
     <>
-      <Helmet><title>Careers - [Your Organization Name]</title><meta name="description" content="Join [Your Organization Name] and build a career that makes a real difference." /></Helmet>
+      <Helmet><title>Careers - NGO</title><meta name="description" content="Join NGO and build a career that makes a real difference." /></Helmet>
       <AuroraBackground intensity="light">
         <div style={{ minHeight: '50vh', display: 'flex', alignItems: 'center', padding: '120px 24px 80px' }}>
           <div style={{ maxWidth: '800px', margin: '0 auto' }}>

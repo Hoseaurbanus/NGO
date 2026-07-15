@@ -48,7 +48,7 @@ export default function NewsletterSection() {
                 fontSize: '0.95rem',
                 marginBottom: '28px',
               }}>
-                Get the latest news, impact stories, and updates from [Your Organization Name] delivered to your inbox.
+                Get the latest news, impact stories, and updates from NGO delivered to your inbox.
               </p>
 
               {subscribed ? (

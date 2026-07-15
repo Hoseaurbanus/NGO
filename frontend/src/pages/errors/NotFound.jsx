@@ -7,7 +7,7 @@ import { ROUTES } from '@constants'
 export default function NotFound() {
   return (
     <>
-      <Helmet><title>404 - [Your Organization Name]</title></Helmet>
+      <Helmet><title>404 - NGO</title></Helmet>
       <AuroraBackground intensity="heavy">
         <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '24px', textAlign: 'center' }}>
           <div>

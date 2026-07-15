@@ -5,12 +5,12 @@ import KineticText from '@components/ui/KineticText'
 import GlassCard from '@components/ui/GlassCard'
 
 const faqs = [
-  { q: 'How can I donate to [Your Organization Name]?', a: 'You can donate through our secure online donation page, via bank transfer, or by check. All donations are tax-deductible and you\'ll receive an instant receipt.' },
+  { q: 'How can I donate to NGO?', a: 'You can donate through our secure online donation page, via bank transfer, or by check. All donations are tax-deductible and you\'ll receive an instant receipt.' },
   { q: 'How is my donation used?', a: 'A significant portion of every dollar goes directly to programs. The remainder covers essential admin and fundraising costs. We publish annual transparency reports.' },
   { q: 'Can I volunteer remotely?', a: 'Yes! We have remote volunteering opportunities in teaching, translation, design, tech, and more. Apply through our volunteer page.' },
-  { q: 'Where does [Your Organization Name] operate?', a: 'We operate in multiple countries, bringing education, healthcare, and community development programs to communities worldwide.' },
-  { q: 'How can my company partner with [Your Organization Name]?', a: 'We offer corporate partnerships, sponsorship opportunities, and employee engagement programs. Contact our partnerships team for details.' },
-  { q: 'Is [Your Organization Name] a registered nonprofit?', a: 'Yes, [Your Organization Name] is a registered nonprofit organization. All donations are tax-deductible to the extent allowed by law.' },
+  { q: 'Where does NGO operate?', a: 'We operate in multiple countries, bringing education, healthcare, and community development programs to communities worldwide.' },
+  { q: 'How can my company partner with NGO?', a: 'We offer corporate partnerships, sponsorship opportunities, and employee engagement programs. Contact our partnerships team for details.' },
+  { q: 'Is NGO a registered nonprofit?', a: 'Yes, NGO is a registered nonprofit organization. All donations are tax-deductible to the extent allowed by law.' },
   { q: 'How can I start a fundraiser?', a: 'Visit our donation page and click "Start a Fundraising Campaign." You can create a personal campaign page and share it with your network.' },
   { q: 'Do you accept in-kind donations?', a: 'Yes, we accept in-kind donations including supplies, equipment, and professional services. Contact us for specific needs.' },
 ]
@@ -22,7 +22,7 @@ export default function FAQ() {
 
   return (
     <>
-      <Helmet><title>FAQ - [Your Organization Name]</title><meta name="description" content="Frequently asked questions about [Your Organization Name], donations, volunteering, and partnerships." /></Helmet>
+      <Helmet><title>FAQ - NGO</title><meta name="description" content="Frequently asked questions about NGO, donations, volunteering, and partnerships." /></Helmet>
       <AuroraBackground intensity="light">
         <div className="page-hero-inner" style={{ minHeight: '50vh', display: 'flex', alignItems: 'center', padding: 'clamp(80px, 15vw, 120px) 24px 80px' }}>
           <div style={{ maxWidth: '800px', margin: '0 auto' }}>

@@ -17,8 +17,8 @@ export default function Home() {
   return (
     <>
       <Helmet>
-        <title>[Your Organization Name] - [Your Tagline]</title>
-        <meta name="description" content="[Your Organization Name] is a modern organization dedicated to creating meaningful change through education, healthcare, and community development." />
+        <title>NGO - Making a Difference</title>
+        <meta name="description" content="NGO is a modern organization dedicated to creating meaningful change through education, healthcare, and community development." />
       </Helmet>
       <HeroSection />
       <MissionSection />

@@ -87,13 +87,14 @@ export default function Navbar() {
                 fontWeight: 700,
                 fontSize: '16px',
                 color: 'white',
-              }}>SF</div>
+                flexShrink: 0,
+              }}>NG</div>
               <span style={{
                 fontFamily: 'var(--font-display)',
                 fontSize: '1.25rem',
                 fontWeight: 700,
                 color: 'white',
-              }}>[Your Organization Name]</span>
+              }}>NGO</span>
             </Link>
 
             <div style={{
@@ -266,7 +267,10 @@ export default function Navbar() {
       <style>{`
         @media (max-width: 992px) {
           .desktop-nav { display: none !important; }
-          .mobile-menu-btn { display: block !important; }
+          .mobile-menu-btn { display: flex !important; align-items: center; justify-content: center; }
+        }
+        @media (max-width: 576px) {
+          .mobile-menu a { font-size: 1.2rem !important; }
         }
       `}</style>
     </>

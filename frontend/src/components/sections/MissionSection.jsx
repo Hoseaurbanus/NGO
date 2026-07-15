@@ -62,7 +62,7 @@ export default function MissionSection() {
                 fontSize: '1.1rem',
                 lineHeight: 1.7,
               }}>
-                At [Your Organization Name], we believe every community deserves the opportunity to thrive. Our mission is to create lasting change through education, healthcare access, and community-driven development.
+                At NGO, we believe every community deserves the opportunity to thrive. Our mission is to create lasting change through education, healthcare access, and community-driven development.
               </p>
             </ScrollReveal>
           </div>

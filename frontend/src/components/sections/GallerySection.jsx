@@ -3,14 +3,14 @@ import ScrollReveal from '@components/ui/ScrollReveal'
 import GradientText from '@components/ui/GradientText'
 
 const images = [
-  { src: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600', category: 'Education' },
-  { src: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600', category: 'Healthcare' },
-  { src: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600', category: 'Community' },
-  { src: 'https://images.unsplash.com/photo-1541544741938-0af808871cc0?w=600', category: 'Water' },
-  { src: 'https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=600', category: 'Relief' },
-  { src: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600', category: 'Environment' },
-  { src: 'https://images.unsplash.com/photo-1497486751825-112ba8d25d1d?w=600', category: 'Education' },
-  { src: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=600', category: 'Community' },
+  { src: '', category: 'Education' },
+  { src: '', category: 'Healthcare' },
+  { src: '', category: 'Community' },
+  { src: '', category: 'Water' },
+  { src: '', category: 'Relief' },
+  { src: '', category: 'Environment' },
+  { src: '', category: 'Education' },
+  { src: '', category: 'Community' },
 ]
 
 const categories = ['All', 'Education', 'Healthcare', 'Community', 'Water', 'Relief', 'Environment']

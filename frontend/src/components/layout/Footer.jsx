@@ -6,25 +6,18 @@ const footerLinks = {
   'About': [
     { label: 'Our Story', path: ROUTES.ABOUT },
     { label: 'Mission & Vision', path: ROUTES.ABOUT },
-    { label: 'Leadership', path: ROUTES.ABOUT },
-    { label: 'Partners', path: ROUTES.ABOUT },
   ],
   'Programs': [
     { label: 'Education', path: ROUTES.PROGRAMS },
     { label: 'Healthcare', path: ROUTES.PROGRAMS },
-    { label: 'Community Dev', path: ROUTES.PROGRAMS },
-    { label: 'Emergency Relief', path: ROUTES.PROGRAMS },
   ],
   'Get Involved': [
     { label: 'Donate', path: ROUTES.DONATE },
     { label: 'Volunteer', path: ROUTES.VOLUNTEER },
     { label: 'Events', path: ROUTES.EVENTS },
-    { label: 'Careers', path: ROUTES.CAREERS },
   ],
   'Resources': [
     { label: 'Blog', path: ROUTES.BLOG },
-    { label: 'Media', path: ROUTES.MEDIA },
-    { label: 'FAQ', path: ROUTES.FAQ },
     { label: 'Contact', path: ROUTES.CONTACT },
   ],
 }
@@ -58,13 +51,13 @@ export default function Footer() {
                 fontWeight: 700,
                 fontSize: '16px',
                 color: 'white',
-              }}>SF</div>
+              }}>NG</div>
               <span style={{
                 fontFamily: 'var(--font-display)',
                 fontSize: '1.25rem',
                 fontWeight: 700,
                 color: 'white',
-              }}>[Your Organization Name]</span>
+              }}>NGO</span>
             </Link>
             <p style={{
               color: 'var(--text-secondary)',
@@ -72,7 +65,7 @@ export default function Footer() {
               lineHeight: 1.7,
               marginBottom: '20px',
             }}>
-              [Your Tagline] A modern organization dedicated to creating meaningful change through education, healthcare, and community development.
+              Making a Difference. A modern organization dedicated to creating meaningful change.
             </p>
             <div style={{ display: 'flex', gap: '12px' }}>
               {['twitter', 'facebook', 'instagram', 'linkedin', 'youtube'].map(social => (
@@ -144,7 +137,7 @@ export default function Footer() {
           gap: '16px',
         }}>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.8rem' }}>
-            &copy; {new Date().getFullYear()} [Your Organization Name]. All rights reserved.
+            &copy; {new Date().getFullYear()} NGO. All rights reserved.
           </p>
           <div style={{ display: 'flex', gap: '24px' }}>
             <Link to={ROUTES.PRIVACY} style={{ color: 'var(--text-muted)', fontSize: '0.8rem', textDecoration: 'none' }}>Privacy Policy</Link>

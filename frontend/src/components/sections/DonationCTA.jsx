@@ -7,12 +7,12 @@ import { formatCurrency } from '@utils/helpers'
 
 const amounts = [25, 50, 100, 250, 500, 1000]
 const impacts = {
-  25: 'Supports community programs',
+  25: 'Supports a small initiative',
   50: 'Provides essential supplies',
-  100: 'Funds a local initiative',
-  250: 'Sponsors a training program',
+  100: 'Funds a local program',
+  250: 'Sponsors a training',
   500: 'Supports a major project',
-  1000: 'Funds a comprehensive program',
+  1000: 'Funds comprehensive work',
 }
 
 export default function DonationCTA() {

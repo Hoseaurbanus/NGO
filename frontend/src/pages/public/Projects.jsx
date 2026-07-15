@@ -5,12 +5,12 @@ import ScrollReveal from '@components/ui/ScrollReveal'
 import GlassCard from '@components/ui/GlassCard'
 
 const projects = [
-  { title: 'Rural School Network', status: 'Ongoing', budget: '$250,000', location: 'Country 1', image: 'https://images.unsplash.com/photo-1497486751825-112ba8d25d1d?w=600', partner: 'Partner A', progress: 72 },
-  { title: 'Clean Water Initiative', status: 'Completed', budget: '$180,000', location: 'Country 2', image: 'https://images.unsplash.com/photo-1541544741938-0af808871cc0?w=600', partner: 'Partner B', progress: 100 },
-  { title: 'Mobile Health Clinics', status: 'Ongoing', budget: '$320,000', location: 'Country 3', image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600', partner: 'Partner C', progress: 45 },
-  { title: 'Women Empowerment Hub', status: 'Upcoming', budget: '$150,000', location: 'Country 4', image: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600', partner: 'Partner D', progress: 0 },
-  { title: 'Reforestation Drive', status: 'Ongoing', budget: '$200,000', location: 'Country 5', image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600', partner: 'Partner E', progress: 60 },
-  { title: 'Digital Literacy Program', status: 'Completed', budget: '$120,000', location: 'Country 6', image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600', partner: 'Partner F', progress: 100 },
+  { title: 'Rural School Network', status: 'Ongoing', budget: '$0', location: 'Country 1', image: '', partner: 'Partner A', progress: 72 },
+  { title: 'Clean Water Initiative', status: 'Completed', budget: '$0', location: 'Country 2', image: '', partner: 'Partner B', progress: 100 },
+  { title: 'Mobile Health Clinics', status: 'Ongoing', budget: '$0', location: 'Country 3', image: '', partner: 'Partner C', progress: 45 },
+  { title: 'Women Empowerment Hub', status: 'Upcoming', budget: '$0', location: 'Country 4', image: '', partner: 'Partner D', progress: 0 },
+  { title: 'Reforestation Drive', status: 'Ongoing', budget: '$0', location: 'Country 5', image: '', partner: 'Partner E', progress: 60 },
+  { title: 'Digital Literacy Program', status: 'Completed', budget: '$0', location: 'Country 6', image: '', partner: 'Partner F', progress: 100 },
 ]
 
 const statusColors = { Ongoing: '#00E5FF', Completed: '#00E676', Upcoming: '#FFD740' }
@@ -18,7 +18,7 @@ const statusColors = { Ongoing: '#00E5FF', Completed: '#00E676', Upcoming: '#FFD
 export default function Projects() {
   return (
     <>
-      <Helmet><title>Projects - [Your Organization Name]</title><meta name="description" content="Explore our ongoing, completed, and upcoming projects across the globe." /></Helmet>
+      <Helmet><title>Projects - NGO</title><meta name="description" content="Explore our ongoing, completed, and upcoming projects across the globe." /></Helmet>
       <AuroraBackground intensity="light">
         <div className="page-hero-inner" style={{ minHeight: '50vh', display: 'flex', alignItems: 'center', padding: '120px 24px 80px' }}>
           <div style={{ maxWidth: '800px', margin: '0 auto' }}>

@@ -7,12 +7,12 @@ import MagneticButton from '@components/ui/MagneticButton'
 import { formatDate } from '@utils/helpers'
 
 const events = [
-  { title: 'Global Education Summit', date: '2026-09-15', location: 'City, Country', image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600', category: 'Conference', desc: 'Leaders from around the world discuss the future of education.' },
-  { title: 'Community Health Workshop', date: '2026-08-20', location: 'City, Country', image: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600', category: 'Workshop', desc: 'Hands-on training for community health workers.' },
-  { title: 'Annual Fundraising Gala', date: '2026-10-05', location: 'City, Country', image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=600', category: 'Gala', desc: 'An evening of inspiration and fundraising.' },
-  { title: 'Clean Water Hackathon', date: '2026-11-12', location: 'City, Country', image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600', category: 'Hackathon', desc: 'Tech solutions for water scarcity in communities.' },
-  { title: 'Volunteer Appreciation Day', date: '2026-12-01', location: 'City, Country', image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600', category: 'Celebration', desc: 'Celebrating our incredible volunteer network.' },
-  { title: 'Youth Leadership Camp', date: '2027-01-15', location: 'City, Country', image: 'https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=600', category: 'Camp', desc: 'Empowering the next generation of community leaders.' },
+  { title: 'Global Education Summit', date: '2026-09-15', location: 'City, Country', image: '', category: 'Conference', desc: 'Leaders discuss the future of education.' },
+  { title: 'Community Health Workshop', date: '2026-08-20', location: 'City, Country', image: '', category: 'Workshop', desc: 'Training for community health workers.' },
+  { title: 'Annual Fundraising Gala', date: '2026-10-05', location: 'City, Country', image: '', category: 'Gala', desc: 'An evening of inspiration and fundraising.' },
+  { title: 'Clean Water Hackathon', date: '2026-11-12', location: 'City, Country', image: '', category: 'Hackathon', desc: 'Tech solutions for water scarcity.' },
+  { title: 'Volunteer Appreciation Day', date: '2026-12-01', location: 'City, Country', image: '', category: 'Celebration', desc: 'Celebrating our volunteer network.' },
+  { title: 'Youth Leadership Camp', date: '2027-01-15', location: 'City, Country', image: '', category: 'Camp', desc: 'Empowering community leaders.' },
 ]
 
 const catColors = { Conference: '#536DFE', Workshop: '#00E676', Gala: '#7C4DFF', Hackathon: '#00E5FF', Celebration: '#FFD740', Camp: '#FF5252' }
@@ -20,7 +20,7 @@ const catColors = { Conference: '#536DFE', Workshop: '#00E676', Gala: '#7C4DFF',
 export default function Events() {
   return (
     <>
-      <Helmet><title>Events - [Your Organization Name]</title><meta name="description" content="Join [Your Organization Name] events — conferences, workshops, galas, and community gatherings." /></Helmet>
+      <Helmet><title>Events - NGO</title><meta name="description" content="Join NGO events — conferences, workshops, galas, and community gatherings." /></Helmet>
       <AuroraBackground intensity="light">
         <div className="page-hero-inner" style={{ minHeight: '50vh', display: 'flex', alignItems: 'center', padding: '120px 24px 80px' }}>
           <div style={{ maxWidth: '800px', margin: '0 auto' }}>

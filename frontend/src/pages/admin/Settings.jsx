@@ -4,8 +4,8 @@ import MagneticButton from '@components/ui/MagneticButton'
 
 export default function AdminSettings() {
   const [settings, setSettings] = useState({
-    site_name: '[Your Organization Name]',
-    site_tagline: '[Your Tagline]',
+    site_name: 'NGO',
+    site_tagline: 'Making a Difference',
     site_email: 'info@yourorg.org',
     site_phone: '+1 (555) 000-0000',
     site_address: '123 Main Street, City, Country',

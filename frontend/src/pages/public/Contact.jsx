@@ -23,7 +23,7 @@ export default function Contact() {
 
   return (
     <>
-      <Helmet><title>Contact - [Your Organization Name]</title><meta name="description" content="Get in touch with [Your Organization Name]. We'd love to hear from you." /></Helmet>
+      <Helmet><title>Contact - NGO</title><meta name="description" content="Get in touch with NGO. We'd love to hear from you." /></Helmet>
       <AuroraBackground intensity="light">
         <div className="page-hero-inner" style={{ minHeight: '50vh', display: 'flex', alignItems: 'center', padding: '120px 24px 80px' }}>
           <div style={{ maxWidth: '800px', margin: '0 auto' }}>

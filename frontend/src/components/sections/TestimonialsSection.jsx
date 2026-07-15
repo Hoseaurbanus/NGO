@@ -5,31 +5,31 @@ import GlassCard from '@components/ui/GlassCard'
 
 const testimonials = [
   {
-    quote: "[Your Organization Name] transformed our community. The education programs gave our children a future we never thought possible.",
+    quote: "This organization is making a real difference in our community.",
     name: 'Name S.',
-    role: 'Community Leader, City, Country',
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400',
+    role: 'Community Leader',
+    image: '',
     rating: 5,
   },
   {
-    quote: "Working with [Your Organization Name] has been an incredible experience. Their commitment to transparency and impact is unmatched.",
+    quote: "Working with this team has been an incredible experience. Their commitment to impact is unmatched.",
     name: 'Name S.',
-    role: 'Healthcare Director, City, Country',
-    image: 'https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=400',
+    role: 'Program Coordinator',
+    image: '',
     rating: 5,
   },
   {
-    quote: "The healthcare initiative saved hundreds of lives in our region. We are forever grateful for their rapid response and dedication.",
+    quote: "The programs here changed lives. We are forever grateful for their dedication.",
     name: 'Name S.',
-    role: 'Program Coordinator, City, Country',
-    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400',
+    role: 'Volunteer',
+    image: '',
     rating: 5,
   },
   {
-    quote: "As a local government partner, we've seen firsthand how [Your Organization Name] delivers on their promises. True impact, real results for our people.",
+    quote: "As a partner, we've seen firsthand how this organization delivers on their promises.",
     name: 'Name S.',
-    role: 'Local Government, City, Country',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400',
+    role: 'Partner Organization',
+    image: '',
     rating: 5,
   },
 ]

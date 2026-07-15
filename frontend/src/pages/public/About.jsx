@@ -6,7 +6,7 @@ import GradientText from '@components/ui/GradientText'
 import GlassCard from '@components/ui/GlassCard'
 
 const timeline = [
-  { year: '20XX', title: 'Founded', desc: '[Your Organization Name] was established with a vision to create lasting change in communities worldwide.' },
+  { year: '20XX', title: 'Founded', desc: 'NGO was established with a vision to create lasting change in communities worldwide.' },
   { year: '20XX', title: 'Regional Expansion', desc: 'Expanded operations to new regions, launching education and healthcare programs.' },
   { year: '20XX', title: 'Program Growth', desc: 'Launched new programs and partnerships, reaching more communities.' },
   { year: '20XX', title: 'Digital Innovation', desc: 'Introduced technology-driven solutions to expand our reach.' },
@@ -15,18 +15,18 @@ const timeline = [
 ]
 
 const team = [
-  { name: 'Jane Doe', role: 'Executive Director', image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400' },
-  { name: 'John Smith', role: 'Head of Programs', image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400' },
-  { name: 'Jane Wilson', role: 'Director of Operations', image: 'https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=400' },
-  { name: 'John Brown', role: 'Finance Director', image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400' },
+  { name: 'Jane Doe', role: 'Executive Director', image: '' },
+  { name: 'John Smith', role: 'Head of Programs', image: '' },
+  { name: 'Jane Wilson', role: 'Director of Operations', image: '' },
+  { name: 'John Brown', role: 'Finance Director', image: '' },
 ]
 
 export default function About() {
   return (
     <>
       <Helmet>
-        <title>About Us - [Your Organization Name]</title>
-        <meta name="description" content="Learn about [Your Organization Name]'s mission, vision, and the team behind our impact." />
+        <title>About Us - NGO</title>
+        <meta name="description" content="Learn about NGO's mission, vision, and the team behind our impact." />
       </Helmet>
 
       <AuroraBackground intensity="light">
@@ -46,7 +46,7 @@ export default function About() {
               marginBottom: '20px',
             }} />
             <p style={{ color: 'var(--text-secondary)', fontSize: '1.15rem', lineHeight: 1.7 }}>
-              Since 20XX, [Your Organization Name] has been at the forefront of community development — empowering communities, transforming lives, and redefining what impact means.
+              Since 20XX, NGO has been at the forefront of community development — empowering communities, transforming lives, and redefining what impact means.
             </p>
           </div>
         </div>

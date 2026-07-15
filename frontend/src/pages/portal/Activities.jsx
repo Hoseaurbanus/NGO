@@ -17,7 +17,7 @@ export default function PortalActivities() {
   return (
     <div>
       <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '1.75rem', marginBottom: '8px' }}>Activity History</h1>
-      <p style={{ color: 'var(--text-secondary)', marginBottom: '32px' }}>A complete timeline of your interactions with [Your Organization Name].</p>
+      <p style={{ color: 'var(--text-secondary)', marginBottom: '32px' }}>A complete timeline of your interactions with NGO.</p>
       <div style={{ position: 'relative', paddingLeft: '24px' }}>
         <div style={{ position: 'absolute', left: '11px', top: '8px', bottom: '8px', width: '2px', background: 'var(--glass-border)' }} />
         {activities.map((a, i) => (

@@ -71,7 +71,7 @@ export default function HeroSection() {
               letterSpacing: '0.1em',
               textTransform: 'uppercase',
             }}>
-              [Your Tagline]
+              Making a Difference
             </div>
 
             <KineticText
@@ -94,7 +94,7 @@ export default function HeroSection() {
               lineHeight: 1.7,
               marginBottom: '40px',
             }}>
-              [Your Organization Name] is a modern organization empowering communities through education, healthcare, and sustainable development. We don't just meet needs — we redefine impact.
+              NGO is a modern organization empowering communities through education, healthcare, and sustainable development. We don't just meet needs — we redefine impact.
             </p>
 
             <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '80px' }}>
