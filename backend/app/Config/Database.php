@@ -6,7 +6,7 @@ class Database
     public $default = [
         'hostname' => 'localhost',
         'username' => 'mdpjhtua_NGO',
-        'password' => 'CHANGE_ME',
+        'password' => '159075321@Au',
         'database' => 'mdpjhtua_NGO',
         'dbdriver' => 'pdo',
         'dbprefix' => '',
