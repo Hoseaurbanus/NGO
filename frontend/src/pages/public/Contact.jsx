@@ -7,14 +7,14 @@ import MagneticButton from '@components/ui/MagneticButton'
 import ScrollReveal from '@components/ui/ScrollReveal'
 
 const offices = [
-  { city: 'Lagos', address: '14 Admiralty Way, Lekki Phase 1, Lagos, Nigeria', phone: '+234 801 234 5678', icon: 'bi-geo-alt' },
-  { city: 'Nairobi', address: 'Westlands Business Park, Nairobi, Kenya', phone: '+254 700 123 456', icon: 'bi-geo-alt' },
+  { city: 'City 1', address: '123 Main Street, City, Country', phone: '+1 (555) 000-0000', icon: 'bi-geo-alt' },
+  { city: 'City 2', address: '456 Business Ave, City, Country', phone: '+1 (555) 000-0000', icon: 'bi-geo-alt' },
 ]
 
 const contactInfo = [
-  { icon: 'bi-envelope', label: 'Email', value: 'info@smugflex.org', href: 'mailto:info@smugflex.org' },
-  { icon: 'bi-telephone', label: 'Phone', value: '+234 801 234 5678', href: 'tel:+2348012345678' },
-  { icon: 'bi-clock', label: 'Hours', value: 'Mon-Fri 8:00 AM - 5:00 PM WAT', href: null },
+  { icon: 'bi-envelope', label: 'Email', value: 'info@yourorg.org', href: 'mailto:info@yourorg.org' },
+  { icon: 'bi-telephone', label: 'Phone', value: '+1 (555) 000-0000', href: 'tel:+15550000000' },
+  { icon: 'bi-clock', label: 'Hours', value: 'Mon-Fri 8:00 AM - 5:00 PM', href: null },
 ]
 
 export default function Contact() {
@@ -23,7 +23,7 @@ export default function Contact() {
 
   return (
     <>
-      <Helmet><title>Contact - SmugFlex</title><meta name="description" content="Get in touch with SmugFlex Africa. We'd love to hear from you." /></Helmet>
+      <Helmet><title>Contact - [Your Organization Name]</title><meta name="description" content="Get in touch with [Your Organization Name]. We'd love to hear from you." /></Helmet>
       <AuroraBackground intensity="light">
         <div className="page-hero-inner" style={{ minHeight: '50vh', display: 'flex', alignItems: 'center', padding: '120px 24px 80px' }}>
           <div style={{ maxWidth: '800px', margin: '0 auto' }}>

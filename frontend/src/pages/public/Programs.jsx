@@ -5,20 +5,20 @@ import ScrollReveal from '@components/ui/ScrollReveal'
 import GlassCard from '@components/ui/GlassCard'
 
 const programs = [
-  { title: 'Education for All', desc: 'Building schools, training teachers, and providing learning materials in Nigeria, Ghana, and Sierra Leone.', icon: 'bi-book', image: 'https://images.unsplash.com/photo-1497486751825-112ba8d25d1d?w=600', color: '#536DFE', stats: '80K+ students', location: 'West Africa' },
-  { title: 'Healthcare Access', desc: 'Delivering medical services, vaccinations, and maternal health programs across East Africa.', icon: 'bi-heart-pulse', image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600', color: '#00E676', stats: '50K+ patients', location: 'Kenya & Tanzania' },
-  { title: 'Clean Water Initiative', desc: 'Installing boreholes and water purification systems in water-scarce communities.', icon: 'bi-droplet', image: 'https://images.unsplash.com/photo-1541544741938-0af808871cc0?w=600', color: '#00E5FF', stats: '100+ villages', location: 'Ethiopia & Uganda' },
-  { title: 'Community Empowerment', desc: 'Vocational training, micro-loans, and entrepreneurship support for African youth.', icon: 'bi-people', image: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600', color: '#FFD740', stats: '15K+ entrepreneurs', location: 'Pan-Africa' },
-  { title: 'Emergency Relief', desc: 'Rapid response to floods, droughts, and humanitarian crises across the continent.', icon: 'bi-lightning', image: 'https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=600', color: '#FF5252', stats: '25+ deployments', location: 'Multiple Countries' },
-  { title: 'Environmental Action', desc: 'Reforestation, conservation, and sustainable agriculture programs in the Sahel.', icon: 'bi-tree', image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600', color: '#00E676', stats: '500K trees planted', location: 'Sahel Region' },
+  { title: 'Education for All', desc: 'Building schools, training teachers, and providing learning materials to communities worldwide.', icon: 'bi-book', image: 'https://images.unsplash.com/photo-1497486751825-112ba8d25d1d?w=600', color: '#536DFE', stats: '--', location: 'Global' },
+  { title: 'Healthcare Access', desc: 'Delivering medical services, vaccinations, and maternal health programs to underserved communities.', icon: 'bi-heart-pulse', image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600', color: '#00E676', stats: '--', location: 'Global' },
+  { title: 'Clean Water Initiative', desc: 'Installing boreholes and water purification systems in water-scarce communities.', icon: 'bi-droplet', image: 'https://images.unsplash.com/photo-1541544741938-0af808871cc0?w=600', color: '#00E5FF', stats: '--', location: 'Global' },
+  { title: 'Community Empowerment', desc: 'Vocational training, micro-loans, and entrepreneurship support for youth worldwide.', icon: 'bi-people', image: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600', color: '#FFD740', stats: '--', location: 'Global' },
+  { title: 'Emergency Relief', desc: 'Rapid response to floods, droughts, and humanitarian crises worldwide.', icon: 'bi-lightning', image: 'https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=600', color: '#FF5252', stats: '--', location: 'Global' },
+  { title: 'Environmental Action', desc: 'Reforestation, conservation, and sustainable agriculture programs worldwide.', icon: 'bi-tree', image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600', color: '#00E676', stats: '--', location: 'Global' },
 ]
 
 export default function Programs() {
   return (
     <>
       <Helmet>
-        <title>Programs - SmugFlex</title>
-        <meta name="description" content="Explore SmugFlex's six core programs driving meaningful change across African communities." />
+        <title>Programs - [Your Organization Name]</title>
+        <meta name="description" content="Explore [Your Organization Name]'s six core programs driving meaningful change in communities worldwide." />
       </Helmet>
 
       <AuroraBackground intensity="light">
@@ -27,7 +27,7 @@ export default function Programs() {
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', color: 'var(--aurora-cyan)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '16px' }}>Our Programs</div>
             <KineticText text="Six Pillars of Change" tag="h1" style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', fontFamily: 'var(--font-display)', marginBottom: '20px' }} />
             <p style={{ color: 'var(--text-secondary)', fontSize: '1.15rem', lineHeight: 1.7 }}>
-              Each program is designed to create sustainable, community-driven impact across Africa.
+              Each program is designed to create sustainable, community-driven impact worldwide.
             </p>
           </div>
         </div>

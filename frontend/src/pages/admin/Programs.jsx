@@ -3,12 +3,12 @@ import GlassCard from '@components/ui/GlassCard'
 import MagneticButton from '@components/ui/MagneticButton'
 
 const initialPrograms = [
-  { id: 1, title: 'Education for All', status: 'active', students: '80K+' },
-  { id: 2, title: 'Healthcare Access', status: 'active', students: '50K+' },
-  { id: 3, title: 'Clean Water Initiative', status: 'active', students: '100+' },
-  { id: 4, title: 'Community Empowerment', status: 'active', students: '15K+' },
-  { id: 5, title: 'Emergency Relief', status: 'active', students: '25+' },
-  { id: 6, title: 'Environmental Action', status: 'inactive', students: '500K trees' },
+  { id: 1, title: 'Education for All', status: 'active', students: '--' },
+  { id: 2, title: 'Healthcare Access', status: 'active', students: '--' },
+  { id: 3, title: 'Clean Water Initiative', status: 'active', students: '--' },
+  { id: 4, title: 'Community Empowerment', status: 'active', students: '--' },
+  { id: 5, title: 'Emergency Relief', status: 'active', students: '--' },
+  { id: 6, title: 'Environmental Action', status: 'inactive', students: '--' },
 ]
 
 export default function AdminPrograms() {

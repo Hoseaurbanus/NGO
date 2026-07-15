@@ -6,27 +6,27 @@ import GradientText from '@components/ui/GradientText'
 import GlassCard from '@components/ui/GlassCard'
 
 const timeline = [
-  { year: '2010', title: 'Lagos Launch', desc: 'SmugFlex was founded in Lagos, Nigeria with a vision to transform African communities from within.' },
-  { year: '2013', title: 'East Africa Expansion', desc: 'Expanded to Kenya and Tanzania, launching education programs in rural communities.' },
-  { year: '2016', title: 'Southern Africa', desc: 'Opened operations in South Africa and Ghana, reaching 100,000 lives across 8 countries.' },
-  { year: '2019', title: 'Digital Innovation', desc: 'Launched mobile learning platforms connecting 50,000 students in remote areas.' },
-  { year: '2022', title: 'Pan-African Reach', desc: 'Expanded to 12 African nations with healthcare, education, and clean water programs.' },
-  { year: '2025', title: '250K+ Lives Changed', desc: 'Surpassed 250,000 lives impacted across 12 African countries.' },
+  { year: '20XX', title: 'Founded', desc: '[Your Organization Name] was established with a vision to create lasting change in communities worldwide.' },
+  { year: '20XX', title: 'Regional Expansion', desc: 'Expanded operations to new regions, launching education and healthcare programs.' },
+  { year: '20XX', title: 'Program Growth', desc: 'Launched new programs and partnerships, reaching more communities.' },
+  { year: '20XX', title: 'Digital Innovation', desc: 'Introduced technology-driven solutions to expand our reach.' },
+  { year: '20XX', title: 'Global Reach', desc: 'Expanded to multiple countries with comprehensive programs.' },
+  { year: '20XX', title: 'Milestone Achievement', desc: 'Reached significant impact milestones across all programs.' },
 ]
 
 const team = [
-  { name: 'Dr. Adaeze Nwosu', role: 'Executive Director', image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400' },
-  { name: 'James Odhiambo', role: 'Head of Programs', image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400' },
-  { name: 'Fatima Al-Rashid', role: 'Director of Operations', image: 'https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=400' },
-  { name: 'Kwame Mensah', role: 'Finance Director', image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400' },
+  { name: 'Jane Doe', role: 'Executive Director', image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400' },
+  { name: 'John Smith', role: 'Head of Programs', image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400' },
+  { name: 'Jane Wilson', role: 'Director of Operations', image: 'https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=400' },
+  { name: 'John Brown', role: 'Finance Director', image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400' },
 ]
 
 export default function About() {
   return (
     <>
       <Helmet>
-        <title>About Us - SmugFlex</title>
-        <meta name="description" content="Learn about SmugFlex's mission, vision, and the team behind our impact across Africa." />
+        <title>About Us - [Your Organization Name]</title>
+        <meta name="description" content="Learn about [Your Organization Name]'s mission, vision, and the team behind our impact." />
       </Helmet>
 
       <AuroraBackground intensity="light">
@@ -40,13 +40,13 @@ export default function About() {
               textTransform: 'uppercase',
               marginBottom: '16px',
             }}>About Us</div>
-            <KineticText text="Empowering Africa From Within" tag="h1" style={{
+            <KineticText text="Empowering Communities Worldwide" tag="h1" style={{
               fontSize: 'clamp(2.5rem, 6vw, 4rem)',
               fontFamily: 'var(--font-display)',
               marginBottom: '20px',
             }} />
             <p style={{ color: 'var(--text-secondary)', fontSize: '1.15rem', lineHeight: 1.7 }}>
-              Since 2010, SmugFlex has been at the forefront of African development — empowering communities, transforming lives, and redefining what impact means across the continent.
+              Since 20XX, [Your Organization Name] has been at the forefront of community development — empowering communities, transforming lives, and redefining what impact means.
             </p>
           </div>
         </div>
@@ -73,12 +73,12 @@ export default function About() {
                 fontSize: '2rem',
                 fontFamily: 'var(--font-display)',
                 marginBottom: '16px',
-              }}>Empowering African Communities</GradientText>
+              }}>Empowering Communities</GradientText>
               <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: '16px' }}>
-                We believe every African community deserves the opportunity to thrive. Through education, healthcare, and sustainable development, we create lasting change that transforms entire nations.
+                We believe every community deserves the opportunity to thrive. Through education, healthcare, and sustainable development, we create lasting change that transforms lives.
               </p>
               <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7 }}>
-                Our approach is community-driven, ensuring that every program is designed with the people it serves, not just for them. From Lagos to Nairobi, Accra to Cape Town, we are building a stronger Africa.
+                Our approach is community-driven, ensuring that every program is designed with the people it serves, not just for them. We work alongside communities to build a better future.
               </p>
             </ScrollReveal>
             <ScrollReveal direction="right">
@@ -94,9 +94,9 @@ export default function About() {
                 fontSize: '2rem',
                 fontFamily: 'var(--font-display)',
                 marginBottom: '16px',
-              }}>A Prosperous, United Africa</GradientText>
+              }}>A Prosperous World</GradientText>
               <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7 }}>
-                We envision an Africa where access to education, healthcare, and opportunity is not determined by geography or circumstance. A continent where every community can build its own sustainable future.
+                We envision a world where access to education, healthcare, and opportunity is not determined by geography or circumstance. A world where every community can build its own sustainable future.
               </p>
             </ScrollReveal>
           </div>

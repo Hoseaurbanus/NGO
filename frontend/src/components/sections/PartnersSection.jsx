@@ -1,14 +1,14 @@
 import ScrollReveal from '@components/ui/ScrollReveal'
 
 const partners = [
-  { name: 'African Union', logo: 'AU' },
-  { name: 'African Development Bank', logo: 'AfDB' },
-  { name: 'UNICEF Africa', logo: 'UNICEF' },
-  { name: 'WHO Africa', logo: 'WHO' },
-  { name: 'Ford Foundation Africa', logo: 'FF' },
-  { name: 'Mastercard Foundation', logo: 'MCF' },
-  { name: 'Tony Elumelu Foundation', logo: 'TEF' },
-  { name: 'Gates Foundation', logo: 'GF' },
+  { name: 'Foundation A', logo: 'FA' },
+  { name: 'Organization B', logo: 'OB' },
+  { name: 'Institute C', logo: 'IC' },
+  { name: 'Alliance D', logo: 'AD' },
+  { name: 'Foundation E', logo: 'FE' },
+  { name: 'Group F', logo: 'GF' },
+  { name: 'Partnership G', logo: 'PG' },
+  { name: 'Coalition H', logo: 'CH' },
 ]
 
 export default function PartnersSection() {
@@ -33,7 +33,7 @@ export default function PartnersSection() {
               color: 'var(--text-secondary)',
               fontWeight: 500,
             }}>
-              Trusted by leading organizations across Africa
+              Trusted by leading organizations worldwide
             </h2>
           </div>
         </ScrollReveal>

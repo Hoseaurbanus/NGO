@@ -7,7 +7,7 @@ import MagneticButton from '@components/ui/MagneticButton'
 import ScrollReveal from '@components/ui/ScrollReveal'
 
 const amounts = [25, 50, 100, 250, 500, 1000]
-const impacts = { 25: 'School supplies for 5 children', 50: 'Healthcare for a family for a month', 100: 'Clean water access point', 250: 'Community health worker training', 500: 'Full year student sponsorship', 1000: 'Micro-enterprise grant' }
+const impacts = { 25: 'Supports community programs', 50: 'Provides essential supplies', 100: 'Funds a local initiative', 250: 'Sponsors a training program', 500: 'Supports a major project', 1000: 'Funds a comprehensive program' }
 
 export default function Donate() {
   const [selected, setSelected] = useState(100)
@@ -16,7 +16,7 @@ export default function Donate() {
 
   return (
     <>
-      <Helmet><title>Donate - SmugFlex</title><meta name="description" content="Your donation changes lives. Support SmugFlex's mission to transform communities worldwide." /></Helmet>
+      <Helmet><title>Donate - [Your Organization Name]</title><meta name="description" content="Your donation changes lives. Support [Your Organization Name]'s mission to transform communities worldwide." /></Helmet>
       <AuroraBackground intensity="normal">
         <div className="page-hero-inner" style={{ minHeight: '50vh', display: 'flex', alignItems: 'center', padding: '120px 24px 80px' }}>
           <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>

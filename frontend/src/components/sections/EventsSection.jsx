@@ -6,23 +6,23 @@ import { formatDate } from '@utils/helpers'
 
 const events = [
   {
-    title: 'Pan-African Education Summit 2026',
+    title: 'Global Education Summit 2026',
     date: '2026-09-15',
-    location: 'Lagos, Nigeria',
+    location: 'City, Country',
     image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600',
     category: 'Conference',
   },
   {
     title: 'Community Health Workshop',
     date: '2026-08-20',
-    location: 'Nairobi, Kenya',
+    location: 'City, Country',
     image: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600',
     category: 'Workshop',
   },
   {
     title: 'Annual Fundraising Gala',
     date: '2026-10-05',
-    location: 'Accra, Ghana',
+    location: 'City, Country',
     image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=600',
     category: 'Gala',
   },

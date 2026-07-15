@@ -8,10 +8,10 @@ import { Link } from 'react-router-dom'
 import { ROUTES } from '@constants'
 
 const stats = [
-  { label: 'Lives Impacted', value: 250000, suffix: '+' },
-  { label: 'Programs', value: 45, suffix: '+' },
-  { label: 'African Nations', value: 12, suffix: '' },
-  { label: 'Community Volunteers', value: 5000, suffix: '+' },
+  { label: 'Lives Impacted', value: 0, suffix: '+' },
+  { label: 'Programs', value: 0, suffix: '+' },
+  { label: 'Countries Reached', value: 0, suffix: '' },
+  { label: 'Community Volunteers', value: 0, suffix: '+' },
 ]
 
 export default function HeroSection() {
@@ -71,7 +71,7 @@ export default function HeroSection() {
               letterSpacing: '0.1em',
               textTransform: 'uppercase',
             }}>
-              Impact. Redefined.
+              [Your Tagline]
             </div>
 
             <KineticText
@@ -94,7 +94,7 @@ export default function HeroSection() {
               lineHeight: 1.7,
               marginBottom: '40px',
             }}>
-              SmugFlex is a Pan-African NGO empowering communities through education, healthcare, and sustainable development. We don't just meet needs — we redefine impact across the continent.
+              [Your Organization Name] is a modern organization empowering communities through education, healthcare, and sustainable development. We don't just meet needs — we redefine impact.
             </p>
 
             <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '80px' }}>

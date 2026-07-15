@@ -3,18 +3,18 @@ import GlassCard from '@components/ui/GlassCard'
 import CountUp from '@components/ui/CountUp'
 
 const stats = [
-  { label: 'Total Donations', value: 2750, prefix: '$', icon: 'bi-heart', color: '#00E676' },
-  { label: 'Events Attended', value: 8, icon: 'bi-calendar3', color: '#00E5FF' },
-  { label: 'Hours Volunteered', value: 120, icon: 'bi-clock', color: '#536DFE' },
-  { label: 'Certificates', value: 4, icon: 'bi-award', color: '#FFD740' },
+  { label: 'Total Donations', value: 0, prefix: '$', icon: 'bi-heart', color: '#00E676' },
+  { label: 'Events Attended', value: 0, icon: 'bi-calendar3', color: '#00E5FF' },
+  { label: 'Hours Volunteered', value: 0, icon: 'bi-clock', color: '#536DFE' },
+  { label: 'Certificates', value: 0, icon: 'bi-award', color: '#FFD740' },
 ]
 
 const recentActivity = [
-  { action: 'Donated $100 to Education Fund', date: '2026-07-14', icon: 'bi-heart', color: '#00E676' },
-  { action: 'Registered for Global Education Summit', date: '2026-07-12', icon: 'bi-calendar3', color: '#00E5FF' },
-  { action: 'Volunteered at Community Health Workshop', date: '2026-07-10', icon: 'bi-people', color: '#536DFE' },
-  { action: 'Downloaded Annual Report 2025', date: '2026-07-08', icon: 'bi-download', color: '#FFD740' },
-  { action: 'Completed volunteer training module', date: '2026-07-05', icon: 'bi-check-circle', color: '#00E676' },
+  { action: 'Donated to Education Fund', date: '2026-07-14', icon: 'bi-heart', color: '#00E676' },
+  { action: 'Registered for an event', date: '2026-07-12', icon: 'bi-calendar3', color: '#00E5FF' },
+  { action: 'Volunteered at a workshop', date: '2026-07-10', icon: 'bi-people', color: '#536DFE' },
+  { action: 'Downloaded a report', date: '2026-07-08', icon: 'bi-download', color: '#FFD740' },
+  { action: 'Completed training module', date: '2026-07-05', icon: 'bi-check-circle', color: '#00E676' },
 ]
 
 export default function PortalDashboard() {

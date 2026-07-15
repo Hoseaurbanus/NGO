@@ -6,12 +6,12 @@ const pillars = [
   {
     icon: 'bi-book',
     title: 'Education',
-    description: 'Providing quality education and learning resources to underserved African communities.',
+    description: 'Providing quality education and learning resources to underserved communities worldwide.',
   },
   {
     icon: 'bi-heart-pulse',
     title: 'Healthcare',
-    description: 'Delivering essential healthcare services and medical supplies across the continent.',
+    description: 'Delivering essential healthcare services and medical supplies to communities worldwide.',
   },
   {
     icon: 'bi-people',
@@ -55,14 +55,14 @@ export default function MissionSection() {
                 fontFamily: 'var(--font-display)',
                 marginBottom: '20px',
               }}>
-                Empowering African Communities
+                Empowering Communities
               </GradientText>
               <p style={{
                 color: 'var(--text-secondary)',
                 fontSize: '1.1rem',
                 lineHeight: 1.7,
               }}>
-                At SmugFlex, we believe every African community deserves the opportunity to thrive. Our mission is to create lasting change through education, healthcare access, and community-driven development.
+                At [Your Organization Name], we believe every community deserves the opportunity to thrive. Our mission is to create lasting change through education, healthcare access, and community-driven development.
               </p>
             </ScrollReveal>
           </div>

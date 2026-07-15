@@ -3,21 +3,21 @@ import GradientText from '@components/ui/GradientText'
 
 const stories = [
   {
-    quote: "SmugFlex gave my daughter the chance to attend school for the first time. Now she dreams of becoming a doctor.",
-    name: 'Amara K.',
-    location: 'Freetown, Sierra Leone',
+    quote: "[Your Organization Name] gave my daughter the chance to attend school for the first time. Now she dreams of becoming a doctor.",
+    name: 'Name S.',
+    location: 'City, Country',
     image: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=400',
   },
   {
     quote: "The healthcare program saved my village. We now have clean water and regular medical checkups. Our children are healthier than ever.",
-    name: 'Wanjiku M.',
-    location: 'Nakuru, Kenya',
+    name: 'Name S.',
+    location: 'City, Country',
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400',
   },
   {
     quote: "Through their community empowerment program, I started my own business and now employ five people in my community.",
-    name: 'Adaeze O.',
-    location: 'Lagos, Nigeria',
+    name: 'Name S.',
+    location: 'City, Country',
     image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400',
   },
 ]

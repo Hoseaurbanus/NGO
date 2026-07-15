@@ -4,11 +4,11 @@ import KineticText from '@components/ui/KineticText'
 import ScrollReveal from '@components/ui/ScrollReveal'
 
 const categories = [
-  { name: 'Photos', icon: 'bi-camera', count: 250 },
-  { name: 'Videos', icon: 'bi-play-circle', count: 45 },
-  { name: 'Annual Reports', icon: 'bi-file-earmark-pdf', count: 12 },
-  { name: 'Brochures', icon: 'bi-journal-richtext', count: 24 },
-  { name: 'Newsletters', icon: 'bi-envelope-paper', count: 36 },
+  { name: 'Photos', icon: 'bi-camera', count: 0 },
+  { name: 'Videos', icon: 'bi-play-circle', count: 0 },
+  { name: 'Annual Reports', icon: 'bi-file-earmark-pdf', count: 0 },
+  { name: 'Brochures', icon: 'bi-journal-richtext', count: 0 },
+  { name: 'Newsletters', icon: 'bi-envelope-paper', count: 0 },
 ]
 
 const photos = [
@@ -25,7 +25,7 @@ const photos = [
 export default function Media() {
   return (
     <>
-      <Helmet><title>Media - SmugFlex</title><meta name="description" content="Photos, videos, reports, and resources from SmugFlex." /></Helmet>
+      <Helmet><title>Media - [Your Organization Name]</title><meta name="description" content="Photos, videos, reports, and resources from [Your Organization Name]." /></Helmet>
       <AuroraBackground intensity="light">
         <div style={{ minHeight: '50vh', display: 'flex', alignItems: 'center', padding: '120px 24px 80px' }}>
           <div style={{ maxWidth: '800px', margin: '0 auto' }}>

@@ -3,11 +3,11 @@ import GlassCard from '@components/ui/GlassCard'
 import MagneticButton from '@components/ui/MagneticButton'
 
 const initialProjects = [
-  { id: 1, title: 'Rural School Network', status: 'ongoing', progress: 72, location: 'Nepal' },
-  { id: 2, title: 'Clean Water for Nairobi', status: 'completed', progress: 100, location: 'Kenya' },
-  { id: 3, title: 'Mobile Health Clinics', status: 'ongoing', progress: 45, location: 'Sierra Leone' },
-  { id: 4, title: 'Women Empowerment Hub', status: 'upcoming', progress: 0, location: 'Jordan' },
-  { id: 5, title: 'Reforestation Drive', status: 'ongoing', progress: 60, location: 'Brazil' },
+  { id: 1, title: 'Rural School Network', status: 'ongoing', progress: 72, location: 'Country 1' },
+  { id: 2, title: 'Clean Water Initiative', status: 'completed', progress: 100, location: 'Country 2' },
+  { id: 3, title: 'Mobile Health Clinics', status: 'ongoing', progress: 45, location: 'Country 3' },
+  { id: 4, title: 'Women Empowerment Hub', status: 'upcoming', progress: 0, location: 'Country 4' },
+  { id: 5, title: 'Reforestation Drive', status: 'ongoing', progress: 60, location: 'Country 5' },
 ]
 
 const statusColors = { ongoing: '#00E5FF', completed: '#00E676', upcoming: '#FFD740' }

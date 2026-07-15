@@ -4,12 +4,12 @@ import CountUp from '@components/ui/CountUp'
 import AuroraBackground from '@components/ui/AuroraBackground'
 
 const impactStats = [
-  { value: 250000, suffix: '+', label: 'Lives Impacted', icon: 'bi-heart' },
-  { value: 45, suffix: '+', label: 'Active Programs', icon: 'bi-folder' },
-  { value: 18, suffix: '', label: 'Countries Reached', icon: 'bi-globe' },
-  { value: 5000, suffix: '+', label: 'Volunteers Worldwide', icon: 'bi-people' },
-  { value: 12, suffix: 'M', label: 'Funds Raised', prefix: '$', icon: 'bi-currency-dollar' },
-  { value: 200, suffix: '+', label: 'Projects Completed', icon: 'bi-check-circle' },
+  { value: 0, suffix: '+', label: 'Lives Impacted', icon: 'bi-heart' },
+  { value: 0, suffix: '+', label: 'Active Programs', icon: 'bi-folder' },
+  { value: 0, suffix: '', label: 'Countries Reached', icon: 'bi-globe' },
+  { value: 0, suffix: '+', label: 'Volunteers Worldwide', icon: 'bi-people' },
+  { value: 0, suffix: 'M', label: 'Funds Raised', prefix: '$', icon: 'bi-currency-dollar' },
+  { value: 0, suffix: '+', label: 'Projects Completed', icon: 'bi-check-circle' },
 ]
 
 export default function ImpactSection() {

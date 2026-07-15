@@ -45,7 +45,7 @@ export default function Register() {
 
   return (
     <>
-      <Helmet><title>Register - SmugFlex</title></Helmet>
+      <Helmet><title>Register - [Your Organization Name]</title></Helmet>
       <AuroraBackground intensity="normal">
         <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '120px 24px 80px' }}>
           <div style={{ width: '100%', maxWidth: '460px' }}>
@@ -61,7 +61,7 @@ export default function Register() {
                   <span style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '20px', color: 'white' }}>SF</span>
                 </div>
                 <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '1.75rem', marginBottom: '8px', fontWeight: 700 }}>Create Account</h1>
-                <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Join the SmugFlex community</p>
+                <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Join the [Your Organization Name] community</p>
               </div>
 
               {error && (

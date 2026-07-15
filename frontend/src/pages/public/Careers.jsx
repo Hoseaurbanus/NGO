@@ -6,18 +6,18 @@ import GlassCard from '@components/ui/GlassCard'
 import MagneticButton from '@components/ui/MagneticButton'
 
 const jobs = [
-  { title: 'Program Manager - Education', department: 'Programs', location: 'New York, USA', type: 'Full-time', posted: '2026-07-01' },
-  { title: 'Field Coordinator - East Africa', department: 'Operations', location: 'Nairobi, Kenya', type: 'Full-time', posted: '2026-06-28' },
+  { title: 'Program Manager - Education', department: 'Programs', location: 'City, Country', type: 'Full-time', posted: '2026-07-01' },
+  { title: 'Field Coordinator', department: 'Operations', location: 'City, Country', type: 'Full-time', posted: '2026-06-28' },
   { title: 'Data Analyst', department: 'Technology', location: 'Remote', type: 'Full-time', posted: '2026-06-25' },
-  { title: 'Communications Specialist', department: 'Marketing', location: 'London, UK', type: 'Full-time', posted: '2026-06-20' },
+  { title: 'Communications Specialist', department: 'Marketing', location: 'City, Country', type: 'Full-time', posted: '2026-06-20' },
   { title: 'Grant Writer', department: 'Fundraising', location: 'Remote', type: 'Contract', posted: '2026-06-15' },
-  { title: 'Volunteer Coordinator', department: 'Volunteers', location: 'Costa Rica', type: 'Full-time', posted: '2026-06-10' },
+  { title: 'Volunteer Coordinator', department: 'Volunteers', location: 'City, Country', type: 'Full-time', posted: '2026-06-10' },
 ]
 
 export default function Careers() {
   return (
     <>
-      <Helmet><title>Careers - SmugFlex</title><meta name="description" content="Join SmugFlex and build a career that makes a real difference." /></Helmet>
+      <Helmet><title>Careers - [Your Organization Name]</title><meta name="description" content="Join [Your Organization Name] and build a career that makes a real difference." /></Helmet>
       <AuroraBackground intensity="light">
         <div style={{ minHeight: '50vh', display: 'flex', alignItems: 'center', padding: '120px 24px 80px' }}>
           <div style={{ maxWidth: '800px', margin: '0 auto' }}>

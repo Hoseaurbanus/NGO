@@ -6,12 +6,12 @@ import GlassCard from '@components/ui/GlassCard'
 import { formatDate } from '@utils/helpers'
 
 const posts = [
-  { title: 'SmugFlex Expands Education Programs to 5 New African Countries', excerpt: 'Our Pan-African education initiative reaches new milestones across the continent.', image: 'https://images.unsplash.com/photo-1497486751825-112ba8d25d1d?w=800', category: 'Education', date: '2026-07-10', author: 'Dr. Adaeze Nwosu', featured: true },
-  { title: 'Annual Report 2025: A Year of African Growth', excerpt: 'Our biggest year yet — 250,000+ lives impacted across 12 African nations.', image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400', category: 'Reports', date: '2026-06-28', author: 'James Odhiambo' },
-  { title: 'Clean Water Initiative Reaches 100th African Village', excerpt: 'A century of villages now have access to clean water.', image: 'https://images.unsplash.com/photo-1541544741938-0af808871cc0?w=400', category: 'Impact', date: '2026-06-15', author: 'Fatima Al-Rashid' },
-  { title: 'New Healthcare Center Opens in Nairobi', excerpt: 'Serving 10,000+ patients annually in underserved communities.', image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400', category: 'Healthcare', date: '2026-05-20', author: 'Dr. Adaeze Nwosu' },
-  { title: 'Volunteer Spotlight: Meet Our African Changemakers', excerpt: 'Stories from our incredible Pan-African volunteer network.', image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400', category: 'Volunteers', date: '2026-05-01', author: 'Kwame Mensah' },
-  { title: 'Sahel Reforestation: 500K Trees Planted', excerpt: 'Our environmental program hits a major milestone in the Sahel region.', image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400', category: 'Environment', date: '2026-04-15', author: 'James Odhiambo' },
+  { title: '[Your Organization Name] Expands Programs to New Regions', excerpt: 'Our education initiative reaches new milestones in communities worldwide.', image: 'https://images.unsplash.com/photo-1497486751825-112ba8d25d1d?w=800', category: 'Education', date: '2026-07-10', author: 'Jane Doe', featured: true },
+  { title: 'Annual Report 2025: A Year of Growth', excerpt: 'Our biggest year yet — significant milestones achieved across all programs.', image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400', category: 'Reports', date: '2026-06-28', author: 'John Smith' },
+  { title: 'Clean Water Initiative Reaches New Milestone', excerpt: 'Communities worldwide now have access to clean water.', image: 'https://images.unsplash.com/photo-1541544741938-0af808871cc0?w=400', category: 'Impact', date: '2026-06-15', author: 'Jane Wilson' },
+  { title: 'New Healthcare Center Opens', excerpt: 'Serving patients annually in underserved communities.', image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400', category: 'Healthcare', date: '2026-05-20', author: 'Jane Doe' },
+  { title: 'Volunteer Spotlight: Meet Our Changemakers', excerpt: 'Stories from our incredible global volunteer network.', image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400', category: 'Volunteers', date: '2026-05-01', author: 'John Brown' },
+  { title: 'Reforestation Program Hits Major Milestone', excerpt: 'Our environmental program achieves a significant goal.', image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400', category: 'Environment', date: '2026-04-15', author: 'John Smith' },
 ]
 
 const catColors = { Education: '#536DFE', Reports: '#7C4DFF', Impact: '#00E676', Healthcare: '#00E5FF', Volunteers: '#FFD740', Environment: '#00E676' }
@@ -21,13 +21,13 @@ export default function Blog() {
   const rest = posts.slice(1)
   return (
     <>
-      <Helmet><title>Blog - SmugFlex</title><meta name="description" content="Latest news, stories, and updates from SmugFlex Africa." /></Helmet>
+      <Helmet><title>Blog - [Your Organization Name]</title><meta name="description" content="Latest news, stories, and updates from [Your Organization Name]." /></Helmet>
       <AuroraBackground intensity="light">
         <div className="page-hero-inner" style={{ minHeight: '50vh', display: 'flex', alignItems: 'center', padding: '120px 24px 80px' }}>
           <div style={{ maxWidth: '800px', margin: '0 auto' }}>
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', color: 'var(--aurora-cyan)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '16px' }}>Blog</div>
             <KineticText text="Stories & Updates" tag="h1" style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', fontFamily: 'var(--font-display)', marginBottom: '20px' }} />
-            <p style={{ color: 'var(--text-secondary)', fontSize: '1.15rem', lineHeight: 1.7 }}>News, impact stories, and insights from our African community.</p>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '1.15rem', lineHeight: 1.7 }}>News, impact stories, and insights from our community.</p>
           </div>
         </div>
       </AuroraBackground>

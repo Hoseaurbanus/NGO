@@ -8,42 +8,42 @@ import { ROUTES } from '@constants'
 const programs = [
   {
     title: 'Education for All',
-    description: 'Building schools, training teachers, and providing learning materials to communities across Nigeria, Kenya, and Ghana.',
+    description: 'Building schools, training teachers, and providing learning materials to communities worldwide.',
     image: 'https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=600',
     icon: 'bi-book',
     color: '#536DFE',
   },
   {
     title: 'Healthcare Access',
-    description: 'Delivering medical services, vaccinations, and health education to underserved populations in East Africa.',
+    description: 'Delivering medical services, vaccinations, and health education to underserved populations.',
     image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600',
     icon: 'bi-heart-pulse',
     color: '#00E676',
   },
   {
     title: 'Clean Water Initiative',
-    description: 'Installing water purification systems and wells in water-scarce regions of Ethiopia and Tanzania.',
+    description: 'Installing water purification systems and wells in water-scarce regions worldwide.',
     image: 'https://images.unsplash.com/photo-1541544741938-0af808871cc0?w=600',
     icon: 'bi-droplet',
     color: '#00E5FF',
   },
   {
     title: 'Community Empowerment',
-    description: 'Providing vocational training, micro-loans, and entrepreneurship support across West Africa.',
+    description: 'Providing vocational training, micro-loans, and entrepreneurship support worldwide.',
     image: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600',
     icon: 'bi-people',
     color: '#FFD740',
   },
   {
     title: 'Emergency Relief',
-    description: 'Rapid response to natural disasters with food, shelter, and medical aid across the continent.',
+    description: 'Rapid response to natural disasters with food, shelter, and medical aid worldwide.',
     image: 'https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=600',
     icon: 'bi-lightning',
     color: '#FF5252',
   },
   {
     title: 'Environmental Action',
-    description: 'Reforestation, conservation, and sustainable agriculture programs in Rwanda and Uganda.',
+    description: 'Reforestation, conservation, and sustainable agriculture programs worldwide.',
     image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600',
     icon: 'bi-tree',
     color: '#00E676',
@@ -81,7 +81,7 @@ export default function ProgramsSection() {
               maxWidth: '600px',
               margin: '0 auto',
             }}>
-              Six core programs driving meaningful change across African communities.
+              Six core programs driving meaningful change in communities worldwide.
             </p>
           </div>
         </ScrollReveal>

@@ -4,11 +4,11 @@ import MagneticButton from '@components/ui/MagneticButton'
 
 export default function AdminSettings() {
   const [settings, setSettings] = useState({
-    site_name: 'SmugFlex',
-    site_tagline: 'Impact. Redefined.',
-    site_email: 'info@smugflex.org',
-    site_phone: '+1 (555) 123-4567',
-    site_address: '123 Impact Avenue, New York, NY 10001',
+    site_name: '[Your Organization Name]',
+    site_tagline: '[Your Tagline]',
+    site_email: 'info@yourorg.org',
+    site_phone: '+1 (555) 000-0000',
+    site_address: '123 Main Street, City, Country',
     currency: 'USD',
     donation_goal: '500000',
   })

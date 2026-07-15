@@ -4,10 +4,10 @@ import MagneticButton from '@components/ui/MagneticButton'
 import { formatDate } from '@utils/helpers'
 
 const initialEvents = [
-  { id: 1, title: 'Global Education Summit 2026', date: '2026-09-15', location: 'New York', status: 'upcoming', attendees: 250 },
-  { id: 2, title: 'Community Health Workshop', date: '2026-08-20', location: 'Nairobi', status: 'upcoming', attendees: 80 },
-  { id: 3, title: 'Annual Fundraising Gala', date: '2026-10-05', location: 'London', status: 'upcoming', attendees: 500 },
-  { id: 4, title: 'Clean Water Hackathon', date: '2026-11-12', location: 'Berlin', status: 'upcoming', attendees: 120 },
+  { id: 1, title: 'Global Education Summit 2026', date: '2026-09-15', location: 'City 1', status: 'upcoming', attendees: 0 },
+  { id: 2, title: 'Community Health Workshop', date: '2026-08-20', location: 'City 2', status: 'upcoming', attendees: 0 },
+  { id: 3, title: 'Annual Fundraising Gala', date: '2026-10-05', location: 'City 3', status: 'upcoming', attendees: 0 },
+  { id: 4, title: 'Clean Water Hackathon', date: '2026-11-12', location: 'City 4', status: 'upcoming', attendees: 0 },
 ]
 
 export default function AdminEvents() {

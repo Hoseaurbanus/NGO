@@ -2,11 +2,11 @@ import GlassCard from '@components/ui/GlassCard'
 import { formatCurrency, formatDate } from '@utils/helpers'
 
 const donations = [
-  { id: 1, amount: 100, campaign: 'Education Fund', date: '2026-07-14', status: 'Completed', method: 'Online' },
-  { id: 2, amount: 250, campaign: 'Clean Water Initiative', date: '2026-06-20', status: 'Completed', method: 'Bank Transfer' },
-  { id: 3, amount: 50, campaign: 'Emergency Relief', date: '2026-05-15', status: 'Completed', method: 'Online' },
-  { id: 4, amount: 500, campaign: 'Annual Fundraising', date: '2026-04-10', status: 'Completed', method: 'Check' },
-  { id: 5, amount: 75, campaign: 'Healthcare Access', date: '2026-03-05', status: 'Completed', method: 'Online' },
+  { id: 1, amount: 0, campaign: 'Education Fund', date: '2026-07-14', status: 'Completed', method: 'Online' },
+  { id: 2, amount: 0, campaign: 'Clean Water Initiative', date: '2026-06-20', status: 'Completed', method: 'Bank Transfer' },
+  { id: 3, amount: 0, campaign: 'Emergency Relief', date: '2026-05-15', status: 'Completed', method: 'Online' },
+  { id: 4, amount: 0, campaign: 'Annual Fundraising', date: '2026-04-10', status: 'Completed', method: 'Check' },
+  { id: 5, amount: 0, campaign: 'Healthcare Access', date: '2026-03-05', status: 'Completed', method: 'Online' },
 ]
 
 const statusColors = { Completed: '#00E676', Pending: '#FFD740', Failed: '#FF5252' }

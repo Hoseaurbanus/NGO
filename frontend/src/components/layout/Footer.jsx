@@ -64,7 +64,7 @@ export default function Footer() {
                 fontSize: '1.25rem',
                 fontWeight: 700,
                 color: 'white',
-              }}>SmugFlex</span>
+              }}>[Your Organization Name]</span>
             </Link>
             <p style={{
               color: 'var(--text-secondary)',
@@ -72,13 +72,13 @@ export default function Footer() {
               lineHeight: 1.7,
               marginBottom: '20px',
             }}>
-              Impact. Redefined. A modern NGO dedicated to transforming communities through education, healthcare, and sustainable development.
+              [Your Tagline] A modern organization dedicated to creating meaningful change through education, healthcare, and community development.
             </p>
             <div style={{ display: 'flex', gap: '12px' }}>
               {['twitter', 'facebook', 'instagram', 'linkedin', 'youtube'].map(social => (
                 <a
                   key={social}
-                  href={`https://${social}.com/smugflex`}
+                  href={`https://${social}.com/yourorg`}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Follow us on ${social.charAt(0).toUpperCase() + social.slice(1)}`}
@@ -144,7 +144,7 @@ export default function Footer() {
           gap: '16px',
         }}>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.8rem' }}>
-            &copy; {new Date().getFullYear()} SmugFlex. All rights reserved.
+            &copy; {new Date().getFullYear()} [Your Organization Name]. All rights reserved.
           </p>
           <div style={{ display: 'flex', gap: '24px' }}>
             <Link to={ROUTES.PRIVACY} style={{ color: 'var(--text-muted)', fontSize: '0.8rem', textDecoration: 'none' }}>Privacy Policy</Link>

@@ -33,18 +33,18 @@ const statCards = [
 ]
 
 const recentDonations = [
-  { name: 'John Smith', amount: 500, date: '2026-07-14', status: 'Completed' },
-  { name: 'Sarah Johnson', amount: 250, date: '2026-07-14', status: 'Completed' },
-  { name: 'Mike Chen', amount: 100, date: '2026-07-13', status: 'Pending' },
-  { name: 'Emily Davis', amount: 1000, date: '2026-07-13', status: 'Completed' },
-  { name: 'Lisa Wang', amount: 75, date: '2026-07-12', status: 'Completed' },
+  { name: 'Name S.', amount: 500, date: '2026-07-14', status: 'Completed' },
+  { name: 'Name S.', amount: 250, date: '2026-07-14', status: 'Completed' },
+  { name: 'Name S.', amount: 100, date: '2026-07-13', status: 'Pending' },
+  { name: 'Name S.', amount: 1000, date: '2026-07-13', status: 'Completed' },
+  { name: 'Name S.', amount: 75, date: '2026-07-12', status: 'Completed' },
 ]
 
 const recentVolunteers = [
-  { name: 'Alex Rivera', status: 'Pending', date: '2026-07-14' },
-  { name: 'Priya Patel', status: 'Approved', date: '2026-07-13' },
-  { name: 'James Lee', status: 'Pending', date: '2026-07-12' },
-  { name: 'Maria Garcia', status: 'Approved', date: '2026-07-11' },
+  { name: 'Name S.', status: 'Pending', date: '2026-07-14' },
+  { name: 'Name S.', status: 'Approved', date: '2026-07-13' },
+  { name: 'Name S.', status: 'Pending', date: '2026-07-12' },
+  { name: 'Name S.', status: 'Approved', date: '2026-07-11' },
 ]
 
 export default function AdminDashboard() {
@@ -84,7 +84,7 @@ export default function AdminDashboard() {
       }}>
         <div style={{ padding: '20px', display: 'flex', alignItems: 'center', gap: '12px', borderBottom: '1px solid var(--glass-border)' }}>
           <div style={{ width: '36px', height: '36px', borderRadius: '10px', background: 'var(--gradient-aurora)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '14px', color: 'white', flexShrink: 0 }}>SF</div>
-          {sidebarOpen && <span style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '1rem', whiteSpace: 'nowrap' }}>SmugFlex</span>}
+          {sidebarOpen && <span style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '1rem', whiteSpace: 'nowrap' }}>[Your Organization Name]</span>}
         </div>
 
         <nav style={{ flex: 1, padding: '12px 8px', overflowY: 'auto' }}>

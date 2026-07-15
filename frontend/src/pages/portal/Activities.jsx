@@ -1,14 +1,14 @@
 import GlassCard from '@components/ui/GlassCard'
 
 const activities = [
-  { action: 'Donated $100 to Education Fund', date: '2026-07-14 14:30', icon: 'bi-heart', color: '#00E676', type: 'Donation' },
-  { action: 'Registered for Global Education Summit', date: '2026-07-12 09:15', icon: 'bi-calendar3', color: '#00E5FF', type: 'Event' },
-  { action: 'Volunteered at Community Health Workshop', date: '2026-07-10 08:00', icon: 'bi-people', color: '#536DFE', type: 'Volunteer' },
-  { action: 'Downloaded Annual Report 2025', date: '2026-07-08 16:45', icon: 'bi-download', color: '#FFD740', type: 'Download' },
-  { action: 'Completed volunteer training module', date: '2026-07-05 11:20', icon: 'bi-check-circle', color: '#00E676', type: 'Training' },
+  { action: 'Donated to a campaign', date: '2026-07-14 14:30', icon: 'bi-heart', color: '#00E676', type: 'Donation' },
+  { action: 'Registered for an event', date: '2026-07-12 09:15', icon: 'bi-calendar3', color: '#00E5FF', type: 'Event' },
+  { action: 'Volunteered at a workshop', date: '2026-07-10 08:00', icon: 'bi-people', color: '#536DFE', type: 'Volunteer' },
+  { action: 'Downloaded a report', date: '2026-07-08 16:45', icon: 'bi-download', color: '#FFD740', type: 'Download' },
+  { action: 'Completed training module', date: '2026-07-05 11:20', icon: 'bi-check-circle', color: '#00E676', type: 'Training' },
   { action: 'Subscribed to newsletter', date: '2026-07-01 10:00', icon: 'bi-envelope', color: '#7C4DFF', type: 'Newsletter' },
-  { action: 'Donated $250 to Clean Water Initiative', date: '2026-06-20 13:10', icon: 'bi-heart', color: '#00E676', type: 'Donation' },
-  { action: 'Attended Annual Fundraising Gala', date: '2026-06-05 19:00', icon: 'bi-calendar-event', color: '#00E5FF', type: 'Event' },
+  { action: 'Donated to a campaign', date: '2026-06-20 13:10', icon: 'bi-heart', color: '#00E676', type: 'Donation' },
+  { action: 'Attended an event', date: '2026-06-05 19:00', icon: 'bi-calendar-event', color: '#00E5FF', type: 'Event' },
 ]
 
 const typeColors = { Donation: '#00E676', Event: '#00E5FF', Volunteer: '#536DFE', Download: '#FFD740', Training: '#00E676', Newsletter: '#7C4DFF' }
@@ -17,7 +17,7 @@ export default function PortalActivities() {
   return (
     <div>
       <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '1.75rem', marginBottom: '8px' }}>Activity History</h1>
-      <p style={{ color: 'var(--text-secondary)', marginBottom: '32px' }}>A complete timeline of your interactions with SmugFlex.</p>
+      <p style={{ color: 'var(--text-secondary)', marginBottom: '32px' }}>A complete timeline of your interactions with [Your Organization Name].</p>
       <div style={{ position: 'relative', paddingLeft: '24px' }}>
         <div style={{ position: 'absolute', left: '11px', top: '8px', bottom: '8px', width: '2px', background: 'var(--glass-border)' }} />
         {activities.map((a, i) => (

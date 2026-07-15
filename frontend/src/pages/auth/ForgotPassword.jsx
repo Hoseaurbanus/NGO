@@ -12,7 +12,7 @@ export default function ForgotPassword() {
 
   return (
     <>
-      <Helmet><title>Forgot Password - SmugFlex</title></Helmet>
+      <Helmet><title>Forgot Password - [Your Organization Name]</title></Helmet>
       <AuroraBackground intensity="normal">
         <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '120px 24px 80px' }}>
           <GlassCard glow style={{ padding: '40px', width: '100%', maxWidth: '440px' }}>

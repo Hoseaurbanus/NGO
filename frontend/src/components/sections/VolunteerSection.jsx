@@ -8,7 +8,7 @@ import { ROUTES } from '@constants'
 
 const benefits = [
   { icon: 'bi-heart-fill', title: 'Make an Impact', desc: 'Directly contribute to community transformation' },
-  { icon: 'bi-people-fill', title: 'Join a Global Team', desc: 'Connect with 5,000+ volunteers worldwide' },
+  { icon: 'bi-people-fill', title: 'Join a Global Team', desc: 'Connect with volunteers worldwide' },
   { icon: 'bi-award', title: 'Earn Certificates', desc: 'Receive recognition for your contributions' },
   { icon: 'bi-calendar-check', title: 'Flexible Schedule', desc: 'Volunteer on your own time, remotely or in-person' },
 ]
@@ -47,7 +47,7 @@ export default function VolunteerSection() {
               lineHeight: 1.7,
               marginBottom: '32px',
             }}>
-              Join our global community of changemakers. Whether you have a few hours or a few months, your skills and passion can make a real difference in African communities.
+              Join our global community of changemakers. Whether you have a few hours or a few months, your skills and passion can make a real difference in communities worldwide.
             </p>
 
             <div style={{
@@ -99,25 +99,25 @@ export default function VolunteerSection() {
             }}>
               <GlassCard style={{ padding: '24px', textAlign: 'center' }}>
                 <div style={{ fontSize: '2rem', marginBottom: '8px' }}>
-                  <CountUp end={5000} suffix="+" />
+                  <CountUp end={0} suffix="+" />
                 </div>
                 <div style={{ color: 'var(--text-secondary)', fontSize: '0.8rem' }}>Active Volunteers</div>
               </GlassCard>
               <GlassCard style={{ padding: '24px', textAlign: 'center' }}>
                 <div style={{ fontSize: '2rem', marginBottom: '8px' }}>
-                  <CountUp end={120000} suffix="+" />
+                  <CountUp end={0} suffix="+" />
                 </div>
                 <div style={{ color: 'var(--text-secondary)', fontSize: '0.8rem' }}>Hours Contributed</div>
               </GlassCard>
               <GlassCard style={{ padding: '24px', textAlign: 'center' }}>
                 <div style={{ fontSize: '2rem', marginBottom: '8px' }}>
-                  <CountUp end={18} />
+                  <CountUp end={0} />
                 </div>
                 <div style={{ color: 'var(--text-secondary)', fontSize: '0.8rem' }}>Countries</div>
               </GlassCard>
               <GlassCard style={{ padding: '24px', textAlign: 'center' }}>
                 <div style={{ fontSize: '2rem', marginBottom: '8px' }}>
-                  <CountUp end={98} suffix="%" />
+                  <CountUp end={0} suffix="%" />
                 </div>
                 <div style={{ color: 'var(--text-secondary)', fontSize: '0.8rem' }}>Satisfaction Rate</div>
               </GlassCard>

@@ -2,11 +2,11 @@ import { useState } from 'react'
 import GlassCard from '@components/ui/GlassCard'
 
 const notifications = [
-  { title: 'Donation Confirmed', message: 'Your $100 donation to Education Fund has been confirmed.', time: '2 hours ago', read: false, icon: 'bi-heart', color: '#00E676' },
-  { title: 'Event Registration', message: 'You\'re registered for Global Education Summit 2026.', time: '1 day ago', read: false, icon: 'bi-calendar3', color: '#00E5FF' },
+  { title: 'Donation Confirmed', message: 'Your donation has been confirmed.', time: '2 hours ago', read: false, icon: 'bi-heart', color: '#00E676' },
+  { title: 'Event Registration', message: 'You\'re registered for an upcoming event.', time: '1 day ago', read: false, icon: 'bi-calendar3', color: '#00E5FF' },
   { title: 'Volunteer Application Approved', message: 'Your volunteer application has been approved!', time: '3 days ago', read: true, icon: 'bi-check-circle', color: '#00E676' },
-  { title: 'New Newsletter', message: 'July 2026 newsletter is now available.', time: '5 days ago', read: true, icon: 'bi-envelope', color: '#536DFE' },
-  { title: 'Certificate Ready', message: 'Your Community Health Workshop certificate is ready to download.', time: '1 week ago', read: true, icon: 'bi-award', color: '#FFD740' },
+  { title: 'New Newsletter', message: 'Latest newsletter is now available.', time: '5 days ago', read: true, icon: 'bi-envelope', color: '#536DFE' },
+  { title: 'Certificate Ready', message: 'Your certificate is ready to download.', time: '1 week ago', read: true, icon: 'bi-award', color: '#FFD740' },
 ]
 
 export default function PortalNotifications() {

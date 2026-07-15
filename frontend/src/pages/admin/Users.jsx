@@ -3,12 +3,12 @@ import GlassCard from '@components/ui/GlassCard'
 import MagneticButton from '@components/ui/MagneticButton'
 
 const initialUsers = [
-  { id: 1, name: 'Dr. Maya Johnson', email: 'maya@smugflex.org', role: 'super_admin', status: 'active' },
-  { id: 2, name: 'James Chen', email: 'james@smugflex.org', role: 'admin', status: 'active' },
-  { id: 3, name: 'Amara Okafor', email: 'amara@smugflex.org', role: 'program_manager', status: 'active' },
-  { id: 4, name: 'David Kim', email: 'david@smugflex.org', role: 'editor', status: 'active' },
-  { id: 5, name: 'Sarah Johnson', email: 'sarah@example.com', role: 'volunteer', status: 'active' },
-  { id: 6, name: 'Mike Chen', email: 'mike@example.com', role: 'member', status: 'inactive' },
+  { id: 1, name: 'Name S.', email: 'name1@yourorg.org', role: 'super_admin', status: 'active' },
+  { id: 2, name: 'Name S.', email: 'name2@yourorg.org', role: 'admin', status: 'active' },
+  { id: 3, name: 'Name S.', email: 'name3@yourorg.org', role: 'program_manager', status: 'active' },
+  { id: 4, name: 'Name S.', email: 'name4@yourorg.org', role: 'editor', status: 'active' },
+  { id: 5, name: 'Name S.', email: 'name5@example.com', role: 'volunteer', status: 'active' },
+  { id: 6, name: 'Name S.', email: 'name6@example.com', role: 'member', status: 'inactive' },
 ]
 
 const roleColors = { super_admin: '#FF5252', admin: '#7C4DFF', program_manager: '#536DFE', editor: '#00E5FF', volunteer: '#00E676', member: '#FFD740' }

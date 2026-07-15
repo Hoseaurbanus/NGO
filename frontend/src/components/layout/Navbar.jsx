@@ -93,7 +93,7 @@ export default function Navbar() {
                 fontSize: '1.25rem',
                 fontWeight: 700,
                 color: 'white',
-              }}>SmugFlex</span>
+              }}>[Your Organization Name]</span>
             </Link>
 
             <div style={{

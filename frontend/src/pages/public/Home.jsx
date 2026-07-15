@@ -17,8 +17,8 @@ export default function Home() {
   return (
     <>
       <Helmet>
-        <title>SmugFlex - Impact. Redefined.</title>
-        <meta name="description" content="SmugFlex is a modern NGO dedicated to transforming communities through education, healthcare, and sustainable development worldwide." />
+        <title>[Your Organization Name] - [Your Tagline]</title>
+        <meta name="description" content="[Your Organization Name] is a modern organization dedicated to creating meaningful change through education, healthcare, and community development." />
       </Helmet>
       <HeroSection />
       <MissionSection />

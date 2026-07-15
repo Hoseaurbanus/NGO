@@ -7,12 +7,12 @@ import { formatCurrency } from '@utils/helpers'
 
 const amounts = [25, 50, 100, 250, 500, 1000]
 const impacts = {
-  25: 'Provides school supplies for 5 children',
-  50: 'Funds a month of healthcare for a family',
-  100: 'Builds a clean water access point',
-  250: 'Trains a community health worker',
-  500: 'Sponsors a student for a full year',
-  1000: 'Establishes a micro-enterprise grant',
+  25: 'Supports community programs',
+  50: 'Provides essential supplies',
+  100: 'Funds a local initiative',
+  250: 'Sponsors a training program',
+  500: 'Supports a major project',
+  1000: 'Funds a comprehensive program',
 }
 
 export default function DonationCTA() {
@@ -68,7 +68,7 @@ export default function DonationCTA() {
                 maxWidth: '500px',
                 margin: '0 auto 32px',
               }}>
-                Every dollar you give directly impacts African communities. Choose an amount to see your impact.
+                Every dollar you give directly impacts communities worldwide. Choose an amount to see your impact.
               </p>
 
               <div className="donation-amounts" style={{
