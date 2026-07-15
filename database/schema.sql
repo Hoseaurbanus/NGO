@@ -1,8 +1,6 @@
 -- SmugFlex Database Schema
 -- MySQL / MariaDB
-
-CREATE DATABASE IF NOT EXISTS smugflex CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE smugflex;
+-- Import into your existing database (mdpjhtua_NGO)
 
 -- Users
 CREATE TABLE IF NOT EXISTS users (

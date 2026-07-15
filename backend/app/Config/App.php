@@ -1,6 +1,6 @@
 <?php
 return [
-    'baseURL' => 'http://localhost:8080',
+    'baseURL' => 'https://anns.com.gracelandroyalacademy.com.ng',
     'indexPage' => '',
     'uriProtocol' => 'REQUEST_URI',
     'hostname' => 'localhost',

@@ -5,9 +5,9 @@ class Database
 {
     public $default = [
         'hostname' => 'localhost',
-        'username' => 'root',
-        'password' => '',
-        'database' => 'smugflex',
+        'username' => 'mdpjhtua_NGO',
+        'password' => 'CHANGE_ME',
+        'database' => 'mdpjhtua_NGO',
         'dbdriver' => 'pdo',
         'dbprefix' => '',
         'pconnect' => false,
